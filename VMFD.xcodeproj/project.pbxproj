@@ -21,6 +21,19 @@
 		74FBF92817B41DAA0034262B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90917B41DAA0034262B /* Foundation.framework */; };
 		74FBF93017B41DAA0034262B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF92E17B41DAA0034262B /* InfoPlist.strings */; };
 		74FBF93317B41DAA0034262B /* VMFDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF93217B41DAA0034262B /* VMFDTests.m */; };
+		74FBF93D17B41DBD0034262B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF93C17B41DBD0034262B /* AVFoundation.framework */; };
+		74FBF94117B41E0D0034262B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF93F17B41E0D0034262B /* MainViewController.m */; };
+		74FBF94217B41E0D0034262B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF94017B41E0D0034262B /* MainViewController.xib */; };
+		74FBF94617B420A40034262B /* SmartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF94417B420A40034262B /* SmartTableViewController.m */; };
+		74FBF94717B420A40034262B /* SmartTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF94517B420A40034262B /* SmartTableViewController.xib */; };
+		74FBF94C17B43F070034262B /* SmartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF94A17B43F070034262B /* SmartCell.m */; };
+		74FBF94D17B43F070034262B /* SmartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF94A17B43F070034262B /* SmartCell.m */; };
+		74FBF94E17B43F070034262B /* SmartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF94B17B43F070034262B /* SmartCell.xib */; };
+		74FBF94F17B43F070034262B /* SmartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF94B17B43F070034262B /* SmartCell.xib */; };
+		74FBF95317B43F330034262B /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF95117B43F330034262B /* RecordViewController.m */; };
+		74FBF95417B43F330034262B /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF95117B43F330034262B /* RecordViewController.m */; };
+		74FBF95517B43F330034262B /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF95217B43F330034262B /* RecordViewController.xib */; };
+		74FBF95617B43F330034262B /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF95217B43F330034262B /* RecordViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +66,19 @@
 		74FBF92F17B41DAA0034262B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74FBF93117B41DAA0034262B /* VMFDTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VMFDTests.h; sourceTree = "<group>"; };
 		74FBF93217B41DAA0034262B /* VMFDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VMFDTests.m; sourceTree = "<group>"; };
+		74FBF93C17B41DBD0034262B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		74FBF93E17B41E0D0034262B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		74FBF93F17B41E0D0034262B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		74FBF94017B41E0D0034262B /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		74FBF94317B420A40034262B /* SmartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartTableViewController.h; sourceTree = "<group>"; };
+		74FBF94417B420A40034262B /* SmartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartTableViewController.m; sourceTree = "<group>"; };
+		74FBF94517B420A40034262B /* SmartTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmartTableViewController.xib; sourceTree = "<group>"; };
+		74FBF94917B43F070034262B /* SmartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartCell.h; sourceTree = "<group>"; };
+		74FBF94A17B43F070034262B /* SmartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartCell.m; sourceTree = "<group>"; };
+		74FBF94B17B43F070034262B /* SmartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmartCell.xib; sourceTree = "<group>"; };
+		74FBF95017B43F330034262B /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
+		74FBF95117B43F330034262B /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		74FBF95217B43F330034262B /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74FBF93D17B41DBD0034262B /* AVFoundation.framework in Frameworks */,
 				74FBF90817B41DAA0034262B /* UIKit.framework in Frameworks */,
 				74FBF90A17B41DAA0034262B /* Foundation.framework in Frameworks */,
 				74FBF90C17B41DAA0034262B /* CoreGraphics.framework in Frameworks */,
@@ -101,6 +128,7 @@
 		74FBF90617B41DAA0034262B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74FBF93C17B41DBD0034262B /* AVFoundation.framework */,
 				74FBF90717B41DAA0034262B /* UIKit.framework */,
 				74FBF90917B41DAA0034262B /* Foundation.framework */,
 				74FBF90B17B41DAA0034262B /* CoreGraphics.framework */,
@@ -115,6 +143,7 @@
 				74FBF91617B41DAA0034262B /* AppDelegate.h */,
 				74FBF91717B41DAA0034262B /* AppDelegate.m */,
 				74FBF90E17B41DAA0034262B /* Supporting Files */,
+				74FBF94817B43ECC0034262B /* View */,
 			);
 			path = VMFD;
 			sourceTree = "<group>";
@@ -150,6 +179,25 @@
 				74FBF92E17B41DAA0034262B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74FBF94817B43ECC0034262B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74FBF93E17B41E0D0034262B /* MainViewController.h */,
+				74FBF93F17B41E0D0034262B /* MainViewController.m */,
+				74FBF94017B41E0D0034262B /* MainViewController.xib */,
+				74FBF94317B420A40034262B /* SmartTableViewController.h */,
+				74FBF94417B420A40034262B /* SmartTableViewController.m */,
+				74FBF94517B420A40034262B /* SmartTableViewController.xib */,
+				74FBF94917B43F070034262B /* SmartCell.h */,
+				74FBF94A17B43F070034262B /* SmartCell.m */,
+				74FBF94B17B43F070034262B /* SmartCell.xib */,
+				74FBF95017B43F330034262B /* RecordViewController.h */,
+				74FBF95117B43F330034262B /* RecordViewController.m */,
+				74FBF95217B43F330034262B /* RecordViewController.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +275,10 @@
 				74FBF91A17B41DAA0034262B /* Default.png in Resources */,
 				74FBF91C17B41DAA0034262B /* Default@2x.png in Resources */,
 				74FBF91E17B41DAA0034262B /* Default-568h@2x.png in Resources */,
+				74FBF94217B41E0D0034262B /* MainViewController.xib in Resources */,
+				74FBF94717B420A40034262B /* SmartTableViewController.xib in Resources */,
+				74FBF94E17B43F070034262B /* SmartCell.xib in Resources */,
+				74FBF95517B43F330034262B /* RecordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +287,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74FBF93017B41DAA0034262B /* InfoPlist.strings in Resources */,
+				74FBF94F17B43F070034262B /* SmartCell.xib in Resources */,
+				74FBF95617B43F330034262B /* RecordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +317,10 @@
 			files = (
 				74FBF91417B41DAA0034262B /* main.m in Sources */,
 				74FBF91817B41DAA0034262B /* AppDelegate.m in Sources */,
+				74FBF94117B41E0D0034262B /* MainViewController.m in Sources */,
+				74FBF94617B420A40034262B /* SmartTableViewController.m in Sources */,
+				74FBF94C17B43F070034262B /* SmartCell.m in Sources */,
+				74FBF95317B43F330034262B /* RecordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +329,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74FBF93317B41DAA0034262B /* VMFDTests.m in Sources */,
+				74FBF94D17B43F070034262B /* SmartCell.m in Sources */,
+				74FBF95417B43F330034262B /* RecordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
