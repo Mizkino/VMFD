@@ -10,6 +10,9 @@
 
 @property(strong, nonatomic) IBOutlet UILabel *countLabel;
 @property(strong, nonatomic) IBOutlet UIButton *RB;
-- (IBAction)PushRB:(id)sender;
+@property(strong, nonatomic) IBOutlet UIButton *LB;
 
+- (void)setPlay;
+- (void)setStop;
+- (void)toggle;
 @end

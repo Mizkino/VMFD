@@ -16,7 +16,8 @@
 @property (nonatomic)AVAudioRecorder *recorder;
 @property (nonatomic)AVAudioSession *session;
 @property (nonatomic)AVAudioPlayer *player;
-
+@property (nonatomic)NSInteger bgmNum;
+-(void)setBgmNum:(NSInteger)bgmNum;
 //@property (weak, nonatomic) IBOutlet UIButton *recordButton;
 //- (IBAction)recordClick:(id)sender;
 

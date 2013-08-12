@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface SmartTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
+#import <AVFoundation/AVFoundation.h>
+
+
+@interface SmartTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate,UIAlertViewDelegate,UIGestureRecognizerDelegate>{
     
 }
 
 //@property(nonatomic, retain) NSArray *dataSource;
+
+@property(nonatomic) AVAudioPlayer *player;
+
 @end

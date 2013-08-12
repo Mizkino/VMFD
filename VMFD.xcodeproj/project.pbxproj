@@ -34,6 +34,9 @@
 		74FBF95417B43F330034262B /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF95117B43F330034262B /* RecordViewController.m */; };
 		74FBF95517B43F330034262B /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF95217B43F330034262B /* RecordViewController.xib */; };
 		74FBF95617B43F330034262B /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF95217B43F330034262B /* RecordViewController.xib */; };
+		74FBF95817B56A800034262B /* Music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF95717B56A7F0034262B /* Music.wav */; };
+		74FBF95917B56A800034262B /* Music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF95717B56A7F0034262B /* Music.wav */; };
+		74FBF95B17B58A600034262B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF95A17B58A600034262B /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,8 @@
 		74FBF95017B43F330034262B /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		74FBF95117B43F330034262B /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		74FBF95217B43F330034262B /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordViewController.xib; sourceTree = "<group>"; };
+		74FBF95717B56A7F0034262B /* Music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Music.wav; sourceTree = "<group>"; };
+		74FBF95A17B58A600034262B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74FBF95B17B58A600034262B /* CoreMedia.framework in Frameworks */,
 				74FBF93D17B41DBD0034262B /* AVFoundation.framework in Frameworks */,
 				74FBF90817B41DAA0034262B /* UIKit.framework in Frameworks */,
 				74FBF90A17B41DAA0034262B /* Foundation.framework in Frameworks */,
@@ -128,6 +134,7 @@
 		74FBF90617B41DAA0034262B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74FBF95A17B58A600034262B /* CoreMedia.framework */,
 				74FBF93C17B41DBD0034262B /* AVFoundation.framework */,
 				74FBF90717B41DAA0034262B /* UIKit.framework */,
 				74FBF90917B41DAA0034262B /* Foundation.framework */,
@@ -151,6 +158,7 @@
 		74FBF90E17B41DAA0034262B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				74FBF95717B56A7F0034262B /* Music.wav */,
 				74FBF90F17B41DAA0034262B /* VMFD-Info.plist */,
 				74FBF91017B41DAA0034262B /* InfoPlist.strings */,
 				74FBF91317B41DAA0034262B /* main.m */,
@@ -279,6 +287,7 @@
 				74FBF94717B420A40034262B /* SmartTableViewController.xib in Resources */,
 				74FBF94E17B43F070034262B /* SmartCell.xib in Resources */,
 				74FBF95517B43F330034262B /* RecordViewController.xib in Resources */,
+				74FBF95817B56A800034262B /* Music.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +298,7 @@
 				74FBF93017B41DAA0034262B /* InfoPlist.strings in Resources */,
 				74FBF94F17B43F070034262B /* SmartCell.xib in Resources */,
 				74FBF95617B43F330034262B /* RecordViewController.xib in Resources */,
+				74FBF95917B56A800034262B /* Music.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
