@@ -7,6 +7,8 @@
 //
 
 #import "RecordViewController.h"
+#import "DataClass.h"
+#import "DataManager.h"
 
 @interface RecordViewController ()
 {
@@ -15,8 +17,13 @@
     NSString *musPath;
     NSURL *cache;
     NSMutableArray *audioMixParams;
+    BOOL Loop;
     BOOL BGM;
     CMTime song1;
+    
+    NSTimeInterval duration1;
+    NSTimeInterval duration2;
+    NSTimeInterval durationF;
 }
 @end
 
@@ -43,18 +50,13 @@
     NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cash = [[array objectAtIndex:0] stringByAppendingPathComponent:@"kuzu.wav"];
     cache = [NSURL fileURLWithPath:cash];
-    
+    Loop = YES;
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [pathArray objectAtIndex:0];
     musPath = [docPath stringByAppendingPathComponent:@"Music"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error = nil;
-    BOOL created = [fileManager createDirectoryAtPath:musPath                          withIntermediateDirectories:YES
-                                           attributes:nil
-                                                error:&error];
-    // 作成に失敗した場合は、原因をログに出します。
-    if (!created) {
-        NSLog(@"failed to create directory. reason is %@ - %@", error, error.userInfo);
+    if ([fileManager fileExistsAtPath:musPath]) {
+        [fileManager createDirectoryAtPath:musPath  withIntermediateDirectories:YES  attributes:nil  error:nil];
     }
 }
 
@@ -65,6 +67,7 @@
 }
 
 #pragma mark - Helpers
+
 -(NSMutableDictionary *)setAudioRecorder
 {
     NSMutableDictionary *settings = [[NSMutableDictionary alloc] init];
@@ -115,7 +118,6 @@
     if ( self.recorder != nil && self.recorder.isRecording )
     {
         [recorder stop];
-        
         [self saveRecording];
         self.recorder = nil;
     }
@@ -124,16 +126,15 @@
 -(void)playRecord
 {
     NSError *error = nil;
-    
     // File Path
-    NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    NSString *filePath = [dir stringByAppendingPathComponent:@"test.caf"];
+    //NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    //NSString *filePath = [dir stringByAppendingPathComponent:@"sound.wav"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"sound" ofType:@"wav"];
     NSURL *url = [NSURL fileURLWithPath:filePath];
-    
     if ( [[NSFileManager defaultManager] fileExistsAtPath:[url path]] )
     {
         self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        
+        [self.player setDelegate:self];
         if ( error != nil )
         {
             NSLog(@"Error %@", [error localizedDescription]);
@@ -142,7 +143,13 @@
         [self.player play];
     }
 }
-
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    NSLog(@"Done");
+    if (flag) {
+        NSLog(@"flag in");
+        [self.player play];
+    }
+}
 - (IBAction)recordClick:(id)sender
 {
     if ( self.recorder != nil && self.recorder.isRecording )
@@ -171,7 +178,6 @@
 - (void) setUpAndAddAudioAtPath:(NSURL*)assetURL toComposition:(AVMutableComposition *)composition
 {
     AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
-    
     AVMutableCompositionTrack *track = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
     AVAssetTrack *sourceAudioTrack = [[songAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
     
@@ -180,8 +186,12 @@
     
     CMTime startTime = CMTimeMakeWithSeconds(0, 1);
     CMTime trackDuration = songAsset.duration;
-    if(BGM){ trackDuration = song1;}
-        song1 = trackDuration;
+    //if (duration<=trackDuration.value) {
+    if (duration1==0) {
+        duration1 = trackDuration.value;}// @@@@
+    durationF = trackDuration.value;
+    //if(BGM){ trackDuration = song1;}
+      //  song1 = trackDuration;
         //CMTime longestTime = CMTimeMake(848896, 44100); //(19.24 seconds)
     CMTimeRange tRange = CMTimeRangeMake(startTime, trackDuration);
     
@@ -205,11 +215,12 @@
     //Add Audio Tracks to Composition
     NSString *URLPath = [[NSBundle mainBundle] pathForResource:@"Music" ofType:@"wav"];
     NSURL *assetURL = [NSURL fileURLWithPath:URLPath];
-    BGM=NO;
     [self setUpAndAddAudioAtPath:cache   toComposition:composition];
-    if(bgmNum<=-1){BGM=YES;}
+    //if(bgmNum<=-1)
+    duration2 = 0;
+    
     [self setUpAndAddAudioAtPath:assetURL   toComposition:composition];
-
+    
     AVMutableAudioMix *audioMix = [AVMutableAudioMix audioMix];
     audioMix.inputParameters = [NSArray arrayWithArray:audioMixParams];
     
@@ -228,9 +239,10 @@
     [formatter setDateFormat:@"MM_dd_HH_mm_ss"];
     NSDate *date = [NSDate date];
     NSString *dateStr = [formatter stringFromDate:date];
-    NSString *filename = [NSString stringWithFormat:@"%@.caf",dateStr];
-    NSString *filePath = [musPath stringByAppendingPathComponent:filename];
-    NSURL *url = [NSURL fileURLWithPath:filePath];
+    NSString *filePath = [musPath stringByAppendingPathComponent:dateStr];
+    NSString *filename = [NSString stringWithFormat:@"%@.caf",filePath];
+    //NSString *filePath = [musPath stringByAppendingPathComponent:filename];
+    NSURL *url = [NSURL fileURLWithPath:filename];
     exporter.outputURL = url;
     
     // do the export
@@ -255,6 +267,17 @@
             NSLog(@"exportError %@", [exportError localizedDescription]);
         }
     }];
+    
+    //@@@@
+    DataClass *dataClass = [DataClass new];
+    dataClass.filePath = filename;
+    dataClass.fileName = dateStr;
+    dataClass.makeDate = date;
+    dataClass.dataTime = durationF;
+    NSLog(@"%f",durationF);
+    [[DataManager sharedManager] addData:dataClass];
+    
+    [[DataManager sharedManager] save];
 }
 
 

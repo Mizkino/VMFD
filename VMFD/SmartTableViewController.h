@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-@interface SmartTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate,UIAlertViewDelegate,UIGestureRecognizerDelegate>{
+@interface SmartTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate,UIAlertViewDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate>{
     
 }
 

@@ -12,6 +12,9 @@
 #import "RecordViewController.h"
 #define kCellIdentifier @"CellIdentifier"
 
+#import "DataManager.h"
+#import "DataClass.h"
+
 @interface SmartTableViewController ()
 {
     IBOutlet UITableView *tableMenu;
@@ -21,15 +24,15 @@
     IBOutlet UIButton *acceptButton;
     IBOutlet UIButton *cancelButton;
     NSString *musPath;
-    NSIndexPath *touchIndex;
-    NSInteger MenuNum;
-    CGRect defaultTableViewFrame;
     NSString *toPath;
     NSString *fromPath;
+    NSIndexPath *touchIndex;
+    NSIndexPath *playIndex;
+    NSInteger MenuNum;
+    CGRect defaultTableViewFrame;
+
     BOOL renameButton;
 }
-
-@property (nonatomic, strong) NSMutableArray *musicList;
 
 @end
 
@@ -46,7 +49,6 @@
     if (!self){
         return nil;
     }
-    
     return self;
 }
 
@@ -62,20 +64,12 @@
     //WaytoWrite otameshi
     tableMenu.delegate = self;
     tableMenu.dataSource = self;
-    [self.player prepareToPlay];
-    [self.player setDelegate:self];
     renameView.center = self.view.center;
     NSFileManager *fileManager;
     fileManager = [[NSFileManager alloc]init];
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [pathArray objectAtIndex:0];
     musPath = [docPath stringByAppendingPathComponent:@"Music"];
-    
-    NSError *error = nil;
-    _musicList = [NSMutableArray array];
-    NSArray *arraya = [NSArray array];
-    arraya = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:musPath error:&error];
-    _musicList = [arraya mutableCopy];
     [self.tableView registerNib:[UINib nibWithNibName:@"SmartCell" bundle:nil]
          forCellReuseIdentifier:kCellIdentifier];
 }
@@ -126,9 +120,20 @@
     // Update Cells
     SmartCell *customCell = (SmartCell *) cell;
     //    [customCell toggle];
-    customCell.countLabel.text = [NSString stringWithFormat:@"%@", _musicList[row]];
-    
+    //customCell.countLabel.text = [NSString stringWithFormat:@"%@", _musicList[row]];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YY/MM/dd HH:mm:ss"];
+    DataClass *data = [DataManager sharedManager].dataList[row];
+    customCell.countLabel.text = data.fileName;
+    customCell.dateLabel.text = [formatter stringFromDate:data.makeDate];
+    //int minutes = floor(data.dataTime / 60);
+    //int second = round(data.dataTime - minutes * 60);
+    int minutes = (int)(data.dataTime/(44100*60));
+    int second = (int)((data.dataTime/44100) - minutes * 60);
+    NSString *Time = [[NSString alloc]initWithFormat:@"%02d:%02d",minutes,second ];
+    customCell.songTime.text = Time;
 }
+
 //--------------------------------------------------------------//
 #pragma mark -- UITableViewDataSource --
 //--------------------------------------------------------------//
@@ -141,7 +146,7 @@
     if (!tableView.tag==0) {
         return 4;
     }else{
-        return [_musicList count];}
+        return [[DataManager sharedManager].dataList count];}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -178,8 +183,11 @@
 -(void)Menu{
     if (MenuNum==0) {
         NSLog(@"NameChange");
-        renameText.text = _musicList[touchIndex.row];
+//        renameText.text = _musicList[touchIndex.row];
+        DataClass *data = [DataManager sharedManager].dataList[touchIndex.row];
+        renameText.text = [data.fileName lastPathComponent];
         [self.view addSubview:renameView];
+        [renameText setDelegate:self];
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction :)];
         [renameView addGestureRecognizer:pan];
     }else if (MenuNum==1){
@@ -189,15 +197,8 @@
         [self presentViewController:recCon animated:YES completion:nil];
     }else if (MenuNum==2){
         NSLog(@"Delete");
-        NSFileManager *fileManager = [[NSFileManager alloc] init];
-        NSString *filePath = [musPath stringByAppendingPathComponent:_musicList[touchIndex.row]];
-        [fileManager removeItemAtPath:filePath error:NULL];
-        NSError *error = nil;
-        _musicList = [NSMutableArray array];
-        NSArray *arraya = [NSArray array];
-        arraya = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:musPath error:&error];
-        _musicList = [arraya mutableCopy];
-        //        [self.tableView reloadData];
+        DataClass *Data = [DataManager sharedManager].dataList[touchIndex.row];
+        [[DataManager sharedManager] removeData:Data];
         [self.tableView deleteRowsAtIndexPaths:@[touchIndex] withRowAnimation:UITableViewRowAnimationTop];
     }else{
         return;
@@ -209,61 +210,30 @@
     renameView.center = movedPoint;
     [sender setTranslation:CGPointZero inView:self.view];
 }
+-(BOOL)textFieldShouldReturn:(UITextField*)textField{
+    [renameText resignFirstResponder];
+    [self PushAccept:nil];
+    return YES;
+}
 - (IBAction)PushAccept:(id)sender {
+    [renameView removeFromSuperview];
     NSString *NewName = renameText.text;
-    if([NewName isEqualToString:_musicList[touchIndex.row]])
-    {    [renameView removeFromSuperview];
-        return;}
-    [self Rename1:NewName];
-
+    DataClass *data = [DataManager sharedManager].dataList[touchIndex.row];
+    //    if([NewName isEqualToString:_musicList[touchIndex.row]])    return;
+    if([NewName isEqualToString:[data.fileName lastPathComponent]])    return;
+    [[DataManager sharedManager] Rename:data :NewName ];
+    [[DataManager sharedManager] save];
+    [self.tableView reloadData];
 }
 - (IBAction)PushCancel:(id)sender {
     [renameView removeFromSuperview];
 }
 
-- (void)Rename1:(NSString *)NewName {
-    [renameView removeFromSuperview];
-    NSFileManager * fm = [[NSFileManager alloc] init];
-    fromPath = [musPath stringByAppendingPathComponent:_musicList[touchIndex.row]];
-    toPath = [musPath stringByAppendingPathComponent:NewName];
-    if([fm fileExistsAtPath:toPath]){
-        UIAlertView *alert =
-        [[UIAlertView alloc] initWithTitle:@"Same name file Exist!"
-                                   message:@"Over write??"
-                                  delegate:self cancelButtonTitle:@"OK◎" otherButtonTitles:@"NO!!", nil];
-        [alert show];
-        }else{
-            [self Rename2];
-        }
-}
-- (void)Rename2{
-    NSLog(@"Rename2");
-    NSError *err =nil;
-    NSFileManager *fm = [[NSFileManager alloc] init];
-    BOOL result = [fm moveItemAtPath:fromPath toPath:toPath error:&err];
-    if(!result)NSLog(@"moveError: %@", err.description);
-    _musicList = [NSMutableArray array];
-    NSArray *arraya = [NSArray array];
-    arraya = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:musPath error:&err];
-        //NSLog(@"seiriError: %@", err.description);
-    _musicList = [arraya mutableCopy];
-    [self.tableView reloadData];
-}
-
-- (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if(buttonIndex==0){
-            NSFileManager *fm = [[NSFileManager alloc]init];
-        NSError *err;
-            [fm removeItemAtPath:toPath error:&err];
-            //NSLog(@"error:%@",err.description);
-            [self Rename2];
-    }
-}
-
 //Left Button Function!!
 - (void)handleTouchButton2:(UIButton *)sender event:(UIEvent *)event {
     NSIndexPath *indexPath = [self indexPathForControlEvent:event];
-    NSLog(@"%@", _musicList[indexPath.row]);
+    DataClass *data = [DataManager sharedManager].dataList[indexPath.row];
+    NSLog(@"%@", [data.filePath lastPathComponent]);
     //    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     NSArray *cells = [self.tableView visibleCells];
     for (SmartCell *cell in cells) {
@@ -271,29 +241,30 @@
     }
     SmartCell *customCell = (SmartCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     [customCell toggle];
-    if ( self.player.playing )
+    if ( playIndex.row==indexPath.row && self.player.playing)
     {
         [self.player pause];
+        [customCell setStop];
     }
     else
-    {//SetFile -> errorkakunin
-        NSError *error = nil;
-        NSString *filePath = [musPath stringByAppendingPathComponent:_musicList[indexPath.row]];
-        NSURL *url = [NSURL fileURLWithPath:filePath];
+    {//SetFile -> ErrorKakunin
+//        NSString *filePath = [musPath stringByAppendingPathComponent:_musicList[indexPath.row]];
+        NSURL *url = [NSURL fileURLWithPath:data.filePath];
         if ( [[NSFileManager defaultManager] fileExistsAtPath:[url path]] )
         {
+            NSError *error = nil;
             self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-            
             if ( error != nil )
             {
                 NSLog(@"Error %@", [error localizedDescription]);
             }
-            //            self.player.delegate = self;
+            playIndex = indexPath;
+            [self.player prepareToPlay];
+            [self.player setDelegate:self];
             [self.player play];
         }
         //[RB setTitle:@"Pause" forState:UIControlStateNormal];
     }
-    
 }
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
@@ -309,7 +280,9 @@
 //Right Button Function!!
 - (void)handleTouchButton:(UIButton *)sender event:(UIEvent *)event {
     touchIndex = [self indexPathForControlEvent:event];
-    NSLog(@"%@", _musicList[touchIndex.row]);
+    DataClass *data = [DataManager sharedManager].dataList[touchIndex.row];
+    //NSLog(@"%@", _musicList[touchIndex.row]);
+    NSLog(@"%@", [data.filePath lastPathComponent]);
     tableMenu.center = CGPointMake(jambo.center.x, tableMenu.center.y);
     CGRect rect = tableMenu.frame;
     rect.origin.y = jambo.frame.size.height - rect.size.height;
@@ -326,102 +299,4 @@
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
     return indexPath;
 }
-
-//
-//-(void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    if (buttonIndex==0) {
-//        NSLog(@"NameChange");
-//        NSString *NewName;
-//        
-//        nameField.text = _musicList[touchIndex.row];
-//        [self.view addSubview:nameField];
-//        NewName = nameField.text;
-//        [nameField removeFromSuperview];
-//        
-//        if([NewName isEqualToString:_musicList[touchIndex.row]])
-//            return;
-//        NSError * err = nil;
-//        NSFileManager * fm = [[NSFileManager alloc] init];
-//        
-//        NSString *fromPath = [musPath stringByAppendingPathComponent:_musicList[touchIndex.row]];
-//        NSString *toPath = [musPath stringByAppendingPathComponent:NewName];
-//        check = YES;
-//        if([fm fileExistsAtPath:toPath]){
-//            UIAlertView *alert =
-//            [[UIAlertView alloc] initWithTitle:@"Same name file Exist!"
-//                                       message:@"Over write??"
-//                                      delegate:self cancelButtonTitle:@"OK◎" otherButtonTitles:@"NO!!", nil];
-//            [alert show];
-//        }
-//        if (!check){
-//            check = YES;
-//            return;
-//        }
-//        BOOL result = [fm moveItemAtPath:fromPath toPath:toPath error:&err];
-//        if(!result)
-//            NSLog(@"Error: %@", err);
-//        
-//    }else if (buttonIndex==1){
-//        NSLog(@"OverRec");
-//        RecordViewController *recCon = [RecordViewController new];
-//        recCon.bgmNum = touchIndex.row;
-//        [self presentViewController:recCon animated:YES completion:nil];
-//    }else if (buttonIndex==2){
-//        NSLog(@"Delete");
-//        NSFileManager *fileManager = [[NSFileManager alloc] init];
-//        NSString *filePath = [musPath stringByAppendingPathComponent:_musicList[touchIndex.row]];
-//        
-//        [fileManager removeItemAtPath:filePath error:NULL];
-//        NSError *error = nil;
-//        _musicList = [NSMutableArray array];
-//        NSArray *arraya = [NSArray array];
-//        arraya = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:musPath error:&error];
-//        _musicList = [arraya mutableCopy];
-//        //        [self.tableView reloadData];
-//        [self.tableView deleteRowsAtIndexPaths:@[touchIndex] withRowAnimation:UITableViewRowAnimationTop];
-//    }
-//    
-//}
-
-
-//右側のボタンを有効にするかしないかを決定する。ここでは入力があれば有効にしているが、例えばより複雑に、入力できない無い文字や、文字数制限を設けることも出来そう。
-//- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
-//{
-//    NSString *inputText = [[alertView textFieldAtIndex:0] text];
-//    if( [inputText length] >= 1 )
-//    {
-//        return YES;
-//    }
-//    else
-//    {
-//        return NO;
-//    }
-//}
-//通常のdelegateですが、textFieldAtIndexを使ってテキストを取得する
-//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-//    if (buttonIndex==1) {
-//        trip_title = [[alertView textFieldAtIndex:0] text];
-//        [trip_title retain];
-//        [self tripArea];
-//    }
-//}
-
-
-//--------------------------------------------------------------//
-#pragma mark -- UITableViewDelegate --
-//--------------------------------------------------------------//
-
-//- (void)tableView:(UITableView *)tableView
-//        didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [UIView animateWithDuration:1.0 animations:^{
-//        AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
-//        appDelegate.window.rootViewController = [[EmbedTableViewController alloc] init];
-//    }];
-//    // ハイライトを外す
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//}
-//
-//- (void)dealloc {
-//    dataSource_, dataSource_ = nil;
-//}
 @end
