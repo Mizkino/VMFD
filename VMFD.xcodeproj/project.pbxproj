@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74E62B5217BAAB0800263925 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E62B5017BAAB0800263925 /* ListViewController.m */; };
+		74E62B5317BAAB0800263925 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5117BAAB0800263925 /* ListViewController.xib */; };
+		74E62B5817BAD6B400263925 /* BGM-2.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5417BAD6B400263925 /* BGM-2.aif */; };
+		74E62B5917BAD6B400263925 /* BGM-2.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5417BAD6B400263925 /* BGM-2.aif */; };
+		74E62B5A17BAD6B400263925 /* BGM-1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5517BAD6B400263925 /* BGM-1.aif */; };
+		74E62B5B17BAD6B400263925 /* BGM-1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5517BAD6B400263925 /* BGM-1.aif */; };
+		74E62B5C17BAD6B400263925 /* BGM-3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5617BAD6B400263925 /* BGM-3.aif */; };
+		74E62B5D17BAD6B400263925 /* BGM-3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5617BAD6B400263925 /* BGM-3.aif */; };
+		74E62B5E17BAD6B400263925 /* BGM-4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5717BAD6B400263925 /* BGM-4.aif */; };
+		74E62B5F17BAD6B400263925 /* BGM-4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5717BAD6B400263925 /* BGM-4.aif */; };
+		74E62B6117BAE18100263925 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6017BAE18100263925 /* icon.png */; };
+		74E62B6217BAE18100263925 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6017BAE18100263925 /* icon.png */; };
 		74FBF90817B41DAA0034262B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90717B41DAA0034262B /* UIKit.framework */; };
 		74FBF90A17B41DAA0034262B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90917B41DAA0034262B /* Foundation.framework */; };
 		74FBF90C17B41DAA0034262B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90B17B41DAA0034262B /* CoreGraphics.framework */; };
@@ -156,6 +168,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74E62B4F17BAAB0800263925 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		74E62B5017BAAB0800263925 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		74E62B5117BAAB0800263925 /* ListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
+		74E62B5417BAD6B400263925 /* BGM-2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-2.aif"; sourceTree = "<group>"; };
+		74E62B5517BAD6B400263925 /* BGM-1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-1.aif"; sourceTree = "<group>"; };
+		74E62B5617BAD6B400263925 /* BGM-3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-3.aif"; sourceTree = "<group>"; };
+		74E62B5717BAD6B400263925 /* BGM-4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-4.aif"; sourceTree = "<group>"; };
+		74E62B6017BAE18100263925 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		74FBF90417B41DAA0034262B /* VMFD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VMFD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FBF90717B41DAA0034262B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74FBF90917B41DAA0034262B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -319,6 +339,11 @@
 		74FBF90E17B41DAA0034262B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				74E62B6017BAE18100263925 /* icon.png */,
+				74E62B5517BAD6B400263925 /* BGM-1.aif */,
+				74E62B5417BAD6B400263925 /* BGM-2.aif */,
+				74E62B5617BAD6B400263925 /* BGM-3.aif */,
+				74E62B5717BAD6B400263925 /* BGM-4.aif */,
 				74FBF96717B9AFD40034262B /* DRP House Drum Loops Pack 3 */,
 				74FBF95C17B93F790034262B /* sound.wav */,
 				74FBF95717B56A7F0034262B /* Music.wav */,
@@ -371,6 +396,9 @@
 				74FBF96017B94C7B0034262B /* DataClass.m */,
 				74FBF96317B9597C0034262B /* DataManager.h */,
 				74FBF96417B9597D0034262B /* DataManager.m */,
+				74E62B4F17BAAB0800263925 /* ListViewController.h */,
+				74E62B5017BAAB0800263925 /* ListViewController.m */,
+				74E62B5117BAAB0800263925 /* ListViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -563,6 +591,12 @@
 				74FBF9F817B9AFD50034262B /* DRP House Drum Loops Pack 3 - 048.wav in Resources */,
 				74FBF9FA17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 049.wav in Resources */,
 				74FBF9FC17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 050.wav in Resources */,
+				74E62B5317BAAB0800263925 /* ListViewController.xib in Resources */,
+				74E62B5817BAD6B400263925 /* BGM-2.aif in Resources */,
+				74E62B5A17BAD6B400263925 /* BGM-1.aif in Resources */,
+				74E62B5C17BAD6B400263925 /* BGM-3.aif in Resources */,
+				74E62B5E17BAD6B400263925 /* BGM-4.aif in Resources */,
+				74E62B6117BAE18100263925 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +659,11 @@
 				74FBF9F917B9AFD50034262B /* DRP House Drum Loops Pack 3 - 048.wav in Resources */,
 				74FBF9FB17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 049.wav in Resources */,
 				74FBF9FD17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 050.wav in Resources */,
+				74E62B5917BAD6B400263925 /* BGM-2.aif in Resources */,
+				74E62B5B17BAD6B400263925 /* BGM-1.aif in Resources */,
+				74E62B5D17BAD6B400263925 /* BGM-3.aif in Resources */,
+				74E62B5F17BAD6B400263925 /* BGM-4.aif in Resources */,
+				74E62B6217BAE18100263925 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +698,7 @@
 				74FBF95317B43F330034262B /* RecordViewController.m in Sources */,
 				74FBF96117B94C7C0034262B /* DataClass.m in Sources */,
 				74FBF96517B9597D0034262B /* DataManager.m in Sources */,
+				74E62B5217BAAB0800263925 /* ListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,6 +877,7 @@
 				74FBF93817B41DAA0034262B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74FBF93917B41DAA0034262B /* Build configuration list for PBXNativeTarget "VMFDTests" */ = {
 			isa = XCConfigurationList;
@@ -845,6 +886,7 @@
 				74FBF93B17B41DAA0034262B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

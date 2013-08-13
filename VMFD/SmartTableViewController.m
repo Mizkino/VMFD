@@ -193,7 +193,7 @@
     }else if (MenuNum==1){
         NSLog(@"OverRec");
         RecordViewController *recCon = [RecordViewController new];
-        recCon.bgmNum = touchIndex.row;
+        recCon.bgmNum = touchIndex.row + 1;
         [self presentViewController:recCon animated:YES completion:nil];
     }else if (MenuNum==2){
         NSLog(@"Delete");
@@ -248,7 +248,7 @@
     }
     else
     {//SetFile -> ErrorKakunin
-//        NSString *filePath = [musPath stringByAppendingPathComponent:_musicList[indexPath.row]];
+        NSLog(@"%@",data.filePath);
         NSURL *url = [NSURL fileURLWithPath:data.filePath];
         if ( [[NSFileManager defaultManager] fileExistsAtPath:[url path]] )
         {
@@ -285,7 +285,8 @@
     NSLog(@"%@", [data.filePath lastPathComponent]);
     tableMenu.center = CGPointMake(jambo.center.x, tableMenu.center.y);
     CGRect rect = tableMenu.frame;
-    rect.origin.y = jambo.frame.size.height - rect.size.height;
+    //rect.origin.y = jambo.frame.size.height - rect.size.height;
+    rect.origin.y = rect.size.height;
     tableMenu.frame = rect;
     [self.view addSubview:tableMenu];
 //    [self UpTableMenu:tableMenu];

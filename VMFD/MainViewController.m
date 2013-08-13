@@ -8,12 +8,15 @@
 #import "MainViewController.h"
 #import "SmartTableViewController.h"
 #import "RecordViewController.h"
+#import "ListViewController.h"
+
 @interface MainViewController ()
 {
     IBOutlet UIButton *MoveRecButton;
     IBOutlet UIButton *MoveListButtton;
     //    IBOutlet UIActionSheet *actionSheet;
     IBOutlet UIButton *Acbutton;
+    int kari;
 }
 @end
 
@@ -31,6 +34,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"main";
+    
+    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon.png"]];
+
+    //kari=3;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 - (void)didReceiveMemoryWarning
@@ -41,12 +49,14 @@
 - (IBAction)moveRec:(id)sender {
 
     RecordViewController *Recview = [RecordViewController new];
+    Recview.bgmNum = kari * -1;
     [self.navigationController pushViewController:Recview animated:YES];
 
 }
 - (IBAction)moveList:(id)sender {
-        //    VMFDTableViewController *vmfdTaview = [VMFDTableViewController new];
-    SmartTableViewController *Taview = [SmartTableViewController new];
+//    
+//    SmartTableViewController *Taview = [SmartTableViewController new];
+    ListViewController *Taview = [ListViewController new];
     [self.navigationController pushViewController:Taview animated:YES];
 }
 - (IBAction)choiceBGM:(id)sender {
@@ -59,10 +69,10 @@
     //sheet detail
     sheet.title = @"Choice BGM!!";
     [sheet addButtonWithTitle:@"Nothing"];
-    [sheet addButtonWithTitle:@"Classic"];
-    [sheet addButtonWithTitle:@"Dance"];
-    [sheet addButtonWithTitle:@"Rock"];
+    [sheet addButtonWithTitle:@"Techno"];
+    [sheet addButtonWithTitle:@"HipHop"];
     [sheet addButtonWithTitle:@"DnB"];
+    [sheet addButtonWithTitle:@"Jazz"];
     //Button0=Red
     sheet.destructiveButtonIndex = 0;
     //Button3=Cancel
@@ -78,18 +88,22 @@
         case 1:
             NSLog(@"1");
             self.view.backgroundColor = [UIColor greenColor];
+            kari=1;
             break;
         case 2:
             NSLog(@"2");
             self.view.backgroundColor = [UIColor redColor];
+            kari=2;
             break;
         case 3:
             NSLog(@"3");
             self.view.backgroundColor = [UIColor blueColor];
+            kari=3;
             break;
         case 4:
             NSLog(@"4");
             self.view.backgroundColor = [UIColor yellowColor];
+            kari=4;
             break;
     }
 }

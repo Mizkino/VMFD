@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "RecordViewController.h"
+#import "ListViewController.h"
 #import "DataManager.h"
 
 @implementation AppDelegate
@@ -21,9 +23,15 @@
     // Override point for customization after application launch.
     
     MainViewController *controller = [MainViewController new];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-    self.window.rootViewController = navController;
+//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+//    self.window.rootViewController = navController;
     
+    UITabBarController *tabcon = [UITabBarController new];
+    UIViewController *unko = [UIViewController new];
+    unko.title = @"unko";
+    
+    [tabcon setViewControllers:@[controller,[UIViewController new],unko]];
+    self.window.rootViewController = tabcon;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
