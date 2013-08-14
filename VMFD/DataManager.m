@@ -36,6 +36,7 @@ static DataManager*  _sharedInstance = nil;
     }
     
     // 配列を初期化する
+    _unko = 0;
     _dataList = [NSMutableArray array];
     return self;
 }

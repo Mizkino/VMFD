@@ -19,6 +19,12 @@
 		74E62B5F17BAD6B400263925 /* BGM-4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5717BAD6B400263925 /* BGM-4.aif */; };
 		74E62B6117BAE18100263925 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6017BAE18100263925 /* icon.png */; };
 		74E62B6217BAE18100263925 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6017BAE18100263925 /* icon.png */; };
+		74E62B6517BAE46200263925 /* List.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6317BAE46200263925 /* List.png */; };
+		74E62B6617BAE46200263925 /* List.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6317BAE46200263925 /* List.png */; };
+		74E62B6717BAE46200263925 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6417BAE46200263925 /* Home.png */; };
+		74E62B6817BAE46200263925 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6417BAE46200263925 /* Home.png */; };
+		74E62B7017BAE85900263925 /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6F17BAE85900263925 /* Button.png */; };
+		74E62B7117BAE85900263925 /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6F17BAE85900263925 /* Button.png */; };
 		74FBF90817B41DAA0034262B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90717B41DAA0034262B /* UIKit.framework */; };
 		74FBF90A17B41DAA0034262B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90917B41DAA0034262B /* Foundation.framework */; };
 		74FBF90C17B41DAA0034262B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90B17B41DAA0034262B /* CoreGraphics.framework */; };
@@ -55,106 +61,6 @@
 		74FBF96217B94C7C0034262B /* DataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF96017B94C7B0034262B /* DataClass.m */; };
 		74FBF96517B9597D0034262B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF96417B9597D0034262B /* DataManager.m */; };
 		74FBF96617B9597D0034262B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF96417B9597D0034262B /* DataManager.m */; };
-		74FBF99A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 001.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 001.wav */; };
-		74FBF99B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 001.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 001.wav */; };
-		74FBF99C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 002.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 002.wav */; };
-		74FBF99D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 002.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 002.wav */; };
-		74FBF99E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 003.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 003.wav */; };
-		74FBF99F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 003.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 003.wav */; };
-		74FBF9A017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 004.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 004.wav */; };
-		74FBF9A117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 004.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 004.wav */; };
-		74FBF9A217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 005.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 005.wav */; };
-		74FBF9A317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 005.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 005.wav */; };
-		74FBF9A417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 006.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 006.wav */; };
-		74FBF9A517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 006.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 006.wav */; };
-		74FBF9A617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 007.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 007.wav */; };
-		74FBF9A717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 007.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 007.wav */; };
-		74FBF9A817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 008.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 008.wav */; };
-		74FBF9A917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 008.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF96F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 008.wav */; };
-		74FBF9AA17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 009.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 009.wav */; };
-		74FBF9AB17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 009.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 009.wav */; };
-		74FBF9AC17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 010.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 010.wav */; };
-		74FBF9AD17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 010.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 010.wav */; };
-		74FBF9AE17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 011.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 011.wav */; };
-		74FBF9AF17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 011.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 011.wav */; };
-		74FBF9B017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 012.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 012.wav */; };
-		74FBF9B117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 012.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 012.wav */; };
-		74FBF9B217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 013.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 013.wav */; };
-		74FBF9B317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 013.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 013.wav */; };
-		74FBF9B417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 014.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 014.wav */; };
-		74FBF9B517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 014.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 014.wav */; };
-		74FBF9B617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 015.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 015.wav */; };
-		74FBF9B717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 015.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 015.wav */; };
-		74FBF9B817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 016.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 016.wav */; };
-		74FBF9B917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 016.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 016.wav */; };
-		74FBF9BA17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 017.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 017.wav */; };
-		74FBF9BB17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 017.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 017.wav */; };
-		74FBF9BC17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 018.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 018.wav */; };
-		74FBF9BD17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 018.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 018.wav */; };
-		74FBF9BE17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 019.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 019.wav */; };
-		74FBF9BF17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 019.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 019.wav */; };
-		74FBF9C017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 020.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 020.wav */; };
-		74FBF9C117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 020.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 020.wav */; };
-		74FBF9C217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 021.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 021.wav */; };
-		74FBF9C317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 021.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 021.wav */; };
-		74FBF9C417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 022.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 022.wav */; };
-		74FBF9C517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 022.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 022.wav */; };
-		74FBF9C617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 023.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 023.wav */; };
-		74FBF9C717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 023.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 023.wav */; };
-		74FBF9C817B9AFD50034262B /* DRP House Drum Loops Pack 3 - 024.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 024.wav */; };
-		74FBF9C917B9AFD50034262B /* DRP House Drum Loops Pack 3 - 024.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF97F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 024.wav */; };
-		74FBF9CA17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 025.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 025.wav */; };
-		74FBF9CB17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 025.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 025.wav */; };
-		74FBF9CC17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 026.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 026.wav */; };
-		74FBF9CD17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 026.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 026.wav */; };
-		74FBF9CE17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 027.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 027.wav */; };
-		74FBF9CF17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 027.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 027.wav */; };
-		74FBF9D017B9AFD50034262B /* DRP House Drum Loops Pack 3 - 028.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 028.wav */; };
-		74FBF9D117B9AFD50034262B /* DRP House Drum Loops Pack 3 - 028.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 028.wav */; };
-		74FBF9D217B9AFD50034262B /* DRP House Drum Loops Pack 3 - 029.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 029.wav */; };
-		74FBF9D317B9AFD50034262B /* DRP House Drum Loops Pack 3 - 029.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 029.wav */; };
-		74FBF9D417B9AFD50034262B /* DRP House Drum Loops Pack 3 - 030.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 030.wav */; };
-		74FBF9D517B9AFD50034262B /* DRP House Drum Loops Pack 3 - 030.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 030.wav */; };
-		74FBF9D617B9AFD50034262B /* DRP House Drum Loops Pack 3 - 031.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 031.wav */; };
-		74FBF9D717B9AFD50034262B /* DRP House Drum Loops Pack 3 - 031.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 031.wav */; };
-		74FBF9D817B9AFD50034262B /* DRP House Drum Loops Pack 3 - 032.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 032.wav */; };
-		74FBF9D917B9AFD50034262B /* DRP House Drum Loops Pack 3 - 032.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 032.wav */; };
-		74FBF9DA17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 033.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 033.wav */; };
-		74FBF9DB17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 033.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 033.wav */; };
-		74FBF9DC17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 034.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 034.wav */; };
-		74FBF9DD17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 034.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 034.wav */; };
-		74FBF9DE17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 035.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 035.wav */; };
-		74FBF9DF17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 035.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 035.wav */; };
-		74FBF9E017B9AFD50034262B /* DRP House Drum Loops Pack 3 - 036.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 036.wav */; };
-		74FBF9E117B9AFD50034262B /* DRP House Drum Loops Pack 3 - 036.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 036.wav */; };
-		74FBF9E217B9AFD50034262B /* DRP House Drum Loops Pack 3 - 037.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 037.wav */; };
-		74FBF9E317B9AFD50034262B /* DRP House Drum Loops Pack 3 - 037.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 037.wav */; };
-		74FBF9E417B9AFD50034262B /* DRP House Drum Loops Pack 3 - 038.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 038.wav */; };
-		74FBF9E517B9AFD50034262B /* DRP House Drum Loops Pack 3 - 038.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 038.wav */; };
-		74FBF9E617B9AFD50034262B /* DRP House Drum Loops Pack 3 - 039.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 039.wav */; };
-		74FBF9E717B9AFD50034262B /* DRP House Drum Loops Pack 3 - 039.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 039.wav */; };
-		74FBF9E817B9AFD50034262B /* DRP House Drum Loops Pack 3 - 040.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 040.wav */; };
-		74FBF9E917B9AFD50034262B /* DRP House Drum Loops Pack 3 - 040.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF98F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 040.wav */; };
-		74FBF9EA17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 041.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 041.wav */; };
-		74FBF9EB17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 041.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 041.wav */; };
-		74FBF9EC17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 042.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 042.wav */; };
-		74FBF9ED17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 042.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 042.wav */; };
-		74FBF9EE17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 043.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 043.wav */; };
-		74FBF9EF17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 043.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 043.wav */; };
-		74FBF9F017B9AFD50034262B /* DRP House Drum Loops Pack 3 - 044.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 044.wav */; };
-		74FBF9F117B9AFD50034262B /* DRP House Drum Loops Pack 3 - 044.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 044.wav */; };
-		74FBF9F217B9AFD50034262B /* DRP House Drum Loops Pack 3 - 045.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 045.wav */; };
-		74FBF9F317B9AFD50034262B /* DRP House Drum Loops Pack 3 - 045.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 045.wav */; };
-		74FBF9F417B9AFD50034262B /* DRP House Drum Loops Pack 3 - 046.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 046.wav */; };
-		74FBF9F517B9AFD50034262B /* DRP House Drum Loops Pack 3 - 046.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 046.wav */; };
-		74FBF9F617B9AFD50034262B /* DRP House Drum Loops Pack 3 - 047.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 047.wav */; };
-		74FBF9F717B9AFD50034262B /* DRP House Drum Loops Pack 3 - 047.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 047.wav */; };
-		74FBF9F817B9AFD50034262B /* DRP House Drum Loops Pack 3 - 048.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 048.wav */; };
-		74FBF9F917B9AFD50034262B /* DRP House Drum Loops Pack 3 - 048.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 048.wav */; };
-		74FBF9FA17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 049.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 049.wav */; };
-		74FBF9FB17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 049.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 049.wav */; };
-		74FBF9FC17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 050.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 050.wav */; };
-		74FBF9FD17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 050.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF99917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 050.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +82,9 @@
 		74E62B5617BAD6B400263925 /* BGM-3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-3.aif"; sourceTree = "<group>"; };
 		74E62B5717BAD6B400263925 /* BGM-4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-4.aif"; sourceTree = "<group>"; };
 		74E62B6017BAE18100263925 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		74E62B6317BAE46200263925 /* List.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = List.png; sourceTree = "<group>"; };
+		74E62B6417BAE46200263925 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
+		74E62B6F17BAE85900263925 /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button.png; sourceTree = "<group>"; };
 		74FBF90417B41DAA0034262B /* VMFD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VMFD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FBF90717B41DAA0034262B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74FBF90917B41DAA0034262B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -215,56 +124,6 @@
 		74FBF96017B94C7B0034262B /* DataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataClass.m; sourceTree = "<group>"; };
 		74FBF96317B9597C0034262B /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		74FBF96417B9597D0034262B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		74FBF96817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 001.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 001.wav"; sourceTree = "<group>"; };
-		74FBF96917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 002.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 002.wav"; sourceTree = "<group>"; };
-		74FBF96A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 003.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 003.wav"; sourceTree = "<group>"; };
-		74FBF96B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 004.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 004.wav"; sourceTree = "<group>"; };
-		74FBF96C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 005.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 005.wav"; sourceTree = "<group>"; };
-		74FBF96D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 006.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 006.wav"; sourceTree = "<group>"; };
-		74FBF96E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 007.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 007.wav"; sourceTree = "<group>"; };
-		74FBF96F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 008.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 008.wav"; sourceTree = "<group>"; };
-		74FBF97017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 009.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 009.wav"; sourceTree = "<group>"; };
-		74FBF97117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 010.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 010.wav"; sourceTree = "<group>"; };
-		74FBF97217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 011.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 011.wav"; sourceTree = "<group>"; };
-		74FBF97317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 012.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 012.wav"; sourceTree = "<group>"; };
-		74FBF97417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 013.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 013.wav"; sourceTree = "<group>"; };
-		74FBF97517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 014.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 014.wav"; sourceTree = "<group>"; };
-		74FBF97617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 015.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 015.wav"; sourceTree = "<group>"; };
-		74FBF97717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 016.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 016.wav"; sourceTree = "<group>"; };
-		74FBF97817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 017.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 017.wav"; sourceTree = "<group>"; };
-		74FBF97917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 018.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 018.wav"; sourceTree = "<group>"; };
-		74FBF97A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 019.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 019.wav"; sourceTree = "<group>"; };
-		74FBF97B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 020.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 020.wav"; sourceTree = "<group>"; };
-		74FBF97C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 021.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 021.wav"; sourceTree = "<group>"; };
-		74FBF97D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 022.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 022.wav"; sourceTree = "<group>"; };
-		74FBF97E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 023.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 023.wav"; sourceTree = "<group>"; };
-		74FBF97F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 024.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 024.wav"; sourceTree = "<group>"; };
-		74FBF98017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 025.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 025.wav"; sourceTree = "<group>"; };
-		74FBF98117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 026.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 026.wav"; sourceTree = "<group>"; };
-		74FBF98217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 027.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 027.wav"; sourceTree = "<group>"; };
-		74FBF98317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 028.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 028.wav"; sourceTree = "<group>"; };
-		74FBF98417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 029.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 029.wav"; sourceTree = "<group>"; };
-		74FBF98517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 030.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 030.wav"; sourceTree = "<group>"; };
-		74FBF98617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 031.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 031.wav"; sourceTree = "<group>"; };
-		74FBF98717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 032.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 032.wav"; sourceTree = "<group>"; };
-		74FBF98817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 033.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 033.wav"; sourceTree = "<group>"; };
-		74FBF98917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 034.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 034.wav"; sourceTree = "<group>"; };
-		74FBF98A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 035.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 035.wav"; sourceTree = "<group>"; };
-		74FBF98B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 036.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 036.wav"; sourceTree = "<group>"; };
-		74FBF98C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 037.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 037.wav"; sourceTree = "<group>"; };
-		74FBF98D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 038.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 038.wav"; sourceTree = "<group>"; };
-		74FBF98E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 039.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 039.wav"; sourceTree = "<group>"; };
-		74FBF98F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 040.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 040.wav"; sourceTree = "<group>"; };
-		74FBF99017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 041.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 041.wav"; sourceTree = "<group>"; };
-		74FBF99117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 042.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 042.wav"; sourceTree = "<group>"; };
-		74FBF99217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 043.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 043.wav"; sourceTree = "<group>"; };
-		74FBF99317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 044.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 044.wav"; sourceTree = "<group>"; };
-		74FBF99417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 045.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 045.wav"; sourceTree = "<group>"; };
-		74FBF99517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 046.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 046.wav"; sourceTree = "<group>"; };
-		74FBF99617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 047.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 047.wav"; sourceTree = "<group>"; };
-		74FBF99717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 048.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 048.wav"; sourceTree = "<group>"; };
-		74FBF99817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 049.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 049.wav"; sourceTree = "<group>"; };
-		74FBF99917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 050.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "DRP House Drum Loops Pack 3 - 050.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,12 +198,14 @@
 		74FBF90E17B41DAA0034262B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				74E62B6F17BAE85900263925 /* Button.png */,
+				74E62B6317BAE46200263925 /* List.png */,
+				74E62B6417BAE46200263925 /* Home.png */,
 				74E62B6017BAE18100263925 /* icon.png */,
 				74E62B5517BAD6B400263925 /* BGM-1.aif */,
 				74E62B5417BAD6B400263925 /* BGM-2.aif */,
 				74E62B5617BAD6B400263925 /* BGM-3.aif */,
 				74E62B5717BAD6B400263925 /* BGM-4.aif */,
-				74FBF96717B9AFD40034262B /* DRP House Drum Loops Pack 3 */,
 				74FBF95C17B93F790034262B /* sound.wav */,
 				74FBF95717B56A7F0034262B /* Music.wav */,
 				74FBF90F17B41DAA0034262B /* VMFD-Info.plist */,
@@ -401,63 +262,6 @@
 				74E62B5117BAAB0800263925 /* ListViewController.xib */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		74FBF96717B9AFD40034262B /* DRP House Drum Loops Pack 3 */ = {
-			isa = PBXGroup;
-			children = (
-				74FBF96817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 001.wav */,
-				74FBF96917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 002.wav */,
-				74FBF96A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 003.wav */,
-				74FBF96B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 004.wav */,
-				74FBF96C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 005.wav */,
-				74FBF96D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 006.wav */,
-				74FBF96E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 007.wav */,
-				74FBF96F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 008.wav */,
-				74FBF97017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 009.wav */,
-				74FBF97117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 010.wav */,
-				74FBF97217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 011.wav */,
-				74FBF97317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 012.wav */,
-				74FBF97417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 013.wav */,
-				74FBF97517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 014.wav */,
-				74FBF97617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 015.wav */,
-				74FBF97717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 016.wav */,
-				74FBF97817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 017.wav */,
-				74FBF97917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 018.wav */,
-				74FBF97A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 019.wav */,
-				74FBF97B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 020.wav */,
-				74FBF97C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 021.wav */,
-				74FBF97D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 022.wav */,
-				74FBF97E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 023.wav */,
-				74FBF97F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 024.wav */,
-				74FBF98017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 025.wav */,
-				74FBF98117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 026.wav */,
-				74FBF98217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 027.wav */,
-				74FBF98317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 028.wav */,
-				74FBF98417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 029.wav */,
-				74FBF98517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 030.wav */,
-				74FBF98617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 031.wav */,
-				74FBF98717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 032.wav */,
-				74FBF98817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 033.wav */,
-				74FBF98917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 034.wav */,
-				74FBF98A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 035.wav */,
-				74FBF98B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 036.wav */,
-				74FBF98C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 037.wav */,
-				74FBF98D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 038.wav */,
-				74FBF98E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 039.wav */,
-				74FBF98F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 040.wav */,
-				74FBF99017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 041.wav */,
-				74FBF99117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 042.wav */,
-				74FBF99217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 043.wav */,
-				74FBF99317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 044.wav */,
-				74FBF99417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 045.wav */,
-				74FBF99517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 046.wav */,
-				74FBF99617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 047.wav */,
-				74FBF99717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 048.wav */,
-				74FBF99817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 049.wav */,
-				74FBF99917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 050.wav */,
-			);
-			path = "DRP House Drum Loops Pack 3";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,62 +345,15 @@
 				74FBF95517B43F330034262B /* RecordViewController.xib in Resources */,
 				74FBF95817B56A800034262B /* Music.wav in Resources */,
 				74FBF95D17B93F790034262B /* sound.wav in Resources */,
-				74FBF99A17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 001.wav in Resources */,
-				74FBF99C17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 002.wav in Resources */,
-				74FBF99E17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 003.wav in Resources */,
-				74FBF9A017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 004.wav in Resources */,
-				74FBF9A217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 005.wav in Resources */,
-				74FBF9A417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 006.wav in Resources */,
-				74FBF9A617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 007.wav in Resources */,
-				74FBF9A817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 008.wav in Resources */,
-				74FBF9AA17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 009.wav in Resources */,
-				74FBF9AC17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 010.wav in Resources */,
-				74FBF9AE17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 011.wav in Resources */,
-				74FBF9B017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 012.wav in Resources */,
-				74FBF9B217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 013.wav in Resources */,
-				74FBF9B417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 014.wav in Resources */,
-				74FBF9B617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 015.wav in Resources */,
-				74FBF9B817B9AFD40034262B /* DRP House Drum Loops Pack 3 - 016.wav in Resources */,
-				74FBF9BA17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 017.wav in Resources */,
-				74FBF9BC17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 018.wav in Resources */,
-				74FBF9BE17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 019.wav in Resources */,
-				74FBF9C017B9AFD40034262B /* DRP House Drum Loops Pack 3 - 020.wav in Resources */,
-				74FBF9C217B9AFD40034262B /* DRP House Drum Loops Pack 3 - 021.wav in Resources */,
-				74FBF9C417B9AFD40034262B /* DRP House Drum Loops Pack 3 - 022.wav in Resources */,
-				74FBF9C617B9AFD40034262B /* DRP House Drum Loops Pack 3 - 023.wav in Resources */,
-				74FBF9C817B9AFD50034262B /* DRP House Drum Loops Pack 3 - 024.wav in Resources */,
-				74FBF9CA17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 025.wav in Resources */,
-				74FBF9CC17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 026.wav in Resources */,
-				74FBF9CE17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 027.wav in Resources */,
-				74FBF9D017B9AFD50034262B /* DRP House Drum Loops Pack 3 - 028.wav in Resources */,
-				74FBF9D217B9AFD50034262B /* DRP House Drum Loops Pack 3 - 029.wav in Resources */,
-				74FBF9D417B9AFD50034262B /* DRP House Drum Loops Pack 3 - 030.wav in Resources */,
-				74FBF9D617B9AFD50034262B /* DRP House Drum Loops Pack 3 - 031.wav in Resources */,
-				74FBF9D817B9AFD50034262B /* DRP House Drum Loops Pack 3 - 032.wav in Resources */,
-				74FBF9DA17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 033.wav in Resources */,
-				74FBF9DC17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 034.wav in Resources */,
-				74FBF9DE17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 035.wav in Resources */,
-				74FBF9E017B9AFD50034262B /* DRP House Drum Loops Pack 3 - 036.wav in Resources */,
-				74FBF9E217B9AFD50034262B /* DRP House Drum Loops Pack 3 - 037.wav in Resources */,
-				74FBF9E417B9AFD50034262B /* DRP House Drum Loops Pack 3 - 038.wav in Resources */,
-				74FBF9E617B9AFD50034262B /* DRP House Drum Loops Pack 3 - 039.wav in Resources */,
-				74FBF9E817B9AFD50034262B /* DRP House Drum Loops Pack 3 - 040.wav in Resources */,
-				74FBF9EA17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 041.wav in Resources */,
-				74FBF9EC17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 042.wav in Resources */,
-				74FBF9EE17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 043.wav in Resources */,
-				74FBF9F017B9AFD50034262B /* DRP House Drum Loops Pack 3 - 044.wav in Resources */,
-				74FBF9F217B9AFD50034262B /* DRP House Drum Loops Pack 3 - 045.wav in Resources */,
-				74FBF9F417B9AFD50034262B /* DRP House Drum Loops Pack 3 - 046.wav in Resources */,
-				74FBF9F617B9AFD50034262B /* DRP House Drum Loops Pack 3 - 047.wav in Resources */,
-				74FBF9F817B9AFD50034262B /* DRP House Drum Loops Pack 3 - 048.wav in Resources */,
-				74FBF9FA17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 049.wav in Resources */,
-				74FBF9FC17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 050.wav in Resources */,
 				74E62B5317BAAB0800263925 /* ListViewController.xib in Resources */,
 				74E62B5817BAD6B400263925 /* BGM-2.aif in Resources */,
 				74E62B5A17BAD6B400263925 /* BGM-1.aif in Resources */,
 				74E62B5C17BAD6B400263925 /* BGM-3.aif in Resources */,
 				74E62B5E17BAD6B400263925 /* BGM-4.aif in Resources */,
 				74E62B6117BAE18100263925 /* icon.png in Resources */,
+				74E62B6517BAE46200263925 /* List.png in Resources */,
+				74E62B6717BAE46200263925 /* Home.png in Resources */,
+				74E62B7017BAE85900263925 /* Button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,61 +366,14 @@
 				74FBF95617B43F330034262B /* RecordViewController.xib in Resources */,
 				74FBF95917B56A800034262B /* Music.wav in Resources */,
 				74FBF95E17B93F790034262B /* sound.wav in Resources */,
-				74FBF99B17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 001.wav in Resources */,
-				74FBF99D17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 002.wav in Resources */,
-				74FBF99F17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 003.wav in Resources */,
-				74FBF9A117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 004.wav in Resources */,
-				74FBF9A317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 005.wav in Resources */,
-				74FBF9A517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 006.wav in Resources */,
-				74FBF9A717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 007.wav in Resources */,
-				74FBF9A917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 008.wav in Resources */,
-				74FBF9AB17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 009.wav in Resources */,
-				74FBF9AD17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 010.wav in Resources */,
-				74FBF9AF17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 011.wav in Resources */,
-				74FBF9B117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 012.wav in Resources */,
-				74FBF9B317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 013.wav in Resources */,
-				74FBF9B517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 014.wav in Resources */,
-				74FBF9B717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 015.wav in Resources */,
-				74FBF9B917B9AFD40034262B /* DRP House Drum Loops Pack 3 - 016.wav in Resources */,
-				74FBF9BB17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 017.wav in Resources */,
-				74FBF9BD17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 018.wav in Resources */,
-				74FBF9BF17B9AFD40034262B /* DRP House Drum Loops Pack 3 - 019.wav in Resources */,
-				74FBF9C117B9AFD40034262B /* DRP House Drum Loops Pack 3 - 020.wav in Resources */,
-				74FBF9C317B9AFD40034262B /* DRP House Drum Loops Pack 3 - 021.wav in Resources */,
-				74FBF9C517B9AFD40034262B /* DRP House Drum Loops Pack 3 - 022.wav in Resources */,
-				74FBF9C717B9AFD40034262B /* DRP House Drum Loops Pack 3 - 023.wav in Resources */,
-				74FBF9C917B9AFD50034262B /* DRP House Drum Loops Pack 3 - 024.wav in Resources */,
-				74FBF9CB17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 025.wav in Resources */,
-				74FBF9CD17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 026.wav in Resources */,
-				74FBF9CF17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 027.wav in Resources */,
-				74FBF9D117B9AFD50034262B /* DRP House Drum Loops Pack 3 - 028.wav in Resources */,
-				74FBF9D317B9AFD50034262B /* DRP House Drum Loops Pack 3 - 029.wav in Resources */,
-				74FBF9D517B9AFD50034262B /* DRP House Drum Loops Pack 3 - 030.wav in Resources */,
-				74FBF9D717B9AFD50034262B /* DRP House Drum Loops Pack 3 - 031.wav in Resources */,
-				74FBF9D917B9AFD50034262B /* DRP House Drum Loops Pack 3 - 032.wav in Resources */,
-				74FBF9DB17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 033.wav in Resources */,
-				74FBF9DD17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 034.wav in Resources */,
-				74FBF9DF17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 035.wav in Resources */,
-				74FBF9E117B9AFD50034262B /* DRP House Drum Loops Pack 3 - 036.wav in Resources */,
-				74FBF9E317B9AFD50034262B /* DRP House Drum Loops Pack 3 - 037.wav in Resources */,
-				74FBF9E517B9AFD50034262B /* DRP House Drum Loops Pack 3 - 038.wav in Resources */,
-				74FBF9E717B9AFD50034262B /* DRP House Drum Loops Pack 3 - 039.wav in Resources */,
-				74FBF9E917B9AFD50034262B /* DRP House Drum Loops Pack 3 - 040.wav in Resources */,
-				74FBF9EB17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 041.wav in Resources */,
-				74FBF9ED17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 042.wav in Resources */,
-				74FBF9EF17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 043.wav in Resources */,
-				74FBF9F117B9AFD50034262B /* DRP House Drum Loops Pack 3 - 044.wav in Resources */,
-				74FBF9F317B9AFD50034262B /* DRP House Drum Loops Pack 3 - 045.wav in Resources */,
-				74FBF9F517B9AFD50034262B /* DRP House Drum Loops Pack 3 - 046.wav in Resources */,
-				74FBF9F717B9AFD50034262B /* DRP House Drum Loops Pack 3 - 047.wav in Resources */,
-				74FBF9F917B9AFD50034262B /* DRP House Drum Loops Pack 3 - 048.wav in Resources */,
-				74FBF9FB17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 049.wav in Resources */,
-				74FBF9FD17B9AFD50034262B /* DRP House Drum Loops Pack 3 - 050.wav in Resources */,
 				74E62B5917BAD6B400263925 /* BGM-2.aif in Resources */,
 				74E62B5B17BAD6B400263925 /* BGM-1.aif in Resources */,
 				74E62B5D17BAD6B400263925 /* BGM-3.aif in Resources */,
 				74E62B5F17BAD6B400263925 /* BGM-4.aif in Resources */,
 				74E62B6217BAE18100263925 /* icon.png in Resources */,
+				74E62B6617BAE46200263925 /* List.png in Resources */,
+				74E62B6817BAE46200263925 /* Home.png in Resources */,
+				74E62B7117BAE85900263925 /* Button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

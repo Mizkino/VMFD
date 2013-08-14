@@ -21,18 +21,46 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    
-    MainViewController *controller = [MainViewController new];
-//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-//    self.window.rootViewController = navController;
+    MainViewController *menCon = [MainViewController new];
+    RecordViewController *recCon = [RecordViewController new];
+    ListViewController *lisCon = [ListViewController new];
+
+//    MainViewController *controller = [MainViewController new];
+//    RecordViewController *reccon = [RecordViewController new];
+//    ListViewController *liscon = [ListViewController new];
+    //reccon.title = @"Rec";
+    [recCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Button.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Button.png"]];
+    lisCon.title = @"List";
+    [lisCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"List.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"List.png"]];
+    //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+    //self.window.rootViewController = navController;
     
     UITabBarController *tabcon = [UITabBarController new];
-    UIViewController *unko = [UIViewController new];
-    unko.title = @"unko";
-    
-    [tabcon setViewControllers:@[controller,[UIViewController new],unko]];
+    [tabcon setViewControllers:@[menCon,recCon,lisCon]];
     self.window.rootViewController = tabcon;
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    //initArray that contains viewControllers
+//    NSMutableArray *viewControllers = [NSMutableArray array];
+//    //init views
+//
+//    //set on Navicon
+//    UINavigationController *menNav = [[UINavigationController alloc]initWithRootViewController:menCon];
+//    [menNav setNavigationBarHidden:YES];
+//    [viewControllers addObject:menNav];
+//    
+//    UINavigationController *recNav = [[UINavigationController alloc]initWithRootViewController:recCon];
+//    [recNav setNavigationBarHidden:YES];
+//    [viewControllers addObject:recNav];
+//    
+//    UINavigationController *lisNav = [[UINavigationController alloc]initWithRootViewController:lisCon];
+//    [lisNav setNavigationBarHidden:YES];
+//    [viewControllers addObject:lisNav];
+//    
+//    self.tabBarController = [UITabBarController new];
+//    [self.tabBarController setViewControllers:viewControllers];
+//    self.window.rootViewController = self.tabBarController;
+    
+//    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

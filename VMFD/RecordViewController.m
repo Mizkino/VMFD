@@ -44,9 +44,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Rec";
-    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon.png"]];
+//    self.title = @"Rec";
+//    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon.png"]];
     // Do any additional setup after loading the view.
+    NSLog(@"%d",bgmNum);
     NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cash = [[array objectAtIndex:0] stringByAppendingPathComponent:@"kuzu.wav"];
     cache = [NSURL fileURLWithPath:cash];
@@ -54,6 +55,14 @@
     NSString *docPath = [pathArray objectAtIndex:0];
     musPath = [docPath stringByAppendingPathComponent:@"Music"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:musPath]) {
+        [fileManager createDirectoryAtPath:musPath  withIntermediateDirectories:YES  attributes:nil  error:nil];
+    }
+
+}
+- (void)viewWillAppear:(BOOL)animated{
+    bgmNum = [DataManager sharedManager].unko;
+    NSLog(@"%d",bgmNum);
     if(bgmNum)
     {
         if (bgmNum<<0) {
@@ -66,19 +75,15 @@
             assetURL = [NSURL fileURLWithPath:data.filePath];
         }
         NSError *error;
-                {self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:assetURL error:&error];
-                [self.player setDelegate:self];
-                if ( error != nil )
-                {
-                    NSLog(@"Error %@", [error localizedDescription]);
-                }
-                [self.player prepareToPlay];}
+        {self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:assetURL error:&error];
+            [self.player setDelegate:self];
+            if ( error != nil )
+            {
+                NSLog(@"Error %@", [error localizedDescription]);
+            }
+            [self.player prepareToPlay];}
     }
-    if (![fileManager fileExistsAtPath:musPath]) {
-    [fileManager createDirectoryAtPath:musPath  withIntermediateDirectories:YES  attributes:nil  error:nil];
 }
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -182,16 +187,20 @@
     AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL:assetURLs options:nil];
     AVMutableCompositionTrack *track = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
     AVAssetTrack *sourceAudioTrack = [[songAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
-    
     NSError *error = nil;
     BOOL ok = NO;
     
     CMTime startTime = CMTimeMakeWithSeconds(0, 1);
 //    CMTime trackDuration = songAsset.duration;
-    if(which || bgmNum>>0)song1 = songAsset.duration;
+    if(which || bgmNum>>0){
+        NSLog(@"nuhuhu");
+        NSLog(@"%d",bgmNum);
+        song1 = songAsset.duration;
+    }
     if(durationF << song1.value ) durationF = song1.value;// @@@@
     //CMTime longestTime = CMTimeMake(848896, 44100); //(19.24 seconds)
 //    CMTimeRange tRange = CMTimeRangeMake(startTime, trackDuration);
+            NSLog(@"%f",(double)song1.value);
     CMTimeRange tRange = CMTimeRangeMake(startTime, song1);
     
     //Set Volume
@@ -202,6 +211,8 @@
     //Insert audio into track
     ok = [track insertTimeRange:tRange ofTrack:sourceAudioTrack atTime:CMTimeMake(0, 44100) error:&error];
 }
+
+
 //- (void) setUpAndAddAudioAtPath2:(NSURL*)assetURLs toComposition:(AVMutableComposition *)composition
 //{
 //    AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL:assetURLs options:nil];
@@ -283,6 +294,8 @@
     NSLog(@"%f",(double)durationF);
     [[DataManager sharedManager] addData:dataClass];
     [[DataManager sharedManager] save];
+    [DataManager sharedManager].unko = 0;
+    [self.tabBarController setSelectedIndex:2];
 }
 
 

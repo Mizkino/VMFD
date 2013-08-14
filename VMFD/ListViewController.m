@@ -22,7 +22,6 @@
     IBOutlet UITextField *renameText;
     IBOutlet UIButton *acceptButton;
     IBOutlet UIButton *cancelButton;
-    NSString *musPath;
     NSString *toPath;
     NSString *fromPath;
     NSIndexPath *touchIndex;
@@ -68,19 +67,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"List";
-    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon.png"]];
     [self.view addSubview:jambo];
     NSLog(@"view didload");
     //WaytoWrite otameshi
     tableMenu.delegate = self;
     tableMenu.dataSource = self;
-    renameView.center = self.view.center;
-    NSFileManager *fileManager;
-    fileManager = [[NSFileManager alloc]init];
-    NSArray *pathArray = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docPath = [pathArray objectAtIndex:0];
-    musPath = [docPath stringByAppendingPathComponent:@"Music"];
     [jambo registerNib:[UINib nibWithNibName:@"SmartCell" bundle:nil]
          forCellReuseIdentifier:kCellIdentifier];
 }
@@ -148,10 +139,11 @@
 //--------------------------------------------------------------//
 #pragma mark -- UITableViewDataSource --
 //--------------------------------------------------------------//
+//テーブルビューのセクション数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
-
+//テーブルビューのrowの数
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
     if (!tableView.tag==0) {
@@ -159,7 +151,7 @@
     }else{
         return [[DataManager sharedManager].dataList count];}
 }
-
+//テーブルビューに表示されるセルの設定
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellIdentifier = kCellIdentifier;
     SmartCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -183,6 +175,14 @@
     }
     return cell;
 }
+// Set IndexPath at TouchPoint from UIControlEvent
+- (NSIndexPath *)indexPathForControlEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint p = [touch locationInView:jambo];
+    NSIndexPath *indexPath = [jambo indexPathForRowAtPoint:p];
+    return indexPath;
+}
+//テーブルビュー押したら発動
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView.tag ==1){
@@ -191,55 +191,6 @@
         [tableMenu removeFromSuperview];
     }
 }
--(void)Menu{
-    if (MenuNum==0) {
-        NSLog(@"NameChange");
-        //        renameText.text = _musicList[touchIndex.row];
-        DataClass *data = [DataManager sharedManager].dataList[touchIndex.row];
-        renameText.text = [data.fileName lastPathComponent];
-        [self.view addSubview:renameView];
-        [renameText setDelegate:self];
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction :)];
-        [renameView addGestureRecognizer:pan];
-    }else if (MenuNum==1){
-        NSLog(@"OverRec");
-        RecordViewController *recCon = [RecordViewController new];
-        recCon.bgmNum = touchIndex.row + 1;
-        [self presentViewController:recCon animated:YES completion:nil];
-    }else if (MenuNum==2){
-        NSLog(@"Delete");
-        DataClass *Data = [DataManager sharedManager].dataList[touchIndex.row];
-        [[DataManager sharedManager] removeData:Data];
-        [jambo deleteRowsAtIndexPaths:@[touchIndex] withRowAnimation:UITableViewRowAnimationTop];
-    }else{
-        return;
-    }
-}
-- (void)panAction : (UIPanGestureRecognizer *)sender {
-    CGPoint p = [sender translationInView:self.view];
-    CGPoint movedPoint = CGPointMake(renameView.center.x + p.x, renameView.center.y + p.y);
-    renameView.center = movedPoint;
-    [sender setTranslation:CGPointZero inView:self.view];
-}
--(BOOL)textFieldShouldReturn:(UITextField*)textField{
-    [renameText resignFirstResponder];
-    [self PushAccept:nil];
-    return YES;
-}
-- (IBAction)PushAccept:(id)sender {
-    [renameView removeFromSuperview];
-    NSString *NewName = renameText.text;
-    DataClass *data = [DataManager sharedManager].dataList[touchIndex.row];
-    //    if([NewName isEqualToString:_musicList[touchIndex.row]])    return;
-    if([NewName isEqualToString:[data.fileName lastPathComponent]])    return;
-    [[DataManager sharedManager] Rename:data :NewName ];
-    [[DataManager sharedManager] save];
-    [jambo reloadData];
-}
-- (IBAction)PushCancel:(id)sender {
-    [renameView removeFromSuperview];
-}
-
 //Left Button Function!!
 - (void)handleTouchButton2:(UIButton *)sender event:(UIEvent *)event {
     NSIndexPath *indexPath = [self indexPathForControlEvent:event];
@@ -279,16 +230,6 @@
     }
 }
 
--(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    if ( flag )    {
-        NSLog(@"Done");
-        NSArray *cells = [jambo visibleCells];
-        for (SmartCell *cell in cells) {
-            [cell setStop];
-        }
-        // Can start next audio?
-    }
-}
 //Right Button Function!!
 - (void)handleTouchButton:(UIButton *)sender event:(UIEvent *)event {
     touchIndex = [self indexPathForControlEvent:event];
@@ -305,11 +246,68 @@
     //[self FunctionMenu];
 }
 
-// Set IndexPath at TouchPoint from UIControlEvent
-- (NSIndexPath *)indexPathForControlEvent:(UIEvent *)event {
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint p = [touch locationInView:jambo];
-    NSIndexPath *indexPath = [jambo indexPathForRowAtPoint:p];
-    return indexPath;
+
+//右側のボタン押したら出るメニュー
+-(void)Menu{
+    if (MenuNum==0) {//Rename!!!!!!
+        NSLog(@"NameChange");
+        //        renameText.text = _musicList[touchIndex.row];
+        DataClass *data = [DataManager sharedManager].dataList[touchIndex.row];
+        renameText.text = [data.fileName lastPathComponent];
+        renameView.center = self.view.center;
+        [self.view addSubview:renameView];
+        [renameText setDelegate:self];
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction :)];
+        [renameView addGestureRecognizer:pan];
+    }else if (MenuNum==1){//OverRec!!!!!!!!
+        NSLog(@"OverRec");
+        [DataManager sharedManager].unko = touchIndex.row + 1;
+        [self.tabBarController setSelectedIndex:1];
+    }else if (MenuNum==2){//Delete!!!
+        NSLog(@"Delete");
+        DataClass *Data = [DataManager sharedManager].dataList[touchIndex.row];
+        [[DataManager sharedManager] removeData:Data];
+        [jambo deleteRowsAtIndexPaths:@[touchIndex] withRowAnimation:UITableViewRowAnimationTop];
+    }else{
+        return;
+    }
+}
+//リネームビューのドラッグアクション
+- (void)panAction : (UIPanGestureRecognizer *)sender {
+    CGPoint p = [sender translationInView:self.view];
+    CGPoint movedPoint = CGPointMake(renameView.center.x + p.x, renameView.center.y + p.y);
+    renameView.center = movedPoint;
+    [sender setTranslation:CGPointZero inView:self.view];
+}
+//text入力でリターン押したら
+-(BOOL)textFieldShouldReturn:(UITextField*)textField{
+    [renameText resignFirstResponder];
+    [self PushAccept:nil];
+    return YES;
+}
+
+- (IBAction)PushAccept:(id)sender {
+    [renameView removeFromSuperview];
+    NSString *NewName = renameText.text;
+    DataClass *data = [DataManager sharedManager].dataList[touchIndex.row];
+    //    if([NewName isEqualToString:_musicList[touchIndex.row]])    return;
+    if([NewName isEqualToString:[data.fileName lastPathComponent]])    return;
+    [[DataManager sharedManager] Rename:data :NewName ];
+    [[DataManager sharedManager] save];
+    [jambo reloadData];
+}
+- (IBAction)PushCancel:(id)sender {
+    [renameView removeFromSuperview];
+}
+
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    if ( flag )    {
+        NSLog(@"Done");
+        NSArray *cells = [jambo visibleCells];
+        for (SmartCell *cell in cells) {
+            [cell setStop];
+        }
+        // Can start next audio?
+    }
 }
 @end

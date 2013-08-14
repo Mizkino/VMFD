@@ -10,5 +10,6 @@
 
 @interface MainViewController : UIViewController
 <UIActionSheetDelegate>
+@property (nonatomic) int kari;
 
 @end

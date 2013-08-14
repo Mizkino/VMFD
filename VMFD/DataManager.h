@@ -15,7 +15,7 @@
 }
 
 @property (nonatomic, readonly) NSArray *dataList;
-
+@property (nonatomic, assign) NSInteger unko;
 // 初期化
 + (DataManager *)sharedManager;
 
@@ -27,7 +27,7 @@
 - (void)removeDatabyPath:(NSString *)Path;
 - (void)MovePath:(DataClass *)Data :(NSString *)toPath;
 - (void)Rename:(DataClass *)Data :(NSString *)NewName;
-    
+
 // 永続化
 - (void)load;
 - (void)save;

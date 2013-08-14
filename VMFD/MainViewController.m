@@ -9,6 +9,7 @@
 #import "SmartTableViewController.h"
 #import "RecordViewController.h"
 #import "ListViewController.h"
+#import "DataManager.h"
 
 @interface MainViewController ()
 {
@@ -16,7 +17,6 @@
     IBOutlet UIButton *MoveListButtton;
     //    IBOutlet UIActionSheet *actionSheet;
     IBOutlet UIButton *Acbutton;
-    int kari;
 }
 @end
 
@@ -36,7 +36,7 @@
     [super viewDidLoad];
     self.title = @"main";
     
-    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon.png"]];
+    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Home.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Home.png"]];
 
     //kari=3;
 	// Do any additional setup after loading the view, typically from a nib.
@@ -47,17 +47,14 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)moveRec:(id)sender {
-
-    RecordViewController *Recview = [RecordViewController new];
-    Recview.bgmNum = kari * -1;
-    [self.navigationController pushViewController:Recview animated:YES];
-
+    [self.tabBarController setSelectedIndex:1];
 }
 - (IBAction)moveList:(id)sender {
 //    
 //    SmartTableViewController *Taview = [SmartTableViewController new];
-    ListViewController *Taview = [ListViewController new];
-    [self.navigationController pushViewController:Taview animated:YES];
+//    ListViewController *Taview = [ListViewController new];
+//    [self.navigationController pushViewController:Taview animated:YES];
+    [self.tabBarController setSelectedIndex:2];
 }
 - (IBAction)choiceBGM:(id)sender {
     //-(void)BtnPush:Acbutton{
@@ -85,25 +82,32 @@
 
 -(void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
+        case 0:
+            NSLog(@"nothing");
+            [DataManager sharedManager].unko=0;
         case 1:
             NSLog(@"1");
             self.view.backgroundColor = [UIColor greenColor];
-            kari=1;
+            [DataManager sharedManager].unko=-1;
+            NSLog(@"kari=%d",_kari);
             break;
         case 2:
             NSLog(@"2");
             self.view.backgroundColor = [UIColor redColor];
-            kari=2;
+            [DataManager sharedManager].unko=-2;
+                        NSLog(@"kari=%d",_kari);
             break;
         case 3:
             NSLog(@"3");
             self.view.backgroundColor = [UIColor blueColor];
-            kari=3;
+            [DataManager sharedManager].unko=-3;
+                        NSLog(@"kari=%d",_kari);
             break;
         case 4:
             NSLog(@"4");
             self.view.backgroundColor = [UIColor yellowColor];
-            kari=4;
+            [DataManager sharedManager].unko=-4;
+                        NSLog(@"kari=%d",_kari);
             break;
     }
 }
