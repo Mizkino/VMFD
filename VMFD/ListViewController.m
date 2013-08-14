@@ -126,6 +126,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YY/MM/dd HH:mm:ss"];
     DataClass *data = [DataManager sharedManager].dataList[row];
+    customCell.backgroundColor = [UIColor colorWithRed:0.118 green:0.118 blue:0.110 alpha:1];
     customCell.countLabel.text = data.fileName;
     customCell.dateLabel.text = [formatter stringFromDate:data.makeDate];
     //int minutes = floor(data.dataTime / 60);

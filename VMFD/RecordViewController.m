@@ -13,11 +13,12 @@
 @interface RecordViewController ()
 {
     IBOutlet UIButton *recordButton;
-    IBOutlet UIButton *playButton;
     NSString *musPath;
     NSURL *cache;
     NSURL *assetURL;
     NSMutableArray *audioMixParams;
+    IBOutlet UIImageView *REC;
+    IBOutlet UIImageView *Stop;
     BOOL Loop;
     BOOL BGM;
     CMTime song1;
@@ -65,12 +66,12 @@
     NSLog(@"%d",bgmNum);
     if(bgmNum)
     {
-        if (bgmNum<<0) {
+        if (bgmNum < 0) {
             //int unko = bgmNum * (-1);
             NSString *asset = [[NSString alloc]initWithFormat:@"BGM%d",bgmNum];
             NSString *URLPath = [[NSBundle mainBundle] pathForResource:asset ofType:@"aif"];
             assetURL = [NSURL fileURLWithPath:URLPath];
-        }else if(bgmNum>>0){
+        }else if(bgmNum > 0){
             DataClass *data = [DataManager sharedManager].dataList[bgmNum-1];
             assetURL = [NSURL fileURLWithPath:data.filePath];
         }
@@ -161,23 +162,25 @@
     if ( self.recorder != nil && self.recorder.isRecording )
     {
         [self stopRecord];
+        [REC removeFromSuperview];
+        [Stop removeFromSuperview];
         [recordButton setTitle:@"Rec" forState:UIControlStateNormal];
     }
     else
     {
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction :)];
+        [self.view addSubview:REC];
+        Stop.center = recordButton.center;
+        [self.view addSubview:Stop];
+        [Stop addGestureRecognizer:tap];
         [self recordFile];
         if (bgmNum) [self.player play];
         [recordButton setTitle:@"stop" forState:UIControlStateNormal];
     }
 }
-- (IBAction)playClick:(id)sender
-{
-    if ( self.recorder != nil && self.recorder.isRecording )
-    {
-        [self stopRecord];
-        [recordButton setTitle:@"Record" forState:UIControlStateNormal];
-    }
-    //[self playRecord];
+- (void)tapAction:(UIPanGestureRecognizer *)sender{
+    NSLog(@"tap!!!!!!!!");
+    [self recordClick:nil];
 }
 
 //Combine!!
@@ -192,12 +195,14 @@
     
     CMTime startTime = CMTimeMakeWithSeconds(0, 1);
 //    CMTime trackDuration = songAsset.duration;
-    if(which || bgmNum>>0){
+    if(which || bgmNum > 0){
         NSLog(@"nuhuhu");
         NSLog(@"%d",bgmNum);
         song1 = songAsset.duration;
     }
-    if(durationF << song1.value ) durationF = song1.value;// @@@@
+    if((int)durationF < (int)song1.value ){
+        NSLog(@"入ってるよぉ！");
+        durationF = song1.value;}// @@@@
     //CMTime longestTime = CMTimeMake(848896, 44100); //(19.24 seconds)
 //    CMTimeRange tRange = CMTimeRangeMake(startTime, trackDuration);
             NSLog(@"%f",(double)song1.value);

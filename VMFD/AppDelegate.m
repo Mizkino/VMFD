@@ -29,9 +29,11 @@
 //    RecordViewController *reccon = [RecordViewController new];
 //    ListViewController *liscon = [ListViewController new];
     //reccon.title = @"Rec";
+    menCon.title = @"main";
+    [menCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"home__.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_.png"]];
     [recCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Button.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Button.png"]];
     lisCon.title = @"List";
-    [lisCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"List.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"List.png"]];
+    [lisCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"list__.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"list_.png"]];
     //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
     //self.window.rootViewController = navController;
     

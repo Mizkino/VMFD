@@ -25,6 +25,70 @@
 		74E62B6817BAE46200263925 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6417BAE46200263925 /* Home.png */; };
 		74E62B7017BAE85900263925 /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6F17BAE85900263925 /* Button.png */; };
 		74E62B7117BAE85900263925 /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6F17BAE85900263925 /* Button.png */; };
+		74E62D4117BB1E0B00263925 /* list_.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D4017BB1E0A00263925 /* list_.png */; };
+		74E62D4217BB1E0B00263925 /* list_.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D4017BB1E0A00263925 /* list_.png */; };
+		74E62D4417BB1E1800263925 /* home_.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D4317BB1E1800263925 /* home_.png */; };
+		74E62D4517BB1E1800263925 /* home_.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D4317BB1E1800263925 /* home_.png */; };
+		74E62D4717BB1E3400263925 /* home__.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D4617BB1E3300263925 /* home__.png */; };
+		74E62D4817BB1E3400263925 /* home__.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D4617BB1E3300263925 /* home__.png */; };
+		74E62D4A17BB1E3F00263925 /* list__.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D4917BB1E3F00263925 /* list__.png */; };
+		74E62D4B17BB1E3F00263925 /* list__.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D4917BB1E3F00263925 /* list__.png */; };
+		74E62D6817BB30C700263925 /* Voicememo_rec_list背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5517BB30C700263925 /* Voicememo_rec_list背景@2x.png */; };
+		74E62D6917BB30C700263925 /* Voicememo_rec_list背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5517BB30C700263925 /* Voicememo_rec_list背景@2x.png */; };
+		74E62D6A17BB30C700263925 /* Voicememo_REC_ON@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5617BB30C700263925 /* Voicememo_REC_ON@2x.png */; };
+		74E62D6B17BB30C700263925 /* Voicememo_REC_ON@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5617BB30C700263925 /* Voicememo_REC_ON@2x.png */; };
+		74E62D6C17BB30C700263925 /* Voicememo_recボタン@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5717BB30C700263925 /* Voicememo_recボタン@2x.png */; };
+		74E62D6D17BB30C700263925 /* Voicememo_recボタン@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5717BB30C700263925 /* Voicememo_recボタン@2x.png */; };
+		74E62D6E17BB30C700263925 /* Voicememo_ホームへ戻るボタン@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5817BB30C700263925 /* Voicememo_ホームへ戻るボタン@2x.png */; };
+		74E62D6F17BB30C700263925 /* Voicememo_ホームへ戻るボタン@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5817BB30C700263925 /* Voicememo_ホームへ戻るボタン@2x.png */; };
+		74E62D7017BB30C700263925 /* Voicememo_メイン画面背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5917BB30C700263925 /* Voicememo_メイン画面背景@2x.png */; };
+		74E62D7117BB30C700263925 /* Voicememo_メイン画面背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5917BB30C700263925 /* Voicememo_メイン画面背景@2x.png */; };
+		74E62D7217BB30C700263925 /* Voicememo_メーター@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5A17BB30C700263925 /* Voicememo_メーター@2x.png */; };
+		74E62D7317BB30C700263925 /* Voicememo_メーター@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5A17BB30C700263925 /* Voicememo_メーター@2x.png */; };
+		74E62D7417BB30C700263925 /* Voicememo_一覧画面ボタン@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5B17BB30C700263925 /* Voicememo_一覧画面ボタン@2x.png */; };
+		74E62D7517BB30C700263925 /* Voicememo_一覧画面ボタン@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5B17BB30C700263925 /* Voicememo_一覧画面ボタン@2x.png */; };
+		74E62D7617BB30C700263925 /* Voicememo_伴奏選択ボタン@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5C17BB30C700263925 /* Voicememo_伴奏選択ボタン@2x.png */; };
+		74E62D7717BB30C700263925 /* Voicememo_伴奏選択ボタン@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5C17BB30C700263925 /* Voicememo_伴奏選択ボタン@2x.png */; };
+		74E62D7817BB30C700263925 /* Voicememo_録音画面背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5D17BB30C700263925 /* Voicememo_録音画面背景@2x.png */; };
+		74E62D7917BB30C700263925 /* Voicememo_録音画面背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D5D17BB30C700263925 /* Voicememo_録音画面背景@2x.png */; };
+		74E62D8317BB34B100263925 /* Voicememo_rec_list背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7A17BB34B100263925 /* Voicememo_rec_list背景.png */; };
+		74E62D8417BB34B100263925 /* Voicememo_rec_list背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7A17BB34B100263925 /* Voicememo_rec_list背景.png */; };
+		74E62D8517BB34B100263925 /* Voicememo_REC_ON.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7B17BB34B100263925 /* Voicememo_REC_ON.png */; };
+		74E62D8617BB34B100263925 /* Voicememo_REC_ON.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7B17BB34B100263925 /* Voicememo_REC_ON.png */; };
+		74E62D8717BB34B100263925 /* Voicememo_recボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7C17BB34B100263925 /* Voicememo_recボタン.png */; };
+		74E62D8817BB34B100263925 /* Voicememo_recボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7C17BB34B100263925 /* Voicememo_recボタン.png */; };
+		74E62D8917BB34B100263925 /* Voicememo_ホームへ戻るボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7D17BB34B100263925 /* Voicememo_ホームへ戻るボタン.png */; };
+		74E62D8A17BB34B100263925 /* Voicememo_ホームへ戻るボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7D17BB34B100263925 /* Voicememo_ホームへ戻るボタン.png */; };
+		74E62D8B17BB34B100263925 /* Voicememo_メイン画面背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7E17BB34B100263925 /* Voicememo_メイン画面背景.png */; };
+		74E62D8C17BB34B100263925 /* Voicememo_メイン画面背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7E17BB34B100263925 /* Voicememo_メイン画面背景.png */; };
+		74E62D8D17BB34B100263925 /* Voicememo_メーター.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7F17BB34B100263925 /* Voicememo_メーター.png */; };
+		74E62D8E17BB34B100263925 /* Voicememo_メーター.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D7F17BB34B100263925 /* Voicememo_メーター.png */; };
+		74E62D8F17BB34B100263925 /* Voicememo_一覧画面ボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D8017BB34B100263925 /* Voicememo_一覧画面ボタン.png */; };
+		74E62D9017BB34B100263925 /* Voicememo_一覧画面ボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D8017BB34B100263925 /* Voicememo_一覧画面ボタン.png */; };
+		74E62D9117BB34B100263925 /* Voicememo_伴奏選択ボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D8117BB34B100263925 /* Voicememo_伴奏選択ボタン.png */; };
+		74E62D9217BB34B100263925 /* Voicememo_伴奏選択ボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D8117BB34B100263925 /* Voicememo_伴奏選択ボタン.png */; };
+		74E62D9317BB34B100263925 /* Voicememo_録音画面背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D8217BB34B100263925 /* Voicememo_録音画面背景.png */; };
+		74E62D9417BB34B100263925 /* Voicememo_録音画面背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D8217BB34B100263925 /* Voicememo_録音画面背景.png */; };
+		74E62D9917BB3CD000263925 /* editButtonList.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D9517BB3CD000263925 /* editButtonList.png */; };
+		74E62D9A17BB3CD000263925 /* editButtonList.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D9517BB3CD000263925 /* editButtonList.png */; };
+		74E62D9B17BB3CD000263925 /* editButtonList@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D9617BB3CD000263925 /* editButtonList@2x.png */; };
+		74E62D9C17BB3CD000263925 /* editButtonList@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D9617BB3CD000263925 /* editButtonList@2x.png */; };
+		74E62D9D17BB3CD000263925 /* playButtonInList.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D9717BB3CD000263925 /* playButtonInList.png */; };
+		74E62D9E17BB3CD000263925 /* playButtonInList.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D9717BB3CD000263925 /* playButtonInList.png */; };
+		74E62D9F17BB3CD000263925 /* playButtonInList@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D9817BB3CD000263925 /* playButtonInList@2x.png */; };
+		74E62DA017BB3CD000263925 /* playButtonInList@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D9817BB3CD000263925 /* playButtonInList@2x.png */; };
+		74E62DB117BB49EA00263925 /* REC.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DAD17BB49E600263925 /* REC.png */; };
+		74E62DB217BB49EA00263925 /* REC.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DAD17BB49E600263925 /* REC.png */; };
+		74E62DB317BB49EA00263925 /* REC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DAE17BB49E600263925 /* REC@2x.png */; };
+		74E62DB417BB49EA00263925 /* REC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DAE17BB49E600263925 /* REC@2x.png */; };
+		74E62DB517BB49EA00263925 /* StopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DAF17BB49E800263925 /* StopButton.png */; };
+		74E62DB617BB49EA00263925 /* StopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DAF17BB49E800263925 /* StopButton.png */; };
+		74E62DB717BB49EA00263925 /* StopButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DB017BB49E900263925 /* StopButton@2x.png */; };
+		74E62DB817BB49EA00263925 /* StopButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DB017BB49E900263925 /* StopButton@2x.png */; };
+		74E62DBB17BB4B1900263925 /* MujiRec.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DB917BB4B1800263925 /* MujiRec.png */; };
+		74E62DBC17BB4B1900263925 /* MujiRec.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DB917BB4B1800263925 /* MujiRec.png */; };
+		74E62DBD17BB4B1900263925 /* MujiRec@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DBA17BB4B1800263925 /* MujiRec@2x.png */; };
+		74E62DBE17BB4B1900263925 /* MujiRec@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DBA17BB4B1800263925 /* MujiRec@2x.png */; };
 		74FBF90817B41DAA0034262B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90717B41DAA0034262B /* UIKit.framework */; };
 		74FBF90A17B41DAA0034262B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90917B41DAA0034262B /* Foundation.framework */; };
 		74FBF90C17B41DAA0034262B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90B17B41DAA0034262B /* CoreGraphics.framework */; };
@@ -85,6 +149,38 @@
 		74E62B6317BAE46200263925 /* List.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = List.png; sourceTree = "<group>"; };
 		74E62B6417BAE46200263925 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
 		74E62B6F17BAE85900263925 /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button.png; sourceTree = "<group>"; };
+		74E62D4017BB1E0A00263925 /* list_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_.png; sourceTree = "<group>"; };
+		74E62D4317BB1E1800263925 /* home_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_.png; sourceTree = "<group>"; };
+		74E62D4617BB1E3300263925 /* home__.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home__.png; sourceTree = "<group>"; };
+		74E62D4917BB1E3F00263925 /* list__.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list__.png; sourceTree = "<group>"; };
+		74E62D5517BB30C700263925 /* Voicememo_rec_list背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_rec_list背景@2x.png"; sourceTree = "<group>"; };
+		74E62D5617BB30C700263925 /* Voicememo_REC_ON@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_REC_ON@2x.png"; sourceTree = "<group>"; };
+		74E62D5717BB30C700263925 /* Voicememo_recボタン@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_recボタン@2x.png"; sourceTree = "<group>"; };
+		74E62D5817BB30C700263925 /* Voicememo_ホームへ戻るボタン@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_ホームへ戻るボタン@2x.png"; sourceTree = "<group>"; };
+		74E62D5917BB30C700263925 /* Voicememo_メイン画面背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_メイン画面背景@2x.png"; sourceTree = "<group>"; };
+		74E62D5A17BB30C700263925 /* Voicememo_メーター@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_メーター@2x.png"; sourceTree = "<group>"; };
+		74E62D5B17BB30C700263925 /* Voicememo_一覧画面ボタン@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_一覧画面ボタン@2x.png"; sourceTree = "<group>"; };
+		74E62D5C17BB30C700263925 /* Voicememo_伴奏選択ボタン@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_伴奏選択ボタン@2x.png"; sourceTree = "<group>"; };
+		74E62D5D17BB30C700263925 /* Voicememo_録音画面背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_録音画面背景@2x.png"; sourceTree = "<group>"; };
+		74E62D7A17BB34B100263925 /* Voicememo_rec_list背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_rec_list背景.png"; sourceTree = "<group>"; };
+		74E62D7B17BB34B100263925 /* Voicememo_REC_ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Voicememo_REC_ON.png; sourceTree = "<group>"; };
+		74E62D7C17BB34B100263925 /* Voicememo_recボタン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_recボタン.png"; sourceTree = "<group>"; };
+		74E62D7D17BB34B100263925 /* Voicememo_ホームへ戻るボタン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_ホームへ戻るボタン.png"; sourceTree = "<group>"; };
+		74E62D7E17BB34B100263925 /* Voicememo_メイン画面背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_メイン画面背景.png"; sourceTree = "<group>"; };
+		74E62D7F17BB34B100263925 /* Voicememo_メーター.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_メーター.png"; sourceTree = "<group>"; };
+		74E62D8017BB34B100263925 /* Voicememo_一覧画面ボタン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_一覧画面ボタン.png"; sourceTree = "<group>"; };
+		74E62D8117BB34B100263925 /* Voicememo_伴奏選択ボタン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_伴奏選択ボタン.png"; sourceTree = "<group>"; };
+		74E62D8217BB34B100263925 /* Voicememo_録音画面背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voicememo_録音画面背景.png"; sourceTree = "<group>"; };
+		74E62D9517BB3CD000263925 /* editButtonList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editButtonList.png; sourceTree = "<group>"; };
+		74E62D9617BB3CD000263925 /* editButtonList@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "editButtonList@2x.png"; sourceTree = "<group>"; };
+		74E62D9717BB3CD000263925 /* playButtonInList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButtonInList.png; sourceTree = "<group>"; };
+		74E62D9817BB3CD000263925 /* playButtonInList@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playButtonInList@2x.png"; sourceTree = "<group>"; };
+		74E62DAD17BB49E600263925 /* REC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = REC.png; sourceTree = "<group>"; };
+		74E62DAE17BB49E600263925 /* REC@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "REC@2x.png"; sourceTree = "<group>"; };
+		74E62DAF17BB49E800263925 /* StopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StopButton.png; sourceTree = "<group>"; };
+		74E62DB017BB49E900263925 /* StopButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StopButton@2x.png"; sourceTree = "<group>"; };
+		74E62DB917BB4B1800263925 /* MujiRec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MujiRec.png; sourceTree = "<group>"; };
+		74E62DBA17BB4B1800263925 /* MujiRec@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MujiRec@2x.png"; sourceTree = "<group>"; };
 		74FBF90417B41DAA0034262B /* VMFD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VMFD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FBF90717B41DAA0034262B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74FBF90917B41DAA0034262B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -152,6 +248,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74E62D4F17BB30C700263925 /* プログラム用データ */ = {
+			isa = PBXGroup;
+			children = (
+				74E62D7A17BB34B100263925 /* Voicememo_rec_list背景.png */,
+				74E62D7B17BB34B100263925 /* Voicememo_REC_ON.png */,
+				74E62D7C17BB34B100263925 /* Voicememo_recボタン.png */,
+				74E62D7D17BB34B100263925 /* Voicememo_ホームへ戻るボタン.png */,
+				74E62D7E17BB34B100263925 /* Voicememo_メイン画面背景.png */,
+				74E62D7F17BB34B100263925 /* Voicememo_メーター.png */,
+				74E62D8017BB34B100263925 /* Voicememo_一覧画面ボタン.png */,
+				74E62D8117BB34B100263925 /* Voicememo_伴奏選択ボタン.png */,
+				74E62D8217BB34B100263925 /* Voicememo_録音画面背景.png */,
+				74E62D5517BB30C700263925 /* Voicememo_rec_list背景@2x.png */,
+				74E62D5617BB30C700263925 /* Voicememo_REC_ON@2x.png */,
+				74E62D5717BB30C700263925 /* Voicememo_recボタン@2x.png */,
+				74E62D5817BB30C700263925 /* Voicememo_ホームへ戻るボタン@2x.png */,
+				74E62D5917BB30C700263925 /* Voicememo_メイン画面背景@2x.png */,
+				74E62D5A17BB30C700263925 /* Voicememo_メーター@2x.png */,
+				74E62D5B17BB30C700263925 /* Voicememo_一覧画面ボタン@2x.png */,
+				74E62D5C17BB30C700263925 /* Voicememo_伴奏選択ボタン@2x.png */,
+				74E62D5D17BB30C700263925 /* Voicememo_録音画面背景@2x.png */,
+				74E62D9517BB3CD000263925 /* editButtonList.png */,
+				74E62D9617BB3CD000263925 /* editButtonList@2x.png */,
+				74E62D9717BB3CD000263925 /* playButtonInList.png */,
+				74E62D9817BB3CD000263925 /* playButtonInList@2x.png */,
+				74E62DAD17BB49E600263925 /* REC.png */,
+				74E62DAE17BB49E600263925 /* REC@2x.png */,
+				74E62DAF17BB49E800263925 /* StopButton.png */,
+				74E62DB017BB49E900263925 /* StopButton@2x.png */,
+				74E62DB917BB4B1800263925 /* MujiRec.png */,
+				74E62DBA17BB4B1800263925 /* MujiRec@2x.png */,
+			);
+			path = "プログラム用データ";
+			sourceTree = "<group>";
+		};
 		74FBF8FB17B41DAA0034262B = {
 			isa = PBXGroup;
 			children = (
@@ -198,10 +329,15 @@
 		74FBF90E17B41DAA0034262B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				74E62D4F17BB30C700263925 /* プログラム用データ */,
 				74E62B6F17BAE85900263925 /* Button.png */,
 				74E62B6317BAE46200263925 /* List.png */,
 				74E62B6417BAE46200263925 /* Home.png */,
 				74E62B6017BAE18100263925 /* icon.png */,
+				74E62D4017BB1E0A00263925 /* list_.png */,
+				74E62D4317BB1E1800263925 /* home_.png */,
+				74E62D4617BB1E3300263925 /* home__.png */,
+				74E62D4917BB1E3F00263925 /* list__.png */,
 				74E62B5517BAD6B400263925 /* BGM-1.aif */,
 				74E62B5417BAD6B400263925 /* BGM-2.aif */,
 				74E62B5617BAD6B400263925 /* BGM-3.aif */,
@@ -354,6 +490,38 @@
 				74E62B6517BAE46200263925 /* List.png in Resources */,
 				74E62B6717BAE46200263925 /* Home.png in Resources */,
 				74E62B7017BAE85900263925 /* Button.png in Resources */,
+				74E62D4117BB1E0B00263925 /* list_.png in Resources */,
+				74E62D4417BB1E1800263925 /* home_.png in Resources */,
+				74E62D4717BB1E3400263925 /* home__.png in Resources */,
+				74E62D4A17BB1E3F00263925 /* list__.png in Resources */,
+				74E62D6817BB30C700263925 /* Voicememo_rec_list背景@2x.png in Resources */,
+				74E62D6A17BB30C700263925 /* Voicememo_REC_ON@2x.png in Resources */,
+				74E62D6C17BB30C700263925 /* Voicememo_recボタン@2x.png in Resources */,
+				74E62D6E17BB30C700263925 /* Voicememo_ホームへ戻るボタン@2x.png in Resources */,
+				74E62D7017BB30C700263925 /* Voicememo_メイン画面背景@2x.png in Resources */,
+				74E62D7217BB30C700263925 /* Voicememo_メーター@2x.png in Resources */,
+				74E62D7417BB30C700263925 /* Voicememo_一覧画面ボタン@2x.png in Resources */,
+				74E62D7617BB30C700263925 /* Voicememo_伴奏選択ボタン@2x.png in Resources */,
+				74E62D7817BB30C700263925 /* Voicememo_録音画面背景@2x.png in Resources */,
+				74E62D8317BB34B100263925 /* Voicememo_rec_list背景.png in Resources */,
+				74E62D8517BB34B100263925 /* Voicememo_REC_ON.png in Resources */,
+				74E62D8717BB34B100263925 /* Voicememo_recボタン.png in Resources */,
+				74E62D8917BB34B100263925 /* Voicememo_ホームへ戻るボタン.png in Resources */,
+				74E62D8B17BB34B100263925 /* Voicememo_メイン画面背景.png in Resources */,
+				74E62D8D17BB34B100263925 /* Voicememo_メーター.png in Resources */,
+				74E62D8F17BB34B100263925 /* Voicememo_一覧画面ボタン.png in Resources */,
+				74E62D9117BB34B100263925 /* Voicememo_伴奏選択ボタン.png in Resources */,
+				74E62D9317BB34B100263925 /* Voicememo_録音画面背景.png in Resources */,
+				74E62D9917BB3CD000263925 /* editButtonList.png in Resources */,
+				74E62D9B17BB3CD000263925 /* editButtonList@2x.png in Resources */,
+				74E62D9D17BB3CD000263925 /* playButtonInList.png in Resources */,
+				74E62D9F17BB3CD000263925 /* playButtonInList@2x.png in Resources */,
+				74E62DB117BB49EA00263925 /* REC.png in Resources */,
+				74E62DB317BB49EA00263925 /* REC@2x.png in Resources */,
+				74E62DB517BB49EA00263925 /* StopButton.png in Resources */,
+				74E62DB717BB49EA00263925 /* StopButton@2x.png in Resources */,
+				74E62DBB17BB4B1900263925 /* MujiRec.png in Resources */,
+				74E62DBD17BB4B1900263925 /* MujiRec@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +542,38 @@
 				74E62B6617BAE46200263925 /* List.png in Resources */,
 				74E62B6817BAE46200263925 /* Home.png in Resources */,
 				74E62B7117BAE85900263925 /* Button.png in Resources */,
+				74E62D4217BB1E0B00263925 /* list_.png in Resources */,
+				74E62D4517BB1E1800263925 /* home_.png in Resources */,
+				74E62D4817BB1E3400263925 /* home__.png in Resources */,
+				74E62D4B17BB1E3F00263925 /* list__.png in Resources */,
+				74E62D6917BB30C700263925 /* Voicememo_rec_list背景@2x.png in Resources */,
+				74E62D6B17BB30C700263925 /* Voicememo_REC_ON@2x.png in Resources */,
+				74E62D6D17BB30C700263925 /* Voicememo_recボタン@2x.png in Resources */,
+				74E62D6F17BB30C700263925 /* Voicememo_ホームへ戻るボタン@2x.png in Resources */,
+				74E62D7117BB30C700263925 /* Voicememo_メイン画面背景@2x.png in Resources */,
+				74E62D7317BB30C700263925 /* Voicememo_メーター@2x.png in Resources */,
+				74E62D7517BB30C700263925 /* Voicememo_一覧画面ボタン@2x.png in Resources */,
+				74E62D7717BB30C700263925 /* Voicememo_伴奏選択ボタン@2x.png in Resources */,
+				74E62D7917BB30C700263925 /* Voicememo_録音画面背景@2x.png in Resources */,
+				74E62D8417BB34B100263925 /* Voicememo_rec_list背景.png in Resources */,
+				74E62D8617BB34B100263925 /* Voicememo_REC_ON.png in Resources */,
+				74E62D8817BB34B100263925 /* Voicememo_recボタン.png in Resources */,
+				74E62D8A17BB34B100263925 /* Voicememo_ホームへ戻るボタン.png in Resources */,
+				74E62D8C17BB34B100263925 /* Voicememo_メイン画面背景.png in Resources */,
+				74E62D8E17BB34B100263925 /* Voicememo_メーター.png in Resources */,
+				74E62D9017BB34B100263925 /* Voicememo_一覧画面ボタン.png in Resources */,
+				74E62D9217BB34B100263925 /* Voicememo_伴奏選択ボタン.png in Resources */,
+				74E62D9417BB34B100263925 /* Voicememo_録音画面背景.png in Resources */,
+				74E62D9A17BB3CD000263925 /* editButtonList.png in Resources */,
+				74E62D9C17BB3CD000263925 /* editButtonList@2x.png in Resources */,
+				74E62D9E17BB3CD000263925 /* playButtonInList.png in Resources */,
+				74E62DA017BB3CD000263925 /* playButtonInList@2x.png in Resources */,
+				74E62DB217BB49EA00263925 /* REC.png in Resources */,
+				74E62DB417BB49EA00263925 /* REC@2x.png in Resources */,
+				74E62DB617BB49EA00263925 /* StopButton.png in Resources */,
+				74E62DB817BB49EA00263925 /* StopButton@2x.png in Resources */,
+				74E62DBC17BB4B1900263925 /* MujiRec.png in Resources */,
+				74E62DBE17BB4B1900263925 /* MujiRec@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

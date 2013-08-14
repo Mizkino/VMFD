@@ -10,10 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-@interface ListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate,UIAlertViewDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate>{
-    
-}
-
+@interface ListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate,UIAlertViewDelegate,UITextFieldDelegate>{}
+//UIGestureRecognizerDelegate,
 //@property(nonatomic, retain) NSArray *dataSource;
 
 @property(nonatomic) AVAudioPlayer *player;

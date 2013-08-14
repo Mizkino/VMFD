@@ -34,10 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"main";
-    
-    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Home.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Home.png"]];
-
     //kari=3;
 	// Do any additional setup after loading the view, typically from a nib.
 }
