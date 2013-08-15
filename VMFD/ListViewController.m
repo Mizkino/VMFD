@@ -9,10 +9,12 @@
 #import "SmartCell.h"
 #import "AppDelegate.h"
 #import "RecordViewController.h"
-#define kCellIdentifier @"CellIdentifier"
-
+#import <QuartzCore/QuartzCore.h>
 #import "DataManager.h"
 #import "DataClass.h"
+
+#define kCellIdentifier @"CellIdentifier"
+
 
 @interface ListViewController ()
 {
@@ -22,12 +24,15 @@
     IBOutlet UITextField *renameText;
     IBOutlet UIButton *acceptButton;
     IBOutlet UIButton *cancelButton;
+    IBOutlet UIImageView *outsideImage;
+    UIPanGestureRecognizer *pan;
+    UITapGestureRecognizer *tapG1;
+    UITapGestureRecognizer *tapG2;
     NSString *toPath;
     NSString *fromPath;
     NSIndexPath *touchIndex;
     NSIndexPath *playIndex;
     NSInteger MenuNum;
-    CGRect defaultTableViewFrame;
     
     BOOL renameButton;
 }
@@ -67,11 +72,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:jambo];
+    //[self.view addSubview:jambo];
     NSLog(@"view didload");
     //WaytoWrite otameshi
     tableMenu.delegate = self;
     tableMenu.dataSource = self;
+    pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector (panAction:)];
+    tapG1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction :)];
+    tapG2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction :)];
     [jambo registerNib:[UINib nibWithNibName:@"SmartCell" bundle:nil]
          forCellReuseIdentifier:kCellIdentifier];
 }
@@ -83,7 +91,8 @@
     // deselect cell
     [jambo deselectRowAtIndexPath:[jambo indexPathForSelectedRow] animated:YES];
     //  update visible cells
-    [self updateVisibleCells];
+    //[self updateVisibleCells];
+    [jambo reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -114,6 +123,7 @@
     for (UITableViewCell *cell in [jambo visibleCells]){
         [self updateCell:cell atIndexPath:[jambo indexPathForCell:cell]];
     }
+    NSLog(@"update");
 }
 
 - (void)updateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -126,14 +136,15 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YY/MM/dd HH:mm:ss"];
     DataClass *data = [DataManager sharedManager].dataList[row];
-    customCell.backgroundColor = [UIColor colorWithRed:0.118 green:0.118 blue:0.110 alpha:1];
+    //customCell.backgroundColor = [UIColor colorWithRed:0.118 green:0.118 blue:0.110 alpha:1];
     customCell.countLabel.text = data.fileName;
     customCell.dateLabel.text = [formatter stringFromDate:data.makeDate];
     //int minutes = floor(data.dataTime / 60);
     //int second = round(data.dataTime - minutes * 60);
     int minutes = (int)(data.dataTime/(44100*60));
     int second = (int)((data.dataTime/44100) - minutes * 60);
-    NSString *Time = [[NSString alloc]initWithFormat:@"%02d:%02d",minutes,second ];
+    int decSec = (int)((data.dataTime/441) - minutes * 6000 - second * 100);
+    NSString *Time = [[NSString alloc]initWithFormat:@"%02d:%02d:%02d", minutes, second, decSec];
     customCell.songTime.text = Time;
 }
 
@@ -167,11 +178,13 @@
         
         // Configure the cell...
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [self updateCell:cell atIndexPath:indexPath];
+        [self updateCell:cell atIndexPath:indexPath];;
     }else{
         NSArray *MenuTexts = @[@"Rename",@"OverRec",@"Delete",@"Cancel"];
         NSString *MenuText = MenuTexts[indexPath.row];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = MenuText;
+        cell.textLabel.font = [UIFont systemFontOfSize:25];
         cell.textLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1.0 alpha:1];
     }
     return cell;
@@ -239,10 +252,19 @@
     NSLog(@"%@", [data.filePath lastPathComponent]);
     tableMenu.center = CGPointMake(jambo.center.x, tableMenu.center.y);
     CGRect rect = tableMenu.frame;
+    tableMenu.alpha = 0.7;
     //rect.origin.y = jambo.frame.size.height - rect.size.height;
     rect.origin.y = rect.size.height;
     tableMenu.frame = rect;
+    
     [self.view addSubview:tableMenu];
+    [tableMenu addGestureRecognizer:pan];
+    [jambo addGestureRecognizer:tapG1];
+    [outsideImage addGestureRecognizer:tapG2];
+    tableMenu.layer.shadowOpacity = 0.9; // 濃さを指定
+    tableMenu.layer.shadowOffset = CGSizeMake(5.0, 5.0); // 影までの距離を指定
+    tableMenu.layer.masksToBounds = NO;
+
     //    [self UpTableMenu:tableMenu];
     //[self FunctionMenu];
 }
@@ -257,8 +279,10 @@
         renameText.text = [data.fileName lastPathComponent];
         renameView.center = self.view.center;
         [self.view addSubview:renameView];
+        renameView.layer.shadowOpacity = 0.9; // 濃さを指定
+        renameView.layer.shadowOffset = CGSizeMake(5.0, 5.0); // 影までの距離を指定
+        renameView.layer.masksToBounds = NO;
         [renameText setDelegate:self];
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction :)];
         [renameView addGestureRecognizer:pan];
     }else if (MenuNum==1){//OverRec!!!!!!!!
         NSLog(@"OverRec");
@@ -276,10 +300,16 @@
 //リネームビューのドラッグアクション
 - (void)panAction : (UIPanGestureRecognizer *)sender {
     CGPoint p = [sender translationInView:self.view];
-    CGPoint movedPoint = CGPointMake(renameView.center.x + p.x, renameView.center.y + p.y);
-    renameView.center = movedPoint;
+    CGPoint movedPoint = CGPointMake(sender.view.center.x + p.x, sender.view.center.y + p.y);
+    sender.view.center = movedPoint;
     [sender setTranslation:CGPointZero inView:self.view];
 }
+- (void)tapAction : (UITapGestureRecognizer *)sender {
+    [tableMenu removeFromSuperview];
+    [jambo removeGestureRecognizer:tapG1];
+    [outsideImage removeGestureRecognizer:tapG2];
+}
+
 //text入力でリターン押したら
 -(BOOL)textFieldShouldReturn:(UITextField*)textField{
     [renameText resignFirstResponder];

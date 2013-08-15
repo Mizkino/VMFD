@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 pcuser. All rights reserved.
 
 #import "MainViewController.h"
-#import "SmartTableViewController.h"
+//#import "SmartTableViewController.h"
 #import "RecordViewController.h"
 #import "ListViewController.h"
 #import "DataManager.h"
@@ -107,7 +107,4 @@
             break;
     }
 }
-
-
-
 @end

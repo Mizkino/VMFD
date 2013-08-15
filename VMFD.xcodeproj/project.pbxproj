@@ -89,6 +89,14 @@
 		74E62DBC17BB4B1900263925 /* MujiRec.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DB917BB4B1800263925 /* MujiRec.png */; };
 		74E62DBD17BB4B1900263925 /* MujiRec@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DBA17BB4B1800263925 /* MujiRec@2x.png */; };
 		74E62DBE17BB4B1900263925 /* MujiRec@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DBA17BB4B1800263925 /* MujiRec@2x.png */; };
+		74E62DC017BD3F5A00263925 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E62DBF17BD3F5A00263925 /* QuartzCore.framework */; };
+		74E62DC617BD890400263925 /* Buttonkai.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DC517BD890100263925 /* Buttonkai.png */; };
+		74E62DC817BD8C7200263925 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DC717BD8C7100263925 /* DS-DIGI.TTF */; };
+		74E62DC917BD8C7200263925 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DC717BD8C7100263925 /* DS-DIGI.TTF */; };
+		74E62DCC17BD90F200263925 /* RecBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DCA17BD90EF00263925 /* RecBG.png */; };
+		74E62DCD17BD90F200263925 /* RecBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DCA17BD90EF00263925 /* RecBG.png */; };
+		74E62DCE17BD90F200263925 /* RecBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DCB17BD90F100263925 /* RecBG@2x.png */; };
+		74E62DCF17BD90F200263925 /* RecBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DCB17BD90F100263925 /* RecBG@2x.png */; };
 		74FBF90817B41DAA0034262B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90717B41DAA0034262B /* UIKit.framework */; };
 		74FBF90A17B41DAA0034262B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90917B41DAA0034262B /* Foundation.framework */; };
 		74FBF90C17B41DAA0034262B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90B17B41DAA0034262B /* CoreGraphics.framework */; };
@@ -106,8 +114,6 @@
 		74FBF93D17B41DBD0034262B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF93C17B41DBD0034262B /* AVFoundation.framework */; };
 		74FBF94117B41E0D0034262B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF93F17B41E0D0034262B /* MainViewController.m */; };
 		74FBF94217B41E0D0034262B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF94017B41E0D0034262B /* MainViewController.xib */; };
-		74FBF94617B420A40034262B /* SmartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF94417B420A40034262B /* SmartTableViewController.m */; };
-		74FBF94717B420A40034262B /* SmartTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF94517B420A40034262B /* SmartTableViewController.xib */; };
 		74FBF94C17B43F070034262B /* SmartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF94A17B43F070034262B /* SmartCell.m */; };
 		74FBF94D17B43F070034262B /* SmartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBF94A17B43F070034262B /* SmartCell.m */; };
 		74FBF94E17B43F070034262B /* SmartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FBF94B17B43F070034262B /* SmartCell.xib */; };
@@ -181,6 +187,11 @@
 		74E62DB017BB49E900263925 /* StopButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StopButton@2x.png"; sourceTree = "<group>"; };
 		74E62DB917BB4B1800263925 /* MujiRec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MujiRec.png; sourceTree = "<group>"; };
 		74E62DBA17BB4B1800263925 /* MujiRec@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MujiRec@2x.png"; sourceTree = "<group>"; };
+		74E62DBF17BD3F5A00263925 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		74E62DC517BD890100263925 /* Buttonkai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buttonkai.png; sourceTree = "<group>"; };
+		74E62DC717BD8C7100263925 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
+		74E62DCA17BD90EF00263925 /* RecBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RecBG.png; path = ../RecBG.png; sourceTree = "<group>"; };
+		74E62DCB17BD90F100263925 /* RecBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RecBG@2x.png"; path = "../RecBG@2x.png"; sourceTree = "<group>"; };
 		74FBF90417B41DAA0034262B /* VMFD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VMFD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FBF90717B41DAA0034262B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74FBF90917B41DAA0034262B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -204,9 +215,6 @@
 		74FBF93E17B41E0D0034262B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		74FBF93F17B41E0D0034262B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		74FBF94017B41E0D0034262B /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		74FBF94317B420A40034262B /* SmartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartTableViewController.h; sourceTree = "<group>"; };
-		74FBF94417B420A40034262B /* SmartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartTableViewController.m; sourceTree = "<group>"; };
-		74FBF94517B420A40034262B /* SmartTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmartTableViewController.xib; sourceTree = "<group>"; };
 		74FBF94917B43F070034262B /* SmartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartCell.h; sourceTree = "<group>"; };
 		74FBF94A17B43F070034262B /* SmartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartCell.m; sourceTree = "<group>"; };
 		74FBF94B17B43F070034262B /* SmartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmartCell.xib; sourceTree = "<group>"; };
@@ -227,6 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74E62DC017BD3F5A00263925 /* QuartzCore.framework in Frameworks */,
 				74FBF95B17B58A600034262B /* CoreMedia.framework in Frameworks */,
 				74FBF93D17B41DBD0034262B /* AVFoundation.framework in Frameworks */,
 				74FBF90817B41DAA0034262B /* UIKit.framework in Frameworks */,
@@ -251,6 +260,8 @@
 		74E62D4F17BB30C700263925 /* プログラム用データ */ = {
 			isa = PBXGroup;
 			children = (
+				74E62DCA17BD90EF00263925 /* RecBG.png */,
+				74E62DCB17BD90F100263925 /* RecBG@2x.png */,
 				74E62D7A17BB34B100263925 /* Voicememo_rec_list背景.png */,
 				74E62D7B17BB34B100263925 /* Voicememo_REC_ON.png */,
 				74E62D7C17BB34B100263925 /* Voicememo_recボタン.png */,
@@ -305,6 +316,7 @@
 		74FBF90617B41DAA0034262B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74E62DBF17BD3F5A00263925 /* QuartzCore.framework */,
 				74FBF95A17B58A600034262B /* CoreMedia.framework */,
 				74FBF93C17B41DBD0034262B /* AVFoundation.framework */,
 				74FBF90717B41DAA0034262B /* UIKit.framework */,
@@ -331,6 +343,7 @@
 			children = (
 				74E62D4F17BB30C700263925 /* プログラム用データ */,
 				74E62B6F17BAE85900263925 /* Button.png */,
+				74E62DC517BD890100263925 /* Buttonkai.png */,
 				74E62B6317BAE46200263925 /* List.png */,
 				74E62B6417BAE46200263925 /* Home.png */,
 				74E62B6017BAE18100263925 /* icon.png */,
@@ -344,6 +357,7 @@
 				74E62B5717BAD6B400263925 /* BGM-4.aif */,
 				74FBF95C17B93F790034262B /* sound.wav */,
 				74FBF95717B56A7F0034262B /* Music.wav */,
+				74E62DC717BD8C7100263925 /* DS-DIGI.TTF */,
 				74FBF90F17B41DAA0034262B /* VMFD-Info.plist */,
 				74FBF91017B41DAA0034262B /* InfoPlist.strings */,
 				74FBF91317B41DAA0034262B /* main.m */,
@@ -380,22 +394,19 @@
 				74FBF93E17B41E0D0034262B /* MainViewController.h */,
 				74FBF93F17B41E0D0034262B /* MainViewController.m */,
 				74FBF94017B41E0D0034262B /* MainViewController.xib */,
-				74FBF94317B420A40034262B /* SmartTableViewController.h */,
-				74FBF94417B420A40034262B /* SmartTableViewController.m */,
-				74FBF94517B420A40034262B /* SmartTableViewController.xib */,
-				74FBF94917B43F070034262B /* SmartCell.h */,
-				74FBF94A17B43F070034262B /* SmartCell.m */,
-				74FBF94B17B43F070034262B /* SmartCell.xib */,
+				74E62B4F17BAAB0800263925 /* ListViewController.h */,
+				74E62B5017BAAB0800263925 /* ListViewController.m */,
+				74E62B5117BAAB0800263925 /* ListViewController.xib */,
 				74FBF95017B43F330034262B /* RecordViewController.h */,
 				74FBF95117B43F330034262B /* RecordViewController.m */,
 				74FBF95217B43F330034262B /* RecordViewController.xib */,
+				74FBF94917B43F070034262B /* SmartCell.h */,
+				74FBF94A17B43F070034262B /* SmartCell.m */,
+				74FBF94B17B43F070034262B /* SmartCell.xib */,
 				74FBF95F17B94C7B0034262B /* DataClass.h */,
 				74FBF96017B94C7B0034262B /* DataClass.m */,
 				74FBF96317B9597C0034262B /* DataManager.h */,
 				74FBF96417B9597D0034262B /* DataManager.m */,
-				74E62B4F17BAAB0800263925 /* ListViewController.h */,
-				74E62B5017BAAB0800263925 /* ListViewController.m */,
-				74E62B5117BAAB0800263925 /* ListViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -476,7 +487,6 @@
 				74FBF91C17B41DAA0034262B /* Default@2x.png in Resources */,
 				74FBF91E17B41DAA0034262B /* Default-568h@2x.png in Resources */,
 				74FBF94217B41E0D0034262B /* MainViewController.xib in Resources */,
-				74FBF94717B420A40034262B /* SmartTableViewController.xib in Resources */,
 				74FBF94E17B43F070034262B /* SmartCell.xib in Resources */,
 				74FBF95517B43F330034262B /* RecordViewController.xib in Resources */,
 				74FBF95817B56A800034262B /* Music.wav in Resources */,
@@ -522,6 +532,10 @@
 				74E62DB717BB49EA00263925 /* StopButton@2x.png in Resources */,
 				74E62DBB17BB4B1900263925 /* MujiRec.png in Resources */,
 				74E62DBD17BB4B1900263925 /* MujiRec@2x.png in Resources */,
+				74E62DC617BD890400263925 /* Buttonkai.png in Resources */,
+				74E62DC817BD8C7200263925 /* DS-DIGI.TTF in Resources */,
+				74E62DCC17BD90F200263925 /* RecBG.png in Resources */,
+				74E62DCE17BD90F200263925 /* RecBG@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +588,9 @@
 				74E62DB817BB49EA00263925 /* StopButton@2x.png in Resources */,
 				74E62DBC17BB4B1900263925 /* MujiRec.png in Resources */,
 				74E62DBE17BB4B1900263925 /* MujiRec@2x.png in Resources */,
+				74E62DC917BD8C7200263925 /* DS-DIGI.TTF in Resources */,
+				74E62DCD17BD90F200263925 /* RecBG.png in Resources */,
+				74E62DCF17BD90F200263925 /* RecBG@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,7 +620,6 @@
 				74FBF91417B41DAA0034262B /* main.m in Sources */,
 				74FBF91817B41DAA0034262B /* AppDelegate.m in Sources */,
 				74FBF94117B41E0D0034262B /* MainViewController.m in Sources */,
-				74FBF94617B420A40034262B /* SmartTableViewController.m in Sources */,
 				74FBF94C17B43F070034262B /* SmartCell.m in Sources */,
 				74FBF95317B43F330034262B /* RecordViewController.m in Sources */,
 				74FBF96117B94C7C0034262B /* DataClass.m in Sources */,

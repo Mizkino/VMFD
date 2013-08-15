@@ -13,7 +13,7 @@
 #import "DataManager.h"
 
 @implementation AppDelegate
-
+UITabBarController *tabcon;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //@@@@
@@ -24,49 +24,22 @@
     MainViewController *menCon = [MainViewController new];
     RecordViewController *recCon = [RecordViewController new];
     ListViewController *lisCon = [ListViewController new];
-
-//    MainViewController *controller = [MainViewController new];
-//    RecordViewController *reccon = [RecordViewController new];
-//    ListViewController *liscon = [ListViewController new];
-    //reccon.title = @"Rec";
+    
     menCon.title = @"main";
     [menCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"home__.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_.png"]];
-    [recCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Button.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Button.png"]];
+    [recCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Buttonkai.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Buttonkai.png"]];
     lisCon.title = @"List";
     [lisCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"list__.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"list_.png"]];
     //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
     //self.window.rootViewController = navController;
     
-    UITabBarController *tabcon = [UITabBarController new];
+//UITabBarController *tabcon = [UITabBarController new];
+    tabcon = [UITabBarController new];
     [tabcon setViewControllers:@[menCon,recCon,lisCon]];
     self.window.rootViewController = tabcon;
-    
-    //initArray that contains viewControllers
-//    NSMutableArray *viewControllers = [NSMutableArray array];
-//    //init views
-//
-//    //set on Navicon
-//    UINavigationController *menNav = [[UINavigationController alloc]initWithRootViewController:menCon];
-//    [menNav setNavigationBarHidden:YES];
-//    [viewControllers addObject:menNav];
-//    
-//    UINavigationController *recNav = [[UINavigationController alloc]initWithRootViewController:recCon];
-//    [recNav setNavigationBarHidden:YES];
-//    [viewControllers addObject:recNav];
-//    
-//    UINavigationController *lisNav = [[UINavigationController alloc]initWithRootViewController:lisCon];
-//    [lisNav setNavigationBarHidden:YES];
-//    [viewControllers addObject:lisNav];
-//    
-//    self.tabBarController = [UITabBarController new];
-//    [self.tabBarController setViewControllers:viewControllers];
-//    self.window.rootViewController = self.tabBarController;
-    
-//    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
-
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     [[DataManager sharedManager] save];

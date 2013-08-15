@@ -13,14 +13,18 @@
 @interface RecordViewController ()
 {
     IBOutlet UIButton *recordButton;
+    IBOutlet UIImageView *REC;
+    IBOutlet UIImageView *Stop;
+    IBOutlet UILabel *timeLabel;
+    IBOutlet UILabel *recTimeLabel;
+    IBOutlet UILabel *setBGMLabel;
+    IBOutlet UILabel *BGMnameLabel;
     NSString *musPath;
+    NSDate *stdate;
     NSURL *cache;
     NSURL *assetURL;
     NSMutableArray *audioMixParams;
-    IBOutlet UIImageView *REC;
-    IBOutlet UIImageView *Stop;
-    BOOL Loop;
-    BOOL BGM;
+    NSTimer *timer;
     CMTime song1;
     CMTimeValue durationF;
 }
@@ -32,6 +36,7 @@
 @synthesize recorder;
 @synthesize player;
 @synthesize bgmNum;
+BOOL timeflg = NO;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,9 +50,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.title = @"Rec";
-//    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon.png"]];
-    // Do any additional setup after loading the view.
+    [timeLabel setFont:[UIFont fontWithName:@"DS-Digital" size:35]];
+    [recTimeLabel setFont:[UIFont fontWithName:@"DS-Digital" size:35]];
+    [setBGMLabel setFont:[UIFont fontWithName:@"DS-Digital" size:35]];
+    [BGMnameLabel setFont:[UIFont fontWithName:@"DS-Digital" size:30]];
+    
+    REC.alpha = 0;
+    Stop.alpha = 0;
     NSLog(@"%d",bgmNum);
     NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cash = [[array objectAtIndex:0] stringByAppendingPathComponent:@"kuzu.wav"];
@@ -59,21 +68,29 @@
     if (![fileManager fileExistsAtPath:musPath]) {
         [fileManager createDirectoryAtPath:musPath  withIntermediateDirectories:YES  attributes:nil  error:nil];
     }
-
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
+    // [super viewWillAppear:animated];
+    timer = [NSTimer scheduledTimerWithTimeInterval:(0.01) target:self selector:@selector(onTimer:) userInfo:nil repeats:YES];
+    timeLabel.text = @"00:00:00";
     bgmNum = [DataManager sharedManager].unko;
     NSLog(@"%d",bgmNum);
     if(bgmNum)
     {
         if (bgmNum < 0) {
             //int unko = bgmNum * (-1);
+            if (bgmNum==-1) {BGMnameLabel.text = @"Techno";
+            }else if(bgmNum==-2){BGMnameLabel.text = @"HipHop";
+            }else if(bgmNum==-3){BGMnameLabel.text = @"Drum'N Bass";
+            }else if(bgmNum==-4){BGMnameLabel.text = @"Jazz";}
             NSString *asset = [[NSString alloc]initWithFormat:@"BGM%d",bgmNum];
             NSString *URLPath = [[NSBundle mainBundle] pathForResource:asset ofType:@"aif"];
             assetURL = [NSURL fileURLWithPath:URLPath];
         }else if(bgmNum > 0){
             DataClass *data = [DataManager sharedManager].dataList[bgmNum-1];
             assetURL = [NSURL fileURLWithPath:data.filePath];
+            BGMnameLabel.text = data.fileName;
         }
         NSError *error;
         {self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:assetURL error:&error];
@@ -83,6 +100,27 @@
                 NSLog(@"Error %@", [error localizedDescription]);
             }
             [self.player prepareToPlay];}
+    }
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    timeLabel.text=nil;
+    timeflg = FALSE;
+    // Release any retained subviews of the main view.
+    [timer invalidate];//★タイマー解放忘れずに
+}
+- (void)setLabelstext{
+    
+}
+- (void)onTimer:(NSTimer*)timer {
+    //startボタンが押されたら常に真となり下記処理が実行される
+    if(timeflg){
+        NSDate *now = [NSDate date];
+        float nowTime = [now timeIntervalSinceDate:stdate];
+        int minutes = nowTime / 60;
+        int seconds = (int)nowTime - minutes*60;
+        int decsec = (nowTime - minutes*60.0 - seconds)*100.0;
+        timeLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d",minutes , seconds ,decsec];
     }
 }
 - (void)didReceiveMemoryWarning
@@ -152,26 +190,30 @@
 //-(void)playRecord
 //{
 //        [self.player play];
-//    
+//
 //}
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-        [self.player play];
+    [self.player play];
 }
 - (IBAction)recordClick:(id)sender
 {
     if ( self.recorder != nil && self.recorder.isRecording )
     {
         [self stopRecord];
-        [REC removeFromSuperview];
-        [Stop removeFromSuperview];
+        REC.alpha = 0;
+        Stop.alpha = 0;
+        //        [REC removeFromSuperview];
+        //        [Stop removeFromSuperview];
         [recordButton setTitle:@"Rec" forState:UIControlStateNormal];
     }
     else
     {
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction :)];
-        [self.view addSubview:REC];
-        Stop.center = recordButton.center;
-        [self.view addSubview:Stop];
+        timeflg = TRUE;
+        stdate = [NSDate date];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction :)];
+        REC.alpha = 1;
+        //        Stop.center = recordButton.center;
+        Stop.alpha = 1;
         [Stop addGestureRecognizer:tap];
         [self recordFile];
         if (bgmNum) [self.player play];
@@ -194,7 +236,7 @@
     BOOL ok = NO;
     
     CMTime startTime = CMTimeMakeWithSeconds(0, 1);
-//    CMTime trackDuration = songAsset.duration;
+    //    CMTime trackDuration = songAsset.duration;
     if(which || bgmNum > 0){
         NSLog(@"nuhuhu");
         NSLog(@"%d",bgmNum);
@@ -204,8 +246,8 @@
         NSLog(@"入ってるよぉ！");
         durationF = song1.value;}// @@@@
     //CMTime longestTime = CMTimeMake(848896, 44100); //(19.24 seconds)
-//    CMTimeRange tRange = CMTimeRangeMake(startTime, trackDuration);
-            NSLog(@"%f",(double)song1.value);
+    //    CMTimeRange tRange = CMTimeRangeMake(startTime, trackDuration);
+    NSLog(@"%f",(double)song1.value);
     CMTimeRange tRange = CMTimeRangeMake(startTime, song1);
     
     //Set Volume
