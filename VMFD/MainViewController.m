@@ -34,7 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //kari=3;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 - (void)didReceiveMemoryWarning
@@ -46,10 +45,7 @@
     [self.tabBarController setSelectedIndex:1];
 }
 - (IBAction)moveList:(id)sender {
-//    
-//    SmartTableViewController *Taview = [SmartTableViewController new];
-//    ListViewController *Taview = [ListViewController new];
-//    [self.navigationController pushViewController:Taview animated:YES];
+
     [self.tabBarController setSelectedIndex:2];
 }
 - (IBAction)choiceBGM:(id)sender {
@@ -66,13 +62,8 @@
     [sheet addButtonWithTitle:@"HipHop"];
     [sheet addButtonWithTitle:@"DnB"];
     [sheet addButtonWithTitle:@"Jazz"];
-    //Button0=Red
     sheet.destructiveButtonIndex = 0;
-    //Button3=Cancel
-    //sheet.cancelButtonIndex = 5;
-    //Sheet's style
-    //sheet.actionSheetStyle = UIActionSheetStyleDefault;
-    //Sheet view!!
+
     [sheet showInView:self.view];
 }
 

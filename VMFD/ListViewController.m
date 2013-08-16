@@ -24,6 +24,7 @@
     IBOutlet UITextField *renameText;
     IBOutlet UIButton *acceptButton;
     IBOutlet UIButton *cancelButton;
+    IBOutlet UIButton *toHomeButton;
     IBOutlet UIImageView *outsideImage;
     UIPanGestureRecognizer *pan;
     UITapGestureRecognizer *tapG1;
@@ -134,7 +135,7 @@
     //    [customCell toggle];
     //customCell.countLabel.text = [NSString stringWithFormat:@"%@", _musicList[row]];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YY/MM/dd HH:mm:ss"];
+    [formatter setDateFormat:@"YYYY/MM/dd HH:mm"];
     DataClass *data = [DataManager sharedManager].dataList[row];
     //customCell.backgroundColor = [UIColor colorWithRed:0.118 green:0.118 blue:0.110 alpha:1];
     customCell.countLabel.text = data.fileName;
@@ -340,5 +341,9 @@
         }
         // Can start next audio?
     }
+}
+- (IBAction)toGoHome:(id)sender {
+    NSLog(@"HOME!");
+    [self.tabBarController setSelectedIndex:0];
 }
 @end

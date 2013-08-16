@@ -24,12 +24,15 @@
 }
 
 - (void)setPlay {
- [self.LB setTitle:@"Stop" forState:UIControlStateNormal];
+    [self.LB setImage:[UIImage imageNamed:@"pause.png"] forState:normal];
+
+// [self.LB setTitle:@"Stop" forState:UIControlStateNormal];
     isPlaying = YES;
 }
 
 - (void)setStop {
- [self.LB setTitle:@"Play" forState:UIControlStateNormal];
+    [self.LB setImage:[UIImage imageNamed:@"playButtonInList.png"] forState:normal];
+ //[self.LB setTitle:@"Play" forState:UIControlStateNormal];
     isPlaying = NO;
 }
 

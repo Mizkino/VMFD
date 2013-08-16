@@ -53,7 +53,7 @@ BOOL timeflg = NO;
     [timeLabel setFont:[UIFont fontWithName:@"DS-Digital" size:35]];
     [recTimeLabel setFont:[UIFont fontWithName:@"DS-Digital" size:35]];
     [setBGMLabel setFont:[UIFont fontWithName:@"DS-Digital" size:35]];
-    [BGMnameLabel setFont:[UIFont fontWithName:@"DS-Digital" size:30]];
+    [BGMnameLabel setFont:[UIFont fontWithName:@"DS-Digital" size:32]];
     
     REC.alpha = 0;
     Stop.alpha = 0;
@@ -71,7 +71,7 @@ BOOL timeflg = NO;
     
 }
 - (void)viewWillAppear:(BOOL)animated{
-    // [super viewWillAppear:animated];
+    [super viewWillAppear:animated];
     timer = [NSTimer scheduledTimerWithTimeInterval:(0.01) target:self selector:@selector(onTimer:) userInfo:nil repeats:YES];
     timeLabel.text = @"00:00:00";
     bgmNum = [DataManager sharedManager].unko;
@@ -193,7 +193,7 @@ BOOL timeflg = NO;
 //
 //}
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    [self.player play];
+    //[self.player play];
 }
 - (IBAction)recordClick:(id)sender
 {
@@ -202,8 +202,6 @@ BOOL timeflg = NO;
         [self stopRecord];
         REC.alpha = 0;
         Stop.alpha = 0;
-        //        [REC removeFromSuperview];
-        //        [Stop removeFromSuperview];
         [recordButton setTitle:@"Rec" forState:UIControlStateNormal];
     }
     else
@@ -252,33 +250,12 @@ BOOL timeflg = NO;
     
     //Set Volume
     AVMutableAudioMixInputParameters *trackMix = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:track];
-    [trackMix setVolume:1.2f atTime:startTime];
+    [trackMix setVolume:0.9f atTime:startTime];
     [audioMixParams addObject:trackMix];
     
     //Insert audio into track
     ok = [track insertTimeRange:tRange ofTrack:sourceAudioTrack atTime:CMTimeMake(0, 44100) error:&error];
 }
-
-
-//- (void) setUpAndAddAudioAtPath2:(NSURL*)assetURLs toComposition:(AVMutableComposition *)composition
-//{
-//    AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL:assetURLs options:nil];
-//    AVMutableCompositionTrack *track = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
-//    AVAssetTrack *sourceAudioTrack = [[songAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
-//    NSError *error = nil;
-//    CMTime startTime = CMTimeMakeWithSeconds(duration2, 44100);
-//    CMTime trackDuration = songAsset.duration;
-//    duration2 += trackDuration.value;
-//    CMTimeRange tRange = CMTimeRangeMake(startTime, trackDuration);
-//    //Set Volume
-//    AVMutableAudioMixInputParameters *trackMix = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:track];
-//    [trackMix setVolume:0.8f atTime:startTime];
-//    [audioMixParams addObject:trackMix];
-//    //Insert audio into track
-//    [track insertTimeRange:tRange ofTrack:sourceAudioTrack atTime:CMTimeMake(0, 44100) error:&error];
-//}
-
-//- (IBAction)saveRecording
 -(void)saveRecording
 {
     AVMutableComposition *composition = [AVMutableComposition composition];
@@ -325,13 +302,11 @@ BOOL timeflg = NO;
             case AVAssetExportSessionStatusWaiting: NSLog (@"AVAssetExportSessionStatusWaiting"); break;
             default:  NSLog (@"didn't get export status"); break;
         }
-        
         if ( exportError != nil )
         {
             NSLog(@"exportError %@", [exportError localizedDescription]);
         }
     }];
-    
     //@@@@
     DataClass *dataClass = [DataClass new];
     dataClass.filePath = filename;
