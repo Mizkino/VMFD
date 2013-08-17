@@ -87,12 +87,16 @@
 		74E62DC617BD890400263925 /* Buttonkai.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DC517BD890100263925 /* Buttonkai.png */; };
 		74E62DC817BD8C7200263925 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DC717BD8C7100263925 /* DS-DIGI.TTF */; };
 		74E62DC917BD8C7200263925 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DC717BD8C7100263925 /* DS-DIGI.TTF */; };
-		74E62DCC17BD90F200263925 /* RecBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DCA17BD90EF00263925 /* RecBG.png */; };
-		74E62DCD17BD90F200263925 /* RecBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DCA17BD90EF00263925 /* RecBG.png */; };
-		74E62DCE17BD90F200263925 /* RecBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DCB17BD90F100263925 /* RecBG@2x.png */; };
-		74E62DCF17BD90F200263925 /* RecBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DCB17BD90F100263925 /* RecBG@2x.png */; };
 		74E62DD117BDA84600263925 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DD017BDA84500263925 /* pause.png */; };
 		74E62DD217BDA84600263925 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DD017BDA84500263925 /* pause.png */; };
+		74E62E6A17BE979B00263925 /* RecBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62E6817BE979600263925 /* RecBG.png */; };
+		74E62E6B17BE979B00263925 /* RecBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62E6817BE979600263925 /* RecBG.png */; };
+		74E62E6C17BE979B00263925 /* RecBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62E6917BE979800263925 /* RecBG@2x.png */; };
+		74E62E6D17BE979B00263925 /* RecBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62E6917BE979800263925 /* RecBG@2x.png */; };
+		74E62E6F17BEC5FF00263925 /* Buttonx2.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62E6E17BEC5FC00263925 /* Buttonx2.png */; };
+		74E62E7017BEC5FF00263925 /* Buttonx2.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62E6E17BEC5FC00263925 /* Buttonx2.png */; };
+		74E62E7517BECD0700263925 /* TabButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62E7417BECD0400263925 /* TabButton.png */; };
+		74E62E7617BECD0700263925 /* TabButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62E7417BECD0400263925 /* TabButton.png */; };
 		74FBF90817B41DAA0034262B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90717B41DAA0034262B /* UIKit.framework */; };
 		74FBF90A17B41DAA0034262B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90917B41DAA0034262B /* Foundation.framework */; };
 		74FBF90C17B41DAA0034262B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBF90B17B41DAA0034262B /* CoreGraphics.framework */; };
@@ -179,11 +183,12 @@
 		74E62DBF17BD3F5A00263925 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		74E62DC517BD890100263925 /* Buttonkai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buttonkai.png; sourceTree = "<group>"; };
 		74E62DC717BD8C7100263925 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
-		74E62DCA17BD90EF00263925 /* RecBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RecBG.png; path = ../RecBG.png; sourceTree = "<group>"; };
-		74E62DCB17BD90F100263925 /* RecBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RecBG@2x.png"; path = "../RecBG@2x.png"; sourceTree = "<group>"; };
 		74E62DD017BDA84500263925 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		74E62E1B17BE88FC00263925 /* VMFD copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "VMFD copy-Info.plist"; path = "/Users/pcuser/Program/VMFD/VMFD copy-Info.plist"; sourceTree = "<absolute>"; };
-		74E62E6417BE896700263925 /* VMFD copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "VMFD copy2-Info.plist"; path = "/Users/pcuser/Program/VMFD/VMFD copy2-Info.plist"; sourceTree = "<absolute>"; };
+		74E62E6817BE979600263925 /* RecBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecBG.png; sourceTree = "<group>"; };
+		74E62E6917BE979800263925 /* RecBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecBG@2x.png"; sourceTree = "<group>"; };
+		74E62E6E17BEC5FC00263925 /* Buttonx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buttonx2.png; sourceTree = "<group>"; };
+		74E62E7417BECD0400263925 /* TabButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabButton.png; sourceTree = "<group>"; };
 		74FBF90417B41DAA0034262B /* VMFD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VMFD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FBF90717B41DAA0034262B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74FBF90917B41DAA0034262B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -250,8 +255,10 @@
 		74E62D4F17BB30C700263925 /* プログラム用データ */ = {
 			isa = PBXGroup;
 			children = (
-				74E62DCA17BD90EF00263925 /* RecBG.png */,
-				74E62DCB17BD90F100263925 /* RecBG@2x.png */,
+				74E62E6817BE979600263925 /* RecBG.png */,
+				74E62E6917BE979800263925 /* RecBG@2x.png */,
+				74E62E6E17BEC5FC00263925 /* Buttonx2.png */,
+				74E62E7417BECD0400263925 /* TabButton.png */,
 				74E62D7A17BB34B100263925 /* Voicememo_rec_list背景.png */,
 				74E62D7B17BB34B100263925 /* Voicememo_REC_ON.png */,
 				74E62D7C17BB34B100263925 /* Voicememo_recボタン.png */,
@@ -292,7 +299,6 @@
 				74FBF90617B41DAA0034262B /* Frameworks */,
 				74FBF90517B41DAA0034262B /* Products */,
 				74E62E1B17BE88FC00263925 /* VMFD copy-Info.plist */,
-				74E62E6417BE896700263925 /* VMFD copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -517,9 +523,11 @@
 				74E62DBD17BB4B1900263925 /* MujiRec@2x.png in Resources */,
 				74E62DC617BD890400263925 /* Buttonkai.png in Resources */,
 				74E62DC817BD8C7200263925 /* DS-DIGI.TTF in Resources */,
-				74E62DCC17BD90F200263925 /* RecBG.png in Resources */,
-				74E62DCE17BD90F200263925 /* RecBG@2x.png in Resources */,
 				74E62DD117BDA84600263925 /* pause.png in Resources */,
+				74E62E6A17BE979B00263925 /* RecBG.png in Resources */,
+				74E62E6C17BE979B00263925 /* RecBG@2x.png in Resources */,
+				74E62E6F17BEC5FF00263925 /* Buttonx2.png in Resources */,
+				74E62E7517BECD0700263925 /* TabButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,9 +576,11 @@
 				74E62DBC17BB4B1900263925 /* MujiRec.png in Resources */,
 				74E62DBE17BB4B1900263925 /* MujiRec@2x.png in Resources */,
 				74E62DC917BD8C7200263925 /* DS-DIGI.TTF in Resources */,
-				74E62DCD17BD90F200263925 /* RecBG.png in Resources */,
-				74E62DCF17BD90F200263925 /* RecBG@2x.png in Resources */,
 				74E62DD217BDA84600263925 /* pause.png in Resources */,
+				74E62E6B17BE979B00263925 /* RecBG.png in Resources */,
+				74E62E6D17BE979B00263925 /* RecBG@2x.png in Resources */,
+				74E62E7017BEC5FF00263925 /* Buttonx2.png in Resources */,
+				74E62E7617BECD0700263925 /* TabButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

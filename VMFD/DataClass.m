@@ -12,6 +12,8 @@
 #define FILEPATHKEY @"filePath"
 #define MAKEDATEKEY @"makeDate"
 #define DATATIMEKEY @"dataTime"
+#define FILEPATHSKY @"filepaths"
+#define BGMNUMBERKY @"BGMnumber"
 
 @implementation DataClass
 
@@ -23,7 +25,9 @@
         _filePath = @"";
         _makeDate = [NSDate date];
         _dataTime = 0;
-        }
+        _filePaths = [NSMutableArray array];
+        _BGMnumber = 0;
+    }
     return self;
 }
 
@@ -38,6 +42,9 @@
     _filePath = [decoder decodeObjectForKey:FILEPATHKEY];
     _makeDate = [decoder decodeObjectForKey:MAKEDATEKEY];
     _dataTime = [decoder decodeDoubleForKey:DATATIMEKEY];
+    _filePaths = [decoder decodeObjectForKey:FILEPATHSKY];
+    _BGMnumber = [decoder decodeIntForKey:BGMNUMBERKY];
+
     return self;
 }
 
@@ -48,6 +55,8 @@
     [encoder encodeObject:_filePath forKey:FILEPATHKEY];
     [encoder encodeObject:_makeDate forKey:MAKEDATEKEY];
     [encoder encodeDouble:_dataTime forKey:DATATIMEKEY];
+    [encoder encodeObject:_filePaths forKey:FILEPATHSKY];
+    [encoder encodeInt:_BGMnumber forKey:BGMNUMBERKY];
 }
 
 @end

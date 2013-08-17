@@ -18,7 +18,7 @@ UITabBarController *tabcon;
 {
     //@@@@
     [[DataManager sharedManager] load];
-    
+    NSLog(@"/%d",123);
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     MainViewController *menCon = [MainViewController new];
@@ -27,7 +27,7 @@ UITabBarController *tabcon;
     
     menCon.title = @"main";
     [menCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"home__.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_.png"]];
-    [recCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Buttonkai.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Buttonkai.png"]];
+    [recCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"TabButton.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"TabButton.png"]];
     lisCon.title = @"List";
     [lisCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"list__.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"list_.png"]];
     //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
@@ -43,7 +43,6 @@ UITabBarController *tabcon;
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     [[DataManager sharedManager] save];
-    
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }

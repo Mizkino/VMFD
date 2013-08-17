@@ -14,5 +14,6 @@
 @property(nonatomic) NSString *filePath;
 @property(nonatomic) NSString *fileName;
 @property(nonatomic) NSTimeInterval dataTime;
-
+@property(nonatomic) NSMutableArray *filePaths;
+@property(nonatomic) int BGMnumber;
 @end
