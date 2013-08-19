@@ -18,7 +18,6 @@ UITabBarController *tabcon;
 {
     //@@@@
     [[DataManager sharedManager] load];
-    NSLog(@"/%d",123);
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     MainViewController *menCon = [MainViewController new];

@@ -26,11 +26,12 @@
     IBOutlet UIButton *cancelButton;
     IBOutlet UIButton *toHomeButton;
     IBOutlet UIImageView *outsideImage;
+    CMTime durationF;
+    NSString *cacheD;
     UIPanGestureRecognizer *pan;
     UITapGestureRecognizer *tapG1;
     UITapGestureRecognizer *tapG2;
-    NSString *toPath;
-    NSString *fromPath;
+    NSMutableArray *audioMixParams;
     NSIndexPath *touchIndex;
     NSIndexPath *playIndex;
     NSInteger MenuNum;
@@ -212,10 +213,11 @@
     DataClass *data = [DataManager sharedManager].dataList[indexPath.row];
     NSLog(@"%@", [data.filePath lastPathComponent]);
     //    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    NSArray *cells = [jambo visibleCells];
-    for (SmartCell *cell in cells) {
+    
+    for (SmartCell *cell in [jambo visibleCells]) {
         [cell setStop];
     }
+    
     SmartCell *customCell = (SmartCell *)[jambo cellForRowAtIndexPath:indexPath];
     [customCell toggle];
     if ( playIndex.row==indexPath.row && self.player.playing)
@@ -225,22 +227,32 @@
     }
     else
     {//SetFile -> ErrorKakunin
-        NSLog(@"%@",data.filePath);
-        NSURL *url = [NSURL fileURLWithPath:data.filePath];
-        if ( [[NSFileManager defaultManager] fileExistsAtPath:[url path]] )
+        NSLog(@"Let'sPlay!!!!!%@",data.filePath);
+//        NSURL *url = [NSURL fileURLWithPath:data.filePath];
+        if ( [[NSFileManager defaultManager] fileExistsAtPath:data.filePath] )
         {
-            NSLog(@"unko");
-            NSError *error = nil;
-            self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-            if ( error != nil )
-            {
-                NSLog(@"Error %@", [error localizedDescription]);
-            }
+            NSLog(@"FileExist");
             playIndex = indexPath;
+            NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/%d.caf",indexPath.row];
+            //NSString *mergeCache = [merge stringByAppendingPathExtension:@"caf"];
+            NSLog(@"mergeCache:%@",mergeCache);
+            NSURL *setmusic;
+                if([[NSFileManager defaultManager] fileExistsAtPath:mergeCache])
+                {
+                                NSLog(@"CacheExist");
+                    setmusic = [NSURL fileURLWithPath:mergeCache];
+                }else{
+                    NSLog(@"Let's Merge");
+                    setmusic = [self audioMerge:data];
+                }
+                NSError *error = nil;
+                self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:setmusic error:&error];
+                if ( error != nil ) NSLog(@"Error %@", [error localizedDescription]);
             [self.player prepareToPlay];
             [self.player setDelegate:self];
             [self.player play];
-        }else{NSLog(@"fuck");}
+        }else{NSLog(@"File is not there");}
         //[RB setTitle:@"Pause" forState:UIControlStateNormal];
     }
 }
@@ -345,5 +357,91 @@
 - (IBAction)toGoHome:(id)sender {
     NSLog(@"HOME!");
     [self.tabBarController setSelectedIndex:0];
+}
+- (void) setUpAndAddAudioAtPath:(NSURL*)assetURLs toComposition:(AVMutableComposition *)composition :(BOOL)which
+{
+    AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL:assetURLs options:nil];
+    AVMutableCompositionTrack *track = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+    AVAssetTrack *sourceAudioTrack = [[songAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
+    NSError *error = nil;
+    BOOL ok = NO;
+    CMTime startTime = CMTimeMakeWithSeconds(0, 1);
+    CMTime trackDuration = songAsset.duration;
+    //CMTime longestTime = CMTimeMake(848896, 44100); //(19.24 seconds)
+    CMTimeRange tRange;
+    if(which){
+       tRange = CMTimeRangeMake(startTime, trackDuration);
+        if(durationF.value < trackDuration.value){durationF=trackDuration;}
+    }else{
+        tRange = CMTimeRangeMake(startTime, durationF);
+    }
+    if (!which) {
+        NSLog(@"BGM入れてる！");
+    }
+    //Set Volume
+    AVMutableAudioMixInputParameters *trackMix = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:track];
+    [trackMix setVolume:0.9f atTime:startTime];
+    [audioMixParams addObject:trackMix];
+    //Insert audio into track
+    ok = [track insertTimeRange:tRange ofTrack:sourceAudioTrack atTime:CMTimeMake(0, 44100) error:&error];
+    if ( error != nil ) NSLog(@"Error %@", [error localizedDescription]);
+    if(ok && !which)NSLog(@"BGM入った！");
+}
+-(NSURL *) audioMerge:(DataClass *)data{
+    AVMutableComposition *composition = [AVMutableComposition composition];
+    audioMixParams = [[NSMutableArray alloc] initWithObjects:nil];
+    //IMPLEMENT FOLLOWING CODE WHEN WANT TO MERGE ANOTHER AUDIO FILE
+    //Add Audio Tracks to Composition
+    for (NSString *path in data.filePaths) {
+        NSURL *pathURL = [NSURL fileURLWithPath:path];
+        [self setUpAndAddAudioAtPath:pathURL   toComposition:composition :1];
+    }
+    if(data.BGMnumber){
+        NSLog(@"BGM入れるよ！");
+        NSString *asset = [[NSString alloc]initWithFormat:@"BGM%d",-data.BGMnumber];
+        NSString *URLPath = [[NSBundle mainBundle] pathForResource:asset ofType:@"aif"];
+        NSURL *URL = [NSURL fileURLWithPath:URLPath];
+        [self setUpAndAddAudioAtPath:URL   toComposition:composition :0];
+    }
+    AVMutableAudioMix *audioMix = [AVMutableAudioMix audioMix];
+    audioMix.inputParameters = [NSArray arrayWithArray:audioMixParams];
+    //If you need to query what formats you can export to, here's a way to find out
+    NSLog (@"compatible presets for songAsset: %@",
+           [AVAssetExportSession exportPresetsCompatibleWithAsset:composition]);
+    AVAssetExportSession *exporter = [[AVAssetExportSession alloc]
+                                      initWithAsset: composition
+                                      presetName: AVAssetExportPresetAppleM4A];
+    exporter.audioMix = audioMix;
+    exporter.outputFileType = @"com.apple.m4a-audio";
+    //exporter.outputFileType = @"com.microsoft.waveform-audio";
+    NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/%d.caf",playIndex.row];
+    //NSString *mergeCache = [merge stringByAppendingPathExtension:@"caf"];
+    NSURL *mergeCacheURL = [NSURL fileURLWithPath:mergeCache];
+    exporter.outputURL = mergeCacheURL;
+    // do the export
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    [exporter exportAsynchronouslyWithCompletionHandler:^{
+        int exportStatus = exporter.status;
+        NSError *exportError = exporter.error;
+        switch (exportStatus) {
+            case AVAssetExportSessionStatusFailed:
+                break;
+            case AVAssetExportSessionStatusCompleted: NSLog (@"AVAssetExportSessionStatusCompleted");
+                dispatch_semaphore_signal(semaphore);
+                break;
+            case AVAssetExportSessionStatusUnknown: NSLog (@"AVAssetExportSessionStatusUnknown"); break;
+            case AVAssetExportSessionStatusExporting: NSLog (@"AVAssetExportSessionStatusExporting"); break;
+            case AVAssetExportSessionStatusCancelled: NSLog (@"AVAssetExportSessionStatusCancelled"); break;
+            case AVAssetExportSessionStatusWaiting: NSLog (@"AVAssetExportSessionStatusWaiting"); break;
+            default:  NSLog (@"didn't get export status"); break;
+        }
+        if ( exportError != nil )
+        {
+            NSLog(@"exportError %@", [exportError localizedDescription]);
+        }
+    }];
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    return mergeCacheURL;
 }
 @end
