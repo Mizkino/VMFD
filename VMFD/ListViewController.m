@@ -285,12 +285,12 @@
     DataClass *data = [DataManager sharedManager].dataList[touchIndex.row];
     //NSLog(@"%@", _musicList[touchIndex.row]);
     NSLog(@"%@", [data.filePath lastPathComponent]);
-    tableMenu.center = CGPointMake(jambo.center.x, tableMenu.center.y);
-    CGRect rect = tableMenu.frame;
+    tableMenu.center = CGPointMake(jambo.center.x+jambo.center.x/2, self.view.center.y+self.view.center.y/2);
+    //CGRect rect = tableMenu.frame;
     tableMenu.alpha = 0.7;
     //rect.origin.y = jambo.frame.size.height - rect.size.height;
-    rect.origin.y = rect.size.height;
-    tableMenu.frame = rect;
+    //rect.origin.y = rect.size.height;
+    //tableMenu.frame = rect;
     
     [self.view addSubview:tableMenu];
     [tableMenu addGestureRecognizer:pan];
