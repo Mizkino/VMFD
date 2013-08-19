@@ -14,8 +14,6 @@
 @property(strong, nonatomic) IBOutlet UIButton *RB;
 @property(strong, nonatomic) IBOutlet UIButton *LB;
 
-
-
 - (void)setPlay;
 - (void)setStop;
 - (void)toggle;

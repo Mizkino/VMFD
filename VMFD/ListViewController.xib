@@ -43,7 +43,6 @@
 						<int key="NSvFlags">256</int>
 						<string key="NSFrame">{{0, -54}, {768, 1024}}</string>
 						<reference key="NSSuperview" ref="412080526"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="533576404"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -61,7 +60,6 @@
 						<array class="NSMutableArray" key="NSSubviews"/>
 						<string key="NSFrame">{{47, 181}, {673, 709}}</string>
 						<reference key="NSSuperview" ref="412080526"/>
-						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xMTc2NDcwNTg4IDAuMTE3NjQ3MDU4OCAwLjEwOTgwMzkyMTYAA</bytes>
@@ -84,7 +82,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{44, 51}, {112, 112}}</string>
 						<reference key="NSSuperview" ref="412080526"/>
-						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -120,7 +117,6 @@
 				</array>
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="195715872"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -138,7 +134,6 @@
 				<array class="NSMutableArray" key="NSSubviews"/>
 				<string key="NSFrameSize">{300, 240}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor" id="584382175">
 					<int key="NSColorSpace">3</int>
@@ -158,7 +153,7 @@
 				<float key="IBUISectionFooterHeight">1</float>
 			</object>
 			<object class="IBUIView" id="287708569">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">290</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUITextField" id="444730251">
@@ -241,7 +236,6 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{400, 120}</string>
-				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="444730251"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="584382175"/>
@@ -464,81 +458,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">61</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">ListViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="PushAccept:">id</string>
-						<string key="PushCancel:">id</string>
-						<string key="toGoHome:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="PushAccept:">
-							<string key="name">PushAccept:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="PushCancel:">
-							<string key="name">PushCancel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="toGoHome:">
-							<string key="name">toGoHome:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="acceptButton">UIButton</string>
-						<string key="cancelButton">UIButton</string>
-						<string key="jambo">UITableView</string>
-						<string key="outsideImage">UIImageView</string>
-						<string key="renameText">UITextField</string>
-						<string key="renameView">UIView</string>
-						<string key="tableMenu">UITableView</string>
-						<string key="toHomeButton">UIButton</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="acceptButton">
-							<string key="name">acceptButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cancelButton">
-							<string key="name">cancelButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="jambo">
-							<string key="name">jambo</string>
-							<string key="candidateClassName">UITableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="outsideImage">
-							<string key="name">outsideImage</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="renameText">
-							<string key="name">renameText</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="renameView">
-							<string key="name">renameView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="tableMenu">
-							<string key="name">tableMenu</string>
-							<string key="candidateClassName">UITableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="toHomeButton">
-							<string key="name">toHomeButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ListViewController.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
