@@ -37,10 +37,34 @@ UITabBarController *tabcon;
     [tabcon setViewControllers:@[menCon,recCon,lisCon]];
     self.window.rootViewController = tabcon;
     [self.window makeKeyAndVisible];
+    
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIImage *buttonImage = [UIImage imageNamed:@"TabButton.png"];
+//    button.frame = CGRectMake(0.0, 0.0,  buttonImage.size.width, buttonImage.size.height);
+//    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+////    [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
+//        CGPoint center = tabcon.view.center;
+//        center.y = tabcon.view.frame.size.height - (buttonImage.size.height*1/5);
+//        button.center = center;
+//    [tabcon.view addSubview:button];
+//    [button addTarget:self.tabBarController action:@selector(centerButtonTouched)
+//     forControlEvents:UIControlEventTouchUpInside];
     return YES;
-}
+    }
+//-(void)centerButtonTouched{
+//    [self.tabBarController setSelectedIndex:1];
+//}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
+    NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
+    NSError *err;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:mergeCache]) {
+        NSLog(@"Cache発見削除する！");
+        [[NSFileManager defaultManager] removeItemAtPath:mergeCache error:&err];
+        if ( err != nil ) NSLog(@"DataDeleteError:%@",[err localizedDescription]);
+    }
     [[DataManager sharedManager] save];
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

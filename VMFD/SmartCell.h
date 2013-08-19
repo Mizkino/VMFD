@@ -11,6 +11,7 @@
 @property(strong, nonatomic) IBOutlet UILabel *countLabel;
 @property(strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property(strong, nonatomic) IBOutlet UILabel *songTime;
+@property(strong, nonatomic) IBOutlet UILabel *bgmTag;
 @property(strong, nonatomic) IBOutlet UIButton *RB;
 @property(strong, nonatomic) IBOutlet UIButton *LB;
 

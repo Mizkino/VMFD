@@ -26,6 +26,7 @@
     IBOutlet UIButton *cancelButton;
     IBOutlet UIButton *toHomeButton;
     IBOutlet UIImageView *outsideImage;
+    IBOutlet UIView *Prosessing;
     CMTime durationF;
     NSString *cacheD;
     UIPanGestureRecognizer *pan;
@@ -74,9 +75,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view addSubview:Prosessing];
+    UIActivityIndicatorView *Quruli = [UIActivityIndicatorView new];
+    Quruli.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    [Quruli.layer setValue:[NSNumber numberWithFloat:1.39f] forKeyPath:@"transform.scale"];
+    Quruli.center = Prosessing.center;
+    [Prosessing addSubview:Quruli];
+    [Quruli startAnimating];
+    Prosessing.alpha = 0;
     //[self.view addSubview:jambo];
-    NSLog(@"view didload");
-    //WaytoWrite otameshi
+
+    NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
+    NSError *err;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:mergeCache]) {
+        NSLog(@"CacheMUsic作成！");
+        [[NSFileManager defaultManager] createDirectoryAtPath:mergeCache withIntermediateDirectories:YES attributes:nil error:&err];
+        if ( err != nil ) NSLog(@"DataDeleteError:%@",[err localizedDescription]);
+    }
+
     tableMenu.delegate = self;
     tableMenu.dataSource = self;
     pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector (panAction:)];
@@ -148,6 +165,9 @@
     int decSec = (int)((data.dataTime/441) - minutes * 6000 - second * 100);
     NSString *Time = [[NSString alloc]initWithFormat:@"%02d:%02d:%02d", minutes, second, decSec];
     customCell.songTime.text = Time;
+    NSArray *bgTagName= @[@"NO BGM",@"Techno",@"HipHop",@"Drum'n Bass",@"Jazz"];
+//    NSString *Bgmtagss = [NSString stringWithFormat:@"BGM : %@",bgTagName[data.BGMnumber]];
+    customCell.bgmTag.text = bgTagName[data.BGMnumber];
 }
 
 //--------------------------------------------------------------//
@@ -231,6 +251,7 @@
 //        NSURL *url = [NSURL fileURLWithPath:data.filePath];
         if ( [[NSFileManager defaultManager] fileExistsAtPath:data.filePath] )
         {
+            Prosessing.alpha = 0.3;
             NSLog(@"FileExist");
             playIndex = indexPath;
             NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -240,7 +261,7 @@
             NSURL *setmusic;
                 if([[NSFileManager defaultManager] fileExistsAtPath:mergeCache])
                 {
-                                NSLog(@"CacheExist");
+                    NSLog(@"CacheExist");
                     setmusic = [NSURL fileURLWithPath:mergeCache];
                 }else{
                     NSLog(@"Let's Merge");
@@ -252,6 +273,7 @@
             [self.player prepareToPlay];
             [self.player setDelegate:self];
             [self.player play];
+            Prosessing.alpha = 0;
         }else{NSLog(@"File is not there");}
         //[RB setTitle:@"Pause" forState:UIControlStateNormal];
     }
@@ -399,7 +421,7 @@
     if(data.BGMnumber){
         NSLog(@"BGM入れるよ！");
         NSString *asset = [[NSString alloc]initWithFormat:@"BGM%d",-data.BGMnumber];
-        NSString *URLPath = [[NSBundle mainBundle] pathForResource:asset ofType:@"aif"];
+        NSString *URLPath = [[NSBundle mainBundle] pathForResource:asset ofType:@"m4a"];
         NSURL *URL = [NSURL fileURLWithPath:URLPath];
         [self setUpAndAddAudioAtPath:URL   toComposition:composition :0];
     }
@@ -415,7 +437,7 @@
     exporter.outputFileType = @"com.apple.m4a-audio";
     //exporter.outputFileType = @"com.microsoft.waveform-audio";
     NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/%d.caf",playIndex.row];
+    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music/%d.caf",playIndex.row];
     //NSString *mergeCache = [merge stringByAppendingPathExtension:@"caf"];
     NSURL *mergeCacheURL = [NSURL fileURLWithPath:mergeCache];
     exporter.outputURL = mergeCacheURL;

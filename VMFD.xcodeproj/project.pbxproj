@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		748E0ADF17C29108001836F3 /* BGM-3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 748E0ADA17C29106001836F3 /* BGM-3.m4a */; };
+		748E0AE017C29108001836F3 /* BGM-2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 748E0ADB17C29106001836F3 /* BGM-2.m4a */; };
+		748E0AE117C29108001836F3 /* BGM-4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 748E0ADC17C29107001836F3 /* BGM-4.m4a */; };
+		748E0AE317C29108001836F3 /* BGM-1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 748E0ADE17C29108001836F3 /* BGM-1.m4a */; };
+		748E0AE417C29753001836F3 /* BGM-3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 748E0ADA17C29106001836F3 /* BGM-3.m4a */; };
+		748E0AE517C2975C001836F3 /* BGM-2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 748E0ADB17C29106001836F3 /* BGM-2.m4a */; };
+		748E0AE617C2975E001836F3 /* BGM-4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 748E0ADC17C29107001836F3 /* BGM-4.m4a */; };
+		748E0AE717C29762001836F3 /* BGM-1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 748E0ADE17C29108001836F3 /* BGM-1.m4a */; };
 		74E62B5217BAAB0800263925 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E62B5017BAAB0800263925 /* ListViewController.m */; };
 		74E62B5317BAAB0800263925 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5117BAAB0800263925 /* ListViewController.xib */; };
-		74E62B5817BAD6B400263925 /* BGM-2.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5417BAD6B400263925 /* BGM-2.aif */; };
-		74E62B5917BAD6B400263925 /* BGM-2.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5417BAD6B400263925 /* BGM-2.aif */; };
-		74E62B5A17BAD6B400263925 /* BGM-1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5517BAD6B400263925 /* BGM-1.aif */; };
-		74E62B5B17BAD6B400263925 /* BGM-1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5517BAD6B400263925 /* BGM-1.aif */; };
-		74E62B5C17BAD6B400263925 /* BGM-3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5617BAD6B400263925 /* BGM-3.aif */; };
-		74E62B5D17BAD6B400263925 /* BGM-3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5617BAD6B400263925 /* BGM-3.aif */; };
-		74E62B5E17BAD6B400263925 /* BGM-4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5717BAD6B400263925 /* BGM-4.aif */; };
-		74E62B5F17BAD6B400263925 /* BGM-4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B5717BAD6B400263925 /* BGM-4.aif */; };
 		74E62B6117BAE18100263925 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6017BAE18100263925 /* icon.png */; };
 		74E62B6217BAE18100263925 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62B6017BAE18100263925 /* icon.png */; };
 		74E62D4117BB1E0B00263925 /* list_.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62D4017BB1E0A00263925 /* list_.png */; };
@@ -84,7 +84,6 @@
 		74E62DBD17BB4B1900263925 /* MujiRec@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DBA17BB4B1800263925 /* MujiRec@2x.png */; };
 		74E62DBE17BB4B1900263925 /* MujiRec@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DBA17BB4B1800263925 /* MujiRec@2x.png */; };
 		74E62DC017BD3F5A00263925 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E62DBF17BD3F5A00263925 /* QuartzCore.framework */; };
-		74E62DC617BD890400263925 /* Buttonkai.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DC517BD890100263925 /* Buttonkai.png */; };
 		74E62DC817BD8C7200263925 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DC717BD8C7100263925 /* DS-DIGI.TTF */; };
 		74E62DC917BD8C7200263925 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DC717BD8C7100263925 /* DS-DIGI.TTF */; };
 		74E62DD117BDA84600263925 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E62DD017BDA84500263925 /* pause.png */; };
@@ -140,13 +139,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		748E0ADA17C29106001836F3 /* BGM-3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-3.m4a"; sourceTree = "<group>"; };
+		748E0ADB17C29106001836F3 /* BGM-2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-2.m4a"; sourceTree = "<group>"; };
+		748E0ADC17C29107001836F3 /* BGM-4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-4.m4a"; sourceTree = "<group>"; };
+		748E0ADE17C29108001836F3 /* BGM-1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-1.m4a"; sourceTree = "<group>"; };
 		74E62B4F17BAAB0800263925 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		74E62B5017BAAB0800263925 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		74E62B5117BAAB0800263925 /* ListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
-		74E62B5417BAD6B400263925 /* BGM-2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-2.aif"; sourceTree = "<group>"; };
-		74E62B5517BAD6B400263925 /* BGM-1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-1.aif"; sourceTree = "<group>"; };
-		74E62B5617BAD6B400263925 /* BGM-3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-3.aif"; sourceTree = "<group>"; };
-		74E62B5717BAD6B400263925 /* BGM-4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BGM-4.aif"; sourceTree = "<group>"; };
 		74E62B6017BAE18100263925 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		74E62D4017BB1E0A00263925 /* list_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_.png; sourceTree = "<group>"; };
 		74E62D4317BB1E1800263925 /* home_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_.png; sourceTree = "<group>"; };
@@ -181,7 +180,6 @@
 		74E62DB917BB4B1800263925 /* MujiRec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MujiRec.png; sourceTree = "<group>"; };
 		74E62DBA17BB4B1800263925 /* MujiRec@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MujiRec@2x.png"; sourceTree = "<group>"; };
 		74E62DBF17BD3F5A00263925 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		74E62DC517BD890100263925 /* Buttonkai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buttonkai.png; sourceTree = "<group>"; };
 		74E62DC717BD8C7100263925 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
 		74E62DD017BDA84500263925 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		74E62E1B17BE88FC00263925 /* VMFD copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "VMFD copy-Info.plist"; path = "/Users/pcuser/Program/VMFD/VMFD copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -339,18 +337,17 @@
 		74FBF90E17B41DAA0034262B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				748E0ADA17C29106001836F3 /* BGM-3.m4a */,
+				748E0ADB17C29106001836F3 /* BGM-2.m4a */,
+				748E0ADC17C29107001836F3 /* BGM-4.m4a */,
+				748E0ADE17C29108001836F3 /* BGM-1.m4a */,
 				74E62D4F17BB30C700263925 /* プログラム用データ */,
-				74E62DC517BD890100263925 /* Buttonkai.png */,
 				74E62DD017BDA84500263925 /* pause.png */,
 				74E62B6017BAE18100263925 /* icon.png */,
 				74E62D4017BB1E0A00263925 /* list_.png */,
 				74E62D4317BB1E1800263925 /* home_.png */,
 				74E62D4617BB1E3300263925 /* home__.png */,
 				74E62D4917BB1E3F00263925 /* list__.png */,
-				74E62B5517BAD6B400263925 /* BGM-1.aif */,
-				74E62B5417BAD6B400263925 /* BGM-2.aif */,
-				74E62B5617BAD6B400263925 /* BGM-3.aif */,
-				74E62B5717BAD6B400263925 /* BGM-4.aif */,
 				74E62DC717BD8C7100263925 /* DS-DIGI.TTF */,
 				74FBF90F17B41DAA0034262B /* VMFD-Info.plist */,
 				74FBF91017B41DAA0034262B /* InfoPlist.strings */,
@@ -484,10 +481,6 @@
 				74FBF94E17B43F070034262B /* SmartCell.xib in Resources */,
 				74FBF95517B43F330034262B /* RecordViewController.xib in Resources */,
 				74E62B5317BAAB0800263925 /* ListViewController.xib in Resources */,
-				74E62B5817BAD6B400263925 /* BGM-2.aif in Resources */,
-				74E62B5A17BAD6B400263925 /* BGM-1.aif in Resources */,
-				74E62B5C17BAD6B400263925 /* BGM-3.aif in Resources */,
-				74E62B5E17BAD6B400263925 /* BGM-4.aif in Resources */,
 				74E62B6117BAE18100263925 /* icon.png in Resources */,
 				74E62D4117BB1E0B00263925 /* list_.png in Resources */,
 				74E62D4417BB1E1800263925 /* home_.png in Resources */,
@@ -521,13 +514,16 @@
 				74E62DB717BB49EA00263925 /* StopButton@2x.png in Resources */,
 				74E62DBB17BB4B1900263925 /* MujiRec.png in Resources */,
 				74E62DBD17BB4B1900263925 /* MujiRec@2x.png in Resources */,
-				74E62DC617BD890400263925 /* Buttonkai.png in Resources */,
 				74E62DC817BD8C7200263925 /* DS-DIGI.TTF in Resources */,
 				74E62DD117BDA84600263925 /* pause.png in Resources */,
 				74E62E6A17BE979B00263925 /* RecBG.png in Resources */,
 				74E62E6C17BE979B00263925 /* RecBG@2x.png in Resources */,
 				74E62E6F17BEC5FF00263925 /* Buttonx2.png in Resources */,
 				74E62E7517BECD0700263925 /* TabButton.png in Resources */,
+				748E0AE617C2975E001836F3 /* BGM-4.m4a in Resources */,
+				748E0AE417C29753001836F3 /* BGM-3.m4a in Resources */,
+				748E0AE517C2975C001836F3 /* BGM-2.m4a in Resources */,
+				748E0AE717C29762001836F3 /* BGM-1.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,10 +534,6 @@
 				74FBF93017B41DAA0034262B /* InfoPlist.strings in Resources */,
 				74FBF94F17B43F070034262B /* SmartCell.xib in Resources */,
 				74FBF95617B43F330034262B /* RecordViewController.xib in Resources */,
-				74E62B5917BAD6B400263925 /* BGM-2.aif in Resources */,
-				74E62B5B17BAD6B400263925 /* BGM-1.aif in Resources */,
-				74E62B5D17BAD6B400263925 /* BGM-3.aif in Resources */,
-				74E62B5F17BAD6B400263925 /* BGM-4.aif in Resources */,
 				74E62B6217BAE18100263925 /* icon.png in Resources */,
 				74E62D4217BB1E0B00263925 /* list_.png in Resources */,
 				74E62D4517BB1E1800263925 /* home_.png in Resources */,
@@ -581,6 +573,10 @@
 				74E62E6D17BE979B00263925 /* RecBG@2x.png in Resources */,
 				74E62E7017BEC5FF00263925 /* Buttonx2.png in Resources */,
 				74E62E7617BECD0700263925 /* TabButton.png in Resources */,
+				748E0ADF17C29108001836F3 /* BGM-3.m4a in Resources */,
+				748E0AE017C29108001836F3 /* BGM-2.m4a in Resources */,
+				748E0AE117C29108001836F3 /* BGM-4.m4a in Resources */,
+				748E0AE317C29108001836F3 /* BGM-1.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,8 @@
     IBOutlet UILabel *recTimeLabel;
     IBOutlet UILabel *setBGMLabel;
     IBOutlet UILabel *BGMnameLabel;
+    IBOutlet UIView *Prosessing;
+    NSString *cachePath;
     NSString *musPath;
     NSDate *stdate;
     NSURL *recordURL;
@@ -51,6 +53,21 @@ BOOL timeflg = NO;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
+    NSError *err;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:mergeCache]) {
+        NSLog(@"CacheMUsic作成！");
+        [[NSFileManager defaultManager] createDirectoryAtPath:mergeCache withIntermediateDirectories:YES attributes:nil error:&err];
+        if ( err != nil ) NSLog(@"DataDeleteError:%@",[err localizedDescription]);
+    }
+    [self.view addSubview:Prosessing];
+    UIActivityIndicatorView *Quruli = [UIActivityIndicatorView new];
+    Quruli.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    [Quruli.layer setValue:[NSNumber numberWithFloat:1.39f] forKeyPath:@"transform.scale"];
+    Quruli.center = Prosessing.center;
+    [Prosessing addSubview:Quruli];
+    [Quruli startAnimating];
     [timeLabel setFont:[UIFont fontWithName:@"DS-Digital" size:35]];
     [recTimeLabel setFont:[UIFont fontWithName:@"DS-Digital" size:35]];
     [setBGMLabel setFont:[UIFont fontWithName:@"DS-Digital" size:35]];
@@ -66,15 +83,18 @@ BOOL timeflg = NO;
     if (![fileManager fileExistsAtPath:musPath]) {
         [fileManager createDirectoryAtPath:musPath  withIntermediateDirectories:YES  attributes:nil  error:nil];
     }
-    
-    
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     timer = [NSTimer scheduledTimerWithTimeInterval:(0.01) target:self selector:@selector(onTimer:) userInfo:nil repeats:YES];
     timeLabel.text = @"00:00:00";
-    bgmNum = [DataManager sharedManager].unko;
+    Prosessing.alpha = 0.3;
     NSLog(@"bgmNum = %d",bgmNum);
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (bgmNum!=[DataManager sharedManager].unko) {
+    bgmNum = [DataManager sharedManager].unko;
     if(bgmNum)
     {
         if (bgmNum < 0) {
@@ -89,20 +109,30 @@ BOOL timeflg = NO;
         }else if(bgmNum > 0){
             DataClass *data = [DataManager sharedManager].dataList[bgmNum-1];
             assetURL = [self audioMerge:data];
+            cachePath = [assetURL path];
             BGMnameLabel.text = data.fileName;
         }
         NSError *error;
-        {self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:assetURL error:&error];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if ([fileManager fileExistsAtPath:[assetURL path]])
+        {
+            self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:assetURL error:&error];
             [self.player setDelegate:self];
             if ( error != nil )
             {
                 NSLog(@"PlayerError %@", [error localizedDescription]);
             }
-            [self.player prepareToPlay];}
+            [self.player prepareToPlay];
+        }
+    }else{
+        BGMnameLabel.text = @"Nothing";
     }
+    }
+    Prosessing.alpha = 0;
 }
+
 - (void)viewWillDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
+    [super viewWillDisappear:animated];
     timeLabel.text=nil;
     timeflg = FALSE;
     // Release any retained subviews of the main view.
@@ -111,9 +141,7 @@ BOOL timeflg = NO;
     REC.alpha = 0;
     Stop.alpha = 0;
 }
-- (void)setLabelstext{
-    
-}
+
 - (void)onTimer:(NSTimer*)timer {
     //startボタンが押されたら常に真となり下記処理が実行される
     if(timeflg){
@@ -242,7 +270,7 @@ BOOL timeflg = NO;
 }
 
 -(NSURL *) audioMerge:(DataClass *)data{
-            NSLog(@"A u d i o M e r g e ! ! ! !");
+    NSLog(@"A u d i o M e r g e ! ! ! !");
     AVMutableComposition *composition = [AVMutableComposition composition];
     audioMixParams = [[NSMutableArray alloc] initWithObjects:nil];
     //IMPLEMENT FOLLOWING CODE WHEN WANT TO MERGE ANOTHER AUDIO FILE
@@ -254,7 +282,9 @@ BOOL timeflg = NO;
     if(data.BGMnumber){
         NSLog(@"SetBGM");
         NSString *asset = [[NSString alloc]initWithFormat:@"BGM%d",-data.BGMnumber];
-        NSString *URLPath = [[NSBundle mainBundle] pathForResource:asset ofType:@"aif"];
+        NSLog(@"%@",asset);
+        NSString *URLPath = [[NSBundle mainBundle] pathForResource:asset ofType:@"m4a"];
+        NSLog(@"URLpath = %@",URLPath);
         [self setUpAndAddAudioAtPath:[NSURL fileURLWithPath:URLPath]   toComposition:composition];
     }
     AVMutableAudioMix *audioMix = [AVMutableAudioMix audioMix];
@@ -268,10 +298,10 @@ BOOL timeflg = NO;
     exporter.audioMix = audioMix;
     exporter.outputFileType = @"com.apple.m4a-audio";
     //exporter.outputFileType = @"com.microsoft.waveform-audio";
-
-//    NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    
+    //    NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/kuso.caf"];
+    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music/kuso.caf"];
     NSURL *mergeCacheURL = [NSURL fileURLWithPath:mergeCache];
     NSLog(@"エクスポートパス：%@",mergeCache);
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -280,7 +310,7 @@ BOOL timeflg = NO;
     }
     
     exporter.outputURL = mergeCacheURL;
-
+    
     // do the export
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     [exporter exportAsynchronouslyWithCompletionHandler:^{
@@ -305,7 +335,7 @@ BOOL timeflg = NO;
             NSLog(@"Merge exportError %@", [exportError localizedDescription]);
         }
     }];
-
+    
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     return mergeCacheURL;
 }
@@ -339,104 +369,13 @@ BOOL timeflg = NO;
     [[DataManager sharedManager] save];
     [DataManager sharedManager].unko = 0;
     self.recorder = nil;
+    if (bgmNum > 0) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if ([fileManager fileExistsAtPath:cachePath]) {
+            [fileManager removeItemAtPath:cachePath error:nil];
+        }
+    }
     [self.tabBarController setSelectedIndex:2];
-}
-//- (void) setUpAndAddAudioAtPath:(NSURL*)assetURLs toComposition:(AVMutableComposition *)composition :(NSInteger )which
-//{
-//    AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL:assetURLs options:nil];
-//    AVMutableCompositionTrack *track = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
-//    AVAssetTrack *sourceAudioTrack = [[songAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
-//    NSError *error = nil;
-//    BOOL ok = NO;
-//
-//    CMTime startTime = CMTimeMakeWithSeconds(0, 1);
-//    //    CMTime trackDuration = songAsset.duration;
-//    //if(which || bgmNum > 0){
-//    NSLog(@"nuhuhu");
-//    NSLog(@"%d",bgmNum);
-//    song1 = songAsset.duration;
-//    //}
-//    if((int)durationF < (int)song1.value ){
-//        NSLog(@"入ってるよぉ！");
-//        durationF = song1.value;}// @@@@
-//    //CMTime longestTime = CMTimeMake(848896, 44100); //(19.24 seconds)
-//    //    CMTimeRange tRange = CMTimeRangeMake(startTime, trackDuration);
-//    NSLog(@"%f",(double)song1.value);
-//    CMTimeRange tRange = CMTimeRangeMake(startTime, song1);
-//
-//    //Set Volume
-//    AVMutableAudioMixInputParameters *trackMix = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:track];
-//    [trackMix setVolume:0.9f atTime:startTime];
-//    [audioMixParams addObject:trackMix];
-//
-//    //Insert audio into track
-//    ok = [track insertTimeRange:tRange ofTrack:sourceAudioTrack atTime:CMTimeMake(0, 44100) error:&error];
-//}
-
--(void)saveRecording{
-    AVMutableComposition *composition = [AVMutableComposition composition];
-    audioMixParams = [[NSMutableArray alloc] initWithObjects:nil];
-    //IMPLEMENT FOLLOWING CODE WHEN WANT TO MERGE ANOTHER AUDIO FILE
-    //Add Audio Tracks to Composition
-    DataClass *daki = [DataManager sharedManager].dataList[0];
-    DataClass *dako = [DataManager sharedManager].dataList[1];
-    [self setUpAndAddAudioAtPath:[NSURL fileURLWithPath:daki.filePath]   toComposition:composition];
-    [self setUpAndAddAudioAtPath:[NSURL fileURLWithPath:dako.filePath]   toComposition:composition];
-    AVMutableAudioMix *audioMix = [AVMutableAudioMix audioMix];
-    audioMix.inputParameters = [NSArray arrayWithArray:audioMixParams];
-
-    //If you need to query what formats you can export to, here's a way to find out
-    NSLog (@"compatible presets for songAsset: %@",
-           [AVAssetExportSession exportPresetsCompatibleWithAsset:composition]);
-
-    AVAssetExportSession *exporter = [[AVAssetExportSession alloc]
-                                      initWithAsset: composition
-                                      presetName: AVAssetExportPresetAppleM4A];
-    exporter.audioMix = audioMix;
-    exporter.outputFileType = @"com.apple.m4a-audio";
-    //exporter.outputFileType = @"com.microsoft.waveform-audio";
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM_dd_HH_mm_ss"];
-    NSDate *date = [NSDate date];
-    NSString *dateStr = [formatter stringFromDate:date];
-    NSString *filePath = [musPath stringByAppendingPathComponent:dateStr];
-    NSString *filename = [NSString stringWithFormat:@"%@.caf",filePath];
-    //NSString *filePath = [musPath stringByAppendingPathComponent:filename];
-    NSURL *url = [NSURL fileURLWithPath:filename];
-    exporter.outputURL = url;
-    // do the export
-    [exporter exportAsynchronouslyWithCompletionHandler:^{
-        int exportStatus = exporter.status;
-        NSError *exportError = exporter.error;
-
-        switch (exportStatus) {
-            case AVAssetExportSessionStatusFailed:
-                break;
-            case AVAssetExportSessionStatusCompleted: NSLog (@"AVAssetExportSessionStatusCompleted");
-                
-                break;
-            case AVAssetExportSessionStatusUnknown: NSLog (@"AVAssetExportSessionStatusUnknown"); break;
-            case AVAssetExportSessionStatusExporting: NSLog (@"AVAssetExportSessionStatusExporting"); break;
-            case AVAssetExportSessionStatusCancelled: NSLog (@"AVAssetExportSessionStatusCancelled"); break;
-            case AVAssetExportSessionStatusWaiting: NSLog (@"AVAssetExportSessionStatusWaiting"); break;
-            default:  NSLog (@"didn't get export status"); break;
-        }
-        if ( exportError != nil )
-        {
-            NSLog(@"exportError %@", [exportError localizedDescription]);
-        }
-    }];
-    //@@@@
-//    DataClass *dataClass = [DataClass new];
-//    dataClass.filePath = filename;
-//    dataClass.fileName = dateStr;
-//    dataClass.makeDate = date;
-//    dataClass.dataTime = durationF;
-//    NSLog(@"%f",(double)durationF);
-//    [[DataManager sharedManager] addData:dataClass];
-//    [[DataManager sharedManager] save];
-//    [DataManager sharedManager].unko = 0;
-//    [self.tabBarController setSelectedIndex:2];
 }
 
 
