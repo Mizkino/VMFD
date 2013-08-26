@@ -138,7 +138,7 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews"/>
-				<string key="NSFrameSize">{198, 240}</string>
+				<string key="NSFrameSize">{198, 180}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -263,7 +263,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 360}, {768, 158}}</string>
 						<reference key="NSSuperview" ref="801607735"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -289,6 +289,7 @@
 				</array>
 				<string key="NSFrameSize">{768, 1004}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="741125166"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="584382175"/>
@@ -539,6 +540,25 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">ListViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="PushAccept:">id</string>
+						<string key="PushCancel:">id</string>
+						<string key="toGoHome:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="PushAccept:">
+							<string key="name">PushAccept:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="PushCancel:">
+							<string key="name">PushCancel:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="toGoHome:">
+							<string key="name">toGoHome:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="Prosessing">UIView</string>
 						<string key="acceptButton">UIButton</string>

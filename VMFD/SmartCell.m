@@ -13,6 +13,7 @@
 -(id)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if(self){
+        self.selectionStyle= UITableViewCellSelectionStyleNone;
     isPlaying=NO;
     }
     return self;

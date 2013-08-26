@@ -72,29 +72,22 @@
         case 0:
             NSLog(@"nothing");
             [DataManager sharedManager].unko=0;
+            break;
         case 1:
             NSLog(@"1");
-            self.view.backgroundColor = [UIColor greenColor];
             [DataManager sharedManager].unko=-1;
-            NSLog(@"kari=%d",_kari);
             break;
         case 2:
             NSLog(@"2");
-            self.view.backgroundColor = [UIColor redColor];
             [DataManager sharedManager].unko=-2;
-                        NSLog(@"kari=%d",_kari);
             break;
         case 3:
             NSLog(@"3");
-            self.view.backgroundColor = [UIColor blueColor];
             [DataManager sharedManager].unko=-3;
-                        NSLog(@"kari=%d",_kari);
             break;
         case 4:
             NSLog(@"4");
-            self.view.backgroundColor = [UIColor yellowColor];
             [DataManager sharedManager].unko=-4;
-                        NSLog(@"kari=%d",_kari);
             break;
     }
 }

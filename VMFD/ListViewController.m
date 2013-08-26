@@ -35,7 +35,7 @@
     NSMutableArray *audioMixParams;
     NSIndexPath *touchIndex;
     NSIndexPath *playIndex;
-    NSInteger MenuNum;
+    //NSInteger MenuNum;
     
     BOOL renameButton;
 }
@@ -84,16 +84,6 @@
     [Quruli startAnimating];
     Prosessing.alpha = 0;
     //[self.view addSubview:jambo];
-
-    NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
-    NSError *err;
-    if (![[NSFileManager defaultManager] fileExistsAtPath:mergeCache]) {
-        NSLog(@"CacheMUsic作成！");
-        [[NSFileManager defaultManager] createDirectoryAtPath:mergeCache withIntermediateDirectories:YES attributes:nil error:&err];
-        if ( err != nil ) NSLog(@"DataDeleteError:%@",[err localizedDescription]);
-    }
-
     tableMenu.delegate = self;
     tableMenu.dataSource = self;
     pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector (panAction:)];
@@ -105,6 +95,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"ViewUpdate");
     // Update Navigation
     [self updateNavigationItemAnimated:animated];
     // deselect cell
@@ -114,16 +109,30 @@
     [jambo reloadData];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    for (SmartCell *cell in [jambo visibleCells]) {
+        [cell setStop];
+    }
+    if ( self.player.playing)
+    {
+        [self.player pause];
+    }
+    
+    NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
+    NSError *err;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:mergeCache]) {
+        NSLog(@"Cache発見削除する！");
+        [[NSFileManager defaultManager] removeItemAtPath:mergeCache error:&err];
+        if ( err != nil ) NSLog(@"DataDeleteError:%@",[err localizedDescription]);
+    }
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -147,7 +156,9 @@
 
 - (void)updateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     //NSUInteger section = (NSUInteger) [indexPath section];
-    NSUInteger row = (NSUInteger) [indexPath row];
+    NSUInteger row = (NSUInteger)([[DataManager sharedManager].dataList count] - [indexPath row] - 1);
+    //NSUInteger rows = [[DataManager sharedManager].dataList count];
+    //NSUInteger antiRow = rows - row -1;
     // Update Cells
     SmartCell *customCell = (SmartCell *) cell;
     //    [customCell toggle];
@@ -181,7 +192,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
     if (!tableView.tag==0) {
-        return 4;
+        return 3;
     }else{
         return [[DataManager sharedManager].dataList count];}
 }
@@ -202,7 +213,7 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
         [self updateCell:cell atIndexPath:indexPath];;
     }else{
-        NSArray *MenuTexts = @[@"Rename",@"OverRec",@"Delete",@"Cancel"];
+        NSArray *MenuTexts = @[@"Rename",@"OverRec",@"Delete"];
         NSString *MenuText = MenuTexts[indexPath.row];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = MenuText;
@@ -222,15 +233,16 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView.tag ==1){
-        MenuNum=indexPath.row;
-        [self Menu];
+//        MenuNum=indexPath.row;
+        [self Menu:indexPath.row];
         [tableMenu removeFromSuperview];
     }
 }
 //Left Button Function!!
 - (void)handleTouchButton2:(UIButton *)sender event:(UIEvent *)event {
     NSIndexPath *indexPath = [self indexPathForControlEvent:event];
-    DataClass *data = [DataManager sharedManager].dataList[indexPath.row];
+    NSUInteger row = (NSUInteger)([[DataManager sharedManager].dataList count] - [indexPath row] - 1);
+    DataClass *data = [DataManager sharedManager].dataList[row];
     NSLog(@"%@", [data.filePath lastPathComponent]);
     //    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
@@ -255,7 +267,14 @@
             NSLog(@"FileExist");
             playIndex = indexPath;
             NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-            NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/%d.caf",indexPath.row];
+            NSString *cacheMusic = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
+            NSError *err;
+            if (![[NSFileManager defaultManager] fileExistsAtPath:cacheMusic]) {
+                NSLog(@"CacheMusic作成！");
+                [[NSFileManager defaultManager] createDirectoryAtPath:cacheMusic withIntermediateDirectories:YES attributes:nil error:&err];
+                if ( err != nil ) NSLog(@"CreateError:%@",[err localizedDescription]);
+            }
+            NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music/%d.caf",indexPath.row];
             //NSString *mergeCache = [merge stringByAppendingPathExtension:@"caf"];
             NSLog(@"mergeCache:%@",mergeCache);
             NSURL *setmusic;
@@ -281,8 +300,12 @@
 
 //Right Button Function!!
 - (void)handleTouchButton:(UIButton *)sender event:(UIEvent *)event {
+    [tableMenu removeFromSuperview];
+    [renameView removeFromSuperview];
+    
     touchIndex = [self indexPathForControlEvent:event];
-    DataClass *data = [DataManager sharedManager].dataList[touchIndex.row];
+    NSUInteger row = (NSUInteger)([[DataManager sharedManager].dataList count] - [touchIndex row] - 1);
+    DataClass *data = [DataManager sharedManager].dataList[row];
     //NSLog(@"%@", _musicList[touchIndex.row]);
     NSLog(@"%@", [data.filePath lastPathComponent]);
     tableMenu.center = CGPointMake(jambo.center.x+jambo.center.x/2, self.view.center.y+self.view.center.y/2);
@@ -299,37 +322,46 @@
     tableMenu.layer.shadowOpacity = 0.9; // 濃さを指定
     tableMenu.layer.shadowOffset = CGSizeMake(5.0, 5.0); // 影までの距離を指定
     tableMenu.layer.masksToBounds = NO;
-
     //    [self UpTableMenu:tableMenu];
     //[self FunctionMenu];
 }
 
 
 //右側のボタン押したら出るメニュー
--(void)Menu{
+-(void)Menu:(NSInteger) MenuNum{
+    NSUInteger row = (NSUInteger)([[DataManager sharedManager].dataList count] - [touchIndex row] - 1);
     if (MenuNum==0) {//Rename!!!!!!
         NSLog(@"NameChange");
         //        renameText.text = _musicList[touchIndex.row];
-        DataClass *data = [DataManager sharedManager].dataList[touchIndex.row];
+        DataClass *data = [DataManager sharedManager].dataList[row];
         renameText.text = [data.fileName lastPathComponent];
         renameView.center = self.view.center;
         [self.view addSubview:renameView];
         renameView.layer.shadowOpacity = 0.9; // 濃さを指定
         renameView.layer.shadowOffset = CGSizeMake(5.0, 5.0); // 影までの距離を指定
         renameView.layer.masksToBounds = NO;
+        [jambo addGestureRecognizer:tapG1];
+        [outsideImage addGestureRecognizer:tapG2];
         [renameText setDelegate:self];
         [renameView addGestureRecognizer:pan];
     }else if (MenuNum==1){//OverRec!!!!!!!!
         NSLog(@"OverRec");
-        [DataManager sharedManager].unko = touchIndex.row + 1;
+        [DataManager sharedManager].unko = row + 1;
         [self.tabBarController setSelectedIndex:1];
     }else if (MenuNum==2){//Delete!!!
         NSLog(@"Delete");
-        DataClass *Data = [DataManager sharedManager].dataList[touchIndex.row];
-        [[DataManager sharedManager] removeData:Data];
+        DataClass *Data = [DataManager sharedManager].dataList[row];
+        [[DataManager sharedManager] removeData2:Data];
+        [[DataManager sharedManager] save];
+        NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
+        NSError *err;
+        if ([[NSFileManager defaultManager] fileExistsAtPath:mergeCache]) {
+            NSLog(@"Cache発見削除する！");
+            [[NSFileManager defaultManager] removeItemAtPath:mergeCache error:&err];
+            if ( err != nil ) NSLog(@"DataDeleteError:%@",[err localizedDescription]);
+        }
         [jambo deleteRowsAtIndexPaths:@[touchIndex] withRowAnimation:UITableViewRowAnimationTop];
-    }else{
-        return;
     }
 }
 //リネームビューのドラッグアクション
@@ -341,6 +373,7 @@
 }
 - (void)tapAction : (UITapGestureRecognizer *)sender {
     [tableMenu removeFromSuperview];
+    [renameView removeFromSuperview];
     [jambo removeGestureRecognizer:tapG1];
     [outsideImage removeGestureRecognizer:tapG2];
 }
@@ -355,7 +388,8 @@
 - (IBAction)PushAccept:(id)sender {
     [renameView removeFromSuperview];
     NSString *NewName = renameText.text;
-    DataClass *data = [DataManager sharedManager].dataList[touchIndex.row];
+    NSUInteger row = (NSUInteger)([[DataManager sharedManager].dataList count] - [touchIndex row] - 1);
+    DataClass *data = [DataManager sharedManager].dataList[row];
     //    if([NewName isEqualToString:_musicList[touchIndex.row]])    return;
     if([NewName isEqualToString:[data.fileName lastPathComponent]])    return;
     [[DataManager sharedManager] Rename:data :NewName ];
@@ -407,7 +441,7 @@
     //Insert audio into track
     ok = [track insertTimeRange:tRange ofTrack:sourceAudioTrack atTime:CMTimeMake(0, 44100) error:&error];
     if ( error != nil ) NSLog(@"Error %@", [error localizedDescription]);
-    if(ok && !which)NSLog(@"BGM入った！");
+    if(ok)NSLog(@"入った！");
 }
 -(NSURL *) audioMerge:(DataClass *)data{
     AVMutableComposition *composition = [AVMutableComposition composition];

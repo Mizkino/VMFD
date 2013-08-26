@@ -27,9 +27,6 @@
     NSURL *assetURL;
     NSMutableArray *audioMixParams;
     NSTimer *timer;
-    CMTime song1;
-    CMTimeValue durationF;
-    NSTimeInterval TIME;
 }
 @end
 
@@ -54,7 +51,7 @@ BOOL timeflg = NO;
 {
     [super viewDidLoad];
     NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
+    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/kari"];
     NSError *err;
     if (![[NSFileManager defaultManager] fileExistsAtPath:mergeCache]) {
         NSLog(@"CacheMUsic作成！");
@@ -89,12 +86,12 @@ BOOL timeflg = NO;
     timer = [NSTimer scheduledTimerWithTimeInterval:(0.01) target:self selector:@selector(onTimer:) userInfo:nil repeats:YES];
     timeLabel.text = @"00:00:00";
     Prosessing.alpha = 0.3;
-    NSLog(@"bgmNum = %d",bgmNum);
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (bgmNum!=[DataManager sharedManager].unko) {
     bgmNum = [DataManager sharedManager].unko;
+            NSLog(@"bgmNum = %d",bgmNum);
     if(bgmNum)
     {
         if (bgmNum < 0) {
@@ -104,11 +101,14 @@ BOOL timeflg = NO;
             }else if(bgmNum==-3){BGMnameLabel.text = @"Drum'N Bass";
             }else if(bgmNum==-4){BGMnameLabel.text = @"Jazz";}
             NSString *asset = [[NSString alloc]initWithFormat:@"BGM%d",bgmNum];
-            NSString *URLPath = [[NSBundle mainBundle] pathForResource:asset ofType:@"aif"];
+            NSString *URLPath = [[NSBundle mainBundle] pathForResource:asset ofType:@"m4a"];
             assetURL = [NSURL fileURLWithPath:URLPath];
         }else if(bgmNum > 0){
             DataClass *data = [DataManager sharedManager].dataList[bgmNum-1];
+            NSLog(@"MergeStart");
             assetURL = [self audioMerge:data];
+            NSLog(@"MergeEnd");
+
             cachePath = [assetURL path];
             BGMnameLabel.text = data.fileName;
         }
@@ -128,6 +128,10 @@ BOOL timeflg = NO;
         BGMnameLabel.text = @"Nothing";
     }
     }
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(hideProcessingView) userInfo:nil repeats:NO];
+}
+
+- (void)hideProcessingView {
     Prosessing.alpha = 0;
 }
 
@@ -138,8 +142,6 @@ BOOL timeflg = NO;
     // Release any retained subviews of the main view.
     [timer invalidate];//★タイマー解放忘れずに
     if ( self.recorder != nil && self.recorder.isRecording ) [self stopRecord];
-    REC.alpha = 0;
-    Stop.alpha = 0;
 }
 
 - (void)onTimer:(NSTimer*)timer {
@@ -213,7 +215,9 @@ BOOL timeflg = NO;
     [recorder stop];
     if (bgmNum)[self.player stop];
     [self dataSave];
-    
+    REC.alpha = 0;
+    Stop.alpha = 0;
+    NSLog(@"saveFinish");
     //}
 }
 
@@ -222,6 +226,7 @@ BOOL timeflg = NO;
     if ( self.recorder != nil && self.recorder.isRecording )
     {
         [self stopRecord];
+        [self.tabBarController setSelectedIndex:2];
     }
     else
     {
@@ -301,12 +306,13 @@ BOOL timeflg = NO;
     
     //    NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music/kuso.caf"];
+    NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/kari/kuso.caf"];
     NSURL *mergeCacheURL = [NSURL fileURLWithPath:mergeCache];
     NSLog(@"エクスポートパス：%@",mergeCache);
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:mergeCache]) {
         [fileManager removeItemAtPath:mergeCache error:nil];
+        NSLog(@"fileExist Delete");
     }
     
     exporter.outputURL = mergeCacheURL;
@@ -322,6 +328,7 @@ BOOL timeflg = NO;
                 break;
             case AVAssetExportSessionStatusCompleted: NSLog (@"AVAssetExportSessionStatusCompleted");
                 dispatch_semaphore_signal(semaphore);
+                
                 break;
             case AVAssetExportSessionStatusUnknown: NSLog (@"AVAssetExportSessionStatusUnknown"); break;
             case AVAssetExportSessionStatusExporting: NSLog (@"AVAssetExportSessionStatusExporting"); break;
@@ -340,8 +347,13 @@ BOOL timeflg = NO;
     return mergeCacheURL;
 }
 -(void)dataSave{
+    NSLog(@"SaveStart");
     DataClass *dataClass = [DataClass new];
     AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL:recordURL options:nil];
+    if (songAsset.duration.value==0) {
+        [self.tabBarController setSelectedIndex:2];
+        return;
+    }
     dataClass.dataTime = songAsset.duration.value;
     if (bgmNum>0) {
         DataClass *bgData = [DataManager sharedManager].dataList[bgmNum-1];
@@ -355,6 +367,7 @@ BOOL timeflg = NO;
         dataClass.BGMnumber = -bgmNum;
         [dataClass.filePaths addObject:[recordURL path]];
     }
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM_dd_HH_mm_ss"];
     NSString *dateStr = [formatter stringFromDate:stdate];
@@ -363,7 +376,7 @@ BOOL timeflg = NO;
     dataClass.makeDate = stdate;
     //dataClass.dataTime = self.player.duration;
     
-    NSLog(@"dataTime%f \n playerDuration%f",dataClass.dataTime,self.player.duration);
+    NSLog(@"dataTime%f",dataClass.dataTime);
     
     [[DataManager sharedManager] addData:dataClass];
     [[DataManager sharedManager] save];
@@ -375,7 +388,6 @@ BOOL timeflg = NO;
             [fileManager removeItemAtPath:cachePath error:nil];
         }
     }
-    [self.tabBarController setSelectedIndex:2];
 }
 
 

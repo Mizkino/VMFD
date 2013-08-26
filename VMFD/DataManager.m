@@ -98,6 +98,28 @@ static DataManager*  _sharedInstance = nil;
     [_dataList removeObject:data];
     
 }
+- (void)removeData2:(DataClass *)Data{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    for (NSString *path in Data.filePaths) {//削除するデータの参照していた全ての録音データについて
+        int count = 0;
+        for (DataClass *data in _dataList) {//データリスト中の全てのデータの
+            for (NSString *path2 in data.filePaths) {//全てのデータの参照している録音データと照らし合わせ
+                if ([path2 isEqualToString:path]) {//参照しているデータがかぶったらプラス１
+                    count++;
+                }
+            }
+        }
+        if (count==1) {//自分自身にしか参照されていなかったら削除
+            if ([fileManager fileExistsAtPath:path]) {
+                NSLog(@"ファイル削除");
+                [fileManager removeItemAtPath:path error:nil];
+            }else if(count==0){//１回もカウントされなかったら怖い
+                NSLog(@"ミステリー");
+            }
+        }
+    }
+    [_dataList removeObject:Data];
+}
 - (void)removeDatabyPath:(NSString *)Path {
     DataClass *Data;
     for (DataClass *data in _dataList) {
