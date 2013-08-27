@@ -24,7 +24,7 @@ UITabBarController *tabcon;
     RecordViewController *recCon = [RecordViewController new];
     ListViewController *lisCon = [ListViewController new];
     
-    menCon.title = @"main";
+    menCon.title = @"Main";
     [menCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"home__.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_.png"]];
     [recCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"TabButton.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"TabButton.png"]];
     lisCon.title = @"List";

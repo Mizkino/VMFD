@@ -56,7 +56,7 @@
     //deligate set
     sheet.delegate = self;
     //sheet detail
-    sheet.title = @"Choice BGM!!";
+    sheet.title = @"Choose BGM!!";
     [sheet addButtonWithTitle:@"Nothing"];
     [sheet addButtonWithTitle:@"Techno"];
     [sheet addButtonWithTitle:@"HipHop"];

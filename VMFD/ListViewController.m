@@ -28,7 +28,6 @@
     IBOutlet UIImageView *outsideImage;
     IBOutlet UIView *Prosessing;
     CMTime durationF;
-    NSString *cacheD;
     UIPanGestureRecognizer *pan;
     UITapGestureRecognizer *tapG1;
     UITapGestureRecognizer *tapG2;
@@ -76,6 +75,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:Prosessing];
+    Prosessing.center = self.view.center;
     UIActivityIndicatorView *Quruli = [UIActivityIndicatorView new];
     Quruli.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
     [Quruli.layer setValue:[NSNumber numberWithFloat:1.39f] forKeyPath:@"transform.scale"];
@@ -118,7 +118,8 @@
     {
         [self.player pause];
     }
-    
+    [tableMenu removeFromSuperview];
+    [renameView removeFromSuperview];
     NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
     NSError *err;
@@ -238,8 +239,10 @@
         [tableMenu removeFromSuperview];
     }
 }
+
 //Left Button Function!!
 - (void)handleTouchButton2:(UIButton *)sender event:(UIEvent *)event {
+    //Prosessing.alpha = 3.0f;
     NSIndexPath *indexPath = [self indexPathForControlEvent:event];
     NSUInteger row = (NSUInteger)([[DataManager sharedManager].dataList count] - [indexPath row] - 1);
     DataClass *data = [DataManager sharedManager].dataList[row];
@@ -259,43 +262,86 @@
     }
     else
     {//SetFile -> ErrorKakunin
+        Prosessing.alpha = 0.3f;
         NSLog(@"Let'sPlay!!!!!%@",data.filePath);
 //        NSURL *url = [NSURL fileURLWithPath:data.filePath];
-        if ( [[NSFileManager defaultManager] fileExistsAtPath:data.filePath] )
-        {
-            Prosessing.alpha = 0.3;
-            NSLog(@"FileExist");
-            playIndex = indexPath;
-            NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-            NSString *cacheMusic = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
-            NSError *err;
-            if (![[NSFileManager defaultManager] fileExistsAtPath:cacheMusic]) {
-                NSLog(@"CacheMusic作成！");
-                [[NSFileManager defaultManager] createDirectoryAtPath:cacheMusic withIntermediateDirectories:YES attributes:nil error:&err];
-                if ( err != nil ) NSLog(@"CreateError:%@",[err localizedDescription]);
-            }
-            NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music/%d.caf",indexPath.row];
-            //NSString *mergeCache = [merge stringByAppendingPathExtension:@"caf"];
-            NSLog(@"mergeCache:%@",mergeCache);
-            NSURL *setmusic;
-                if([[NSFileManager defaultManager] fileExistsAtPath:mergeCache])
-                {
-                    NSLog(@"CacheExist");
-                    setmusic = [NSURL fileURLWithPath:mergeCache];
-                }else{
-                    NSLog(@"Let's Merge");
-                    setmusic = [self audioMerge:data];
-                }
-                NSError *error = nil;
-                self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:setmusic error:&error];
-                if ( error != nil ) NSLog(@"Error %@", [error localizedDescription]);
-            [self.player prepareToPlay];
-            [self.player setDelegate:self];
-            [self.player play];
-            Prosessing.alpha = 0;
-        }else{NSLog(@"File is not there");}
-        //[RB setTitle:@"Pause" forState:UIControlStateNormal];
+        [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(playMusic:) userInfo:@{@"INDEXPATH":indexPath, @"DATA":data} repeats:NO];
+//        if ( [[NSFileManager defaultManager] fileExistsAtPath:data.filePath] )
+//        {
+//            NSLog(@"FileExist");
+//            playIndex = indexPath;
+//            NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+//            NSString *cacheMusic = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
+//            NSError *err;
+//            if (![[NSFileManager defaultManager] fileExistsAtPath:cacheMusic]) {
+//                NSLog(@"CacheMusic作成！");
+//                [[NSFileManager defaultManager] createDirectoryAtPath:cacheMusic withIntermediateDirectories:YES attributes:nil error:&err];
+//                if ( err != nil ) NSLog(@"CreateError:%@",[err localizedDescription]);
+//            }
+//            NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music/%d.caf",indexPath.row];
+//            //NSString *mergeCache = [merge stringByAppendingPathExtension:@"caf"];
+//            NSLog(@"mergeCache:%@",mergeCache);
+//            NSURL *setmusic;
+//                if([[NSFileManager defaultManager] fileExistsAtPath:mergeCache])
+//                {
+//                    NSLog(@"CacheExist");
+//                    setmusic = [NSURL fileURLWithPath:mergeCache];
+//                }else{
+//                    NSLog(@"Let's Merge");
+//                    setmusic = [self audioMerge:data];
+//                }
+//                NSError *error = nil;
+//                self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:setmusic error:&error];
+//                if ( error != nil ) NSLog(@"Error %@", [error localizedDescription]);
+//            [self.player prepareToPlay];
+//            [self.player setDelegate:self];
+//            [self.player play];
+//            //Prosessing.alpha = 0;
+//            NSLog(@"processingare");
+//        }else{NSLog(@"File is not there");}
+//        //Prosessing.alpha = 0.0f;
+//
+//        //[RB setTitle:@"Pause" forState:UIControlStateNormal];
     }
+
+}
+- (void)playMusic :(NSTimer *)timer{
+    NSDictionary *unko = timer.userInfo;
+    NSIndexPath *indexPath = unko[@"INDEXPATH"];
+    DataClass *data = unko[@"DATA"];
+    if ( [[NSFileManager defaultManager] fileExistsAtPath:data.filePath] )
+    {
+        NSLog(@"FileExist");
+        playIndex = indexPath;
+        NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *cacheMusic = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music"];
+        NSError *err;
+        if (![[NSFileManager defaultManager] fileExistsAtPath:cacheMusic]) {
+            NSLog(@"CacheMusic作成！");
+            [[NSFileManager defaultManager] createDirectoryAtPath:cacheMusic withIntermediateDirectories:YES attributes:nil error:&err];
+            if ( err != nil ) NSLog(@"CreateError:%@",[err localizedDescription]);
+        }
+        NSString *mergeCache = [[array objectAtIndex:0] stringByAppendingFormat:@"/Music/%d.caf",indexPath.row];
+        //NSString *mergeCache = [merge stringByAppendingPathExtension:@"caf"];
+        NSLog(@"mergeCache:%@",mergeCache);
+        NSURL *setmusic;
+        if([[NSFileManager defaultManager] fileExistsAtPath:mergeCache])
+        {
+            NSLog(@"CacheExist");
+            setmusic = [NSURL fileURLWithPath:mergeCache];
+        }else{
+            NSLog(@"Let's Merge");
+            setmusic = [self audioMerge:data];
+        }
+        NSError *error = nil;
+        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:setmusic error:&error];
+        if ( error != nil ) NSLog(@"Error %@", [error localizedDescription]);
+        [self.player prepareToPlay];
+        [self.player setDelegate:self];
+        [self.player play];
+        Prosessing.alpha = 0;
+        NSLog(@"processingare");
+    }else{NSLog(@"File is not there");}
 }
 
 //Right Button Function!!
@@ -498,6 +544,7 @@
         }
     }];
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    //Prosessing.alpha = 0.0f;
     return mergeCacheURL;
 }
 @end
